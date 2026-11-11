@@ -19,6 +19,8 @@ _projects/           Projeler (her proje tek bir .md dosyası)
 assets/css/          main.css (tasarım sistemi) + fonts.css
 assets/fonts/        IBM Plex fontları (OFL lisansı, siteyle birlikte barındırılır)
 assets/js/           motion.js (kaydırma animasyonları), intro.js (giriş animasyonu)
+assets/vendor/katex/ Formül desteği (MIT lisansı, yalnızca `math: true` sayfalarda yüklenir)
+_data/categories.yml Kategoriler ve ikonları
 index.html           Ana sayfa
 hakkimda.md          Hakkımda + İletişim
 projeler/, yazilar/  Liste sayfaları
@@ -34,6 +36,88 @@ bundle exec jekyll serve
 ```
 
 Ardından tarayıcıda `http://localhost:4000` adresi açılır.
+
+---
+
+## İçerik ekleme rehberi
+
+Yeni içerik eklemek için bilgisayara bir şey kurmak gerekmez. GitHub'da dosya oluşturmak yeterlidir:
+
+1. GitHub'da depoyu aç, `_posts` (yazı) ya da `_projects` (proje) klasörüne gir.
+2. **Add file → Create new file** de.
+3. Aşağıdaki şablonu yapıştır, doldur, **Commit changes** de.
+4. Bir iki dakika içinde site güncellenir. İlk içerik eklendiğinde ilgili "Yakında" kutusu kendiliğinden kalkar.
+
+### Yazı
+
+Dosya adı: `_posts/YYYY-AA-GG-kisa-baslik.md`, örneğin `_posts/2026-12-01-bellek-duvari.md`.
+Dosya adında Türkçe karakter ve boşluk kullanılmaz; sayfa adresi bu addan oluşur (`/yazilar/bellek-duvari/`).
+
+```markdown
+---
+title: "Bellek duvarı: yapay zekânın asıl darboğazı"
+description: "Listede ve paylaşım önizlemesinde görünen tek cümlelik özet."
+category: yapay-zeka      # elektronik | sinyal | yazilim | yapay-zeka | notlar
+math: true                # formül varsa ekle, yoksa bu satırı sil
+---
+
+Yazının metni Markdown ile buraya gelir.
+
+## Ara başlık
+
+> Alıntı
+
+Satır içi formül: $$ I = \frac{\text{FLOP}}{\text{bayt}} $$
+
+$$
+P = \min(P_{\max},\; I \cdot B)
+$$
+```
+
+- Tarihi ileri bir gün olan yazı, o gün gelene kadar yayınlanmaz.
+- Okuma süresi ve Türkçe tarih otomatik hesaplanır.
+- Blok formül için `$$ ... $$` öncesinde ve sonrasında boş satır bırakılmalıdır.
+
+### Proje
+
+Dosya adı: `_projects/kisa-ad.md`, örneğin `_projects/sensor-karti.md`. Adres: `/projeler/sensor-karti/`.
+
+```markdown
+---
+title: "Düşük güçlü sensör kartı"
+summary: "Hangi problemi nasıl çözdüğünü anlatan tek cümle."
+year: 2026
+status: sürüyor           # sürüyor | tamamlandı
+type: elektronik          # elektronik | sinyal | yazilim | yapay-zeka — karttaki ikonu belirler
+image: /assets/img/projeler/sensor-karti/kapak.webp   # isteğe bağlı; yoksa ikon görünür
+stack:                    # isteğe bağlı — sayfanın altındaki "Teknik künye"
+  Donanım: [STM32, INA219]
+  Yazılım: [C, Python]
+links:
+  GitHub: https://github.com/keremfarukozturk/...
+---
+
+## Problem
+## Yaklaşım
+## Sonuç
+```
+
+### Görseller
+
+- Klasör: `assets/img/projeler/<proje-adı>/` ya da `assets/img/yazilar/<yazı-adı>/`.
+- Biçim: **WebP**, genişlik en fazla 1600px, dosya başına mümkünse 300 KB'ın altında.
+- Proje kapakları **16:10** oranında olmalıdır; kartlar aynı oranla gösterilir.
+- Yazı içinde: `![Kısa açıklama](/assets/img/yazilar/bellek-duvari/grafik.webp)`
+
+### Kategoriler
+
+Kategoriler ve ikonları `_data/categories.yml` dosyasındadır. Yeni bir kategori eklemeden önce mevcut beşinden birine uyup uymadığına bakın; az kategori, düzenli bir site demektir.
+
+### Site metinleri
+
+- İsim, tanım, e-posta, sosyal bağlantılar, ana sayfadaki "Odak" satırı: `_config.yml`
+- Ana sayfa başlığı: `index.html` dosyasının başındaki `hero:` satırları
+- Menü ve "Yakında" metinleri: `_data/ui.yml`
 
 ---
 
@@ -85,3 +169,4 @@ Bölümler arasında geniş boşluk (112px) bırakılır. Yoğun görünen bir s
 ## Lisans
 
 Fontlar: IBM Plex, SIL Open Font License 1.1 (`assets/fonts/OFL-LICENSE.txt`).
+Formüller: KaTeX 0.16.11, MIT (`assets/vendor/katex/LICENSE.txt`).

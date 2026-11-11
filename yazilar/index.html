@@ -7,7 +7,7 @@ lede: Notlar, denemeler ve öğrendiklerim.
 <section class="sec">
 {%- if site.posts.size > 0 %}
   <ul class="list">
-    {%- for p in site.posts %}{% include post-item.html p=p %}{% endfor %}
+    {%- for p in site.posts %}{% include post-item.html p=p show_cat=true %}{% endfor %}
   </ul>
 {%- else %}
   {% include empty.html icon="cursor" text=t.posts_soon %}

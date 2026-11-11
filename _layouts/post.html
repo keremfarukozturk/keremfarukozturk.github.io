@@ -4,7 +4,8 @@ layout: default
 <div class="progress" aria-hidden="true"></div>
 <article class="article w">
   <div class="meta mono">
-    {%- if page.category %}<span class="k">{{ page.category }}</span>{% endif %}
+    {%- assign cat = site.data.categories[page.category] -%}
+    {%- if cat %}<span class="k with-icon">{% include icon.html name=cat.icon %}{{ cat.title }}</span>{% endif %}
     <span>{% include date.html date=page.date long=true %}</span>
     {%- assign words = content | number_of_words -%}
     <span>{{ words | divided_by: 200 | plus: 1 }} dk</span>
