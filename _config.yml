@@ -21,6 +21,10 @@ focus: "yapay zekâ donanımı ve sistemleri"   # boş bırakılırsa "Odak" sat
 social:
   github: "https://github.com/keremfarukozturk"
   linkedin: ""
+  name: Kerem Faruk Öztürk          # jekyll-seo-tag: arama motorları için kişi bilgisi
+  links:
+    - "https://github.com/keremfarukozturk"
+
 
 # jekyll-seo-tag için
 twitter:
@@ -37,6 +41,10 @@ collections:
 permalink: /yazilar/:title/
 
 defaults:
+  # Link paylaşıldığında görünen önizleme görseli (1200×630).
+  # Bir yazıya özel görsel için o yazının ön bilgisine `image:` yazılır.
+  - scope: { path: "" }
+    values: { image: /assets/og-default.png }
   - scope: { path: "", type: posts }
     values: { layout: post }
   - scope: { path: "", type: projects }

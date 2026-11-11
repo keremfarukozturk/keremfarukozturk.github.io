@@ -4,9 +4,13 @@
 {% seo %}
 {% feed_meta %}
 <link rel="icon" href="{{ '/assets/favicon.svg' | relative_url }}" type="image/svg+xml">
+{%- comment -%} Sayfanın ilk ekranında en çok görünen fontu önceden yükle {%- endcomment -%}
+{%- if page.layout == "post" or page.layout == "project" or page.layout == "page" %}
+<link rel="preload" href="{{ '/assets/fonts/ibm-plex-serif-latin-400-normal.woff2' | relative_url }}" as="font" type="font/woff2" crossorigin>
+{%- else %}
 <link rel="preload" href="{{ '/assets/fonts/ibm-plex-sans-latin-300-normal.woff2' | relative_url }}" as="font" type="font/woff2" crossorigin>
+{%- endif %}
 <link rel="preload" href="{{ '/assets/fonts/ibm-plex-sans-latin-400-normal.woff2' | relative_url }}" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="{{ '/assets/css/fonts.css' | relative_url }}">
 <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
 {%- if page.math %}
 {% include math.html %}

@@ -10,8 +10,8 @@ layout: default
   </div>
   <h1>{{ page.title }}</h1>
   {%- if page.summary %}<p class="lede">{{ page.summary }}</p>{% endif %}
-  {%- if page.image %}
-  <figure class="cover"><img src="{{ page.image | relative_url }}" alt="{{ page.image_alt | default: page.title }}"></figure>
+  {%- if page.cover %}
+  <figure class="cover"><img src="{{ page.cover | relative_url }}" alt="{{ page.cover_alt | default: page.title }}"></figure>
   {%- endif %}
   <div class="prose">
     {{ content }}

@@ -23,7 +23,7 @@ hero:
       <h2 class="label" id="projeler-baslik">{{ t.projects }}</h2>
       {%- if site.projects.size > 3 %}<a href="{{ '/projeler/' | relative_url }}">{{ t.all }} →</a>{% endif %}
     </div>
-    {%- assign projects = site.projects | sort: "year" | reverse -%}
+    {%- include sorted-projects.html -%}
     {%- if projects.size > 0 %}
     <div class="cards">
       {%- for p in projects limit: 3 %}{% include project-card.html p=p %}{% endfor %}

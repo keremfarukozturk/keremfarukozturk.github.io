@@ -4,7 +4,7 @@ title: Projeler
 lede: Üzerinde çalıştığım ve tamamladığım işler.
 ---
 {%- assign t = site.data.ui[site.lang] -%}
-{%- assign projects = site.projects | sort: "year" | reverse -%}
+{%- include sorted-projects.html -%}
 <section class="sec">
 {%- if projects.size > 0 %}
   <div class="cards">

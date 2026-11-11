@@ -1,7 +1,7 @@
 {%- assign cat = site.data.categories[include.p.type] -%}
 <a class="card reveal" href="{{ include.p.url | relative_url }}">
-  {%- if include.p.image %}
-  <div class="card-img"><img src="{{ include.p.image | relative_url }}" alt="" loading="lazy" decoding="async"></div>
+  {%- if include.p.cover %}
+  <div class="card-img"><img src="{{ include.p.cover | relative_url }}" alt="" loading="lazy" decoding="async"></div>
   {%- else %}
   <div class="card-icon">{% include icon.html name=cat.icon %}</div>
   {%- endif %}

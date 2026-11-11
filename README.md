@@ -16,7 +16,7 @@ _layouts/            Sayfa şablonları: default, page, post, project
 _includes/           Tekrar kullanılan parçalar: head, header, footer, tarih, kartlar
 _posts/              Yazılar (her yazı tek bir .md dosyası)
 _projects/           Projeler (her proje tek bir .md dosyası)
-assets/css/          main.css (tasarım sistemi) + fonts.css
+assets/css/main.css  Tasarım sistemi (fontlar dahil, tek dosya)
 assets/fonts/        IBM Plex fontları (OFL lisansı, siteyle birlikte barındırılır)
 assets/js/           motion.js (kaydırma animasyonları), intro.js (giriş animasyonu)
 assets/vendor/katex/ Formül desteği (MIT lisansı, yalnızca `math: true` sayfalarda yüklenir)
@@ -88,8 +88,9 @@ title: "Düşük güçlü sensör kartı"
 summary: "Hangi problemi nasıl çözdüğünü anlatan tek cümle."
 year: 2026
 status: sürüyor           # sürüyor | tamamlandı
+order: 1                  # isteğe bağlı; küçük sayı en üstte. Yoksa yıla göre sıralanır
 type: elektronik          # elektronik | sinyal | yazilim | yapay-zeka — karttaki ikonu belirler
-image: /assets/img/projeler/sensor-karti/kapak.webp   # isteğe bağlı; yoksa ikon görünür
+cover: /assets/img/projeler/sensor-karti/kapak.webp   # isteğe bağlı kapak; yoksa ikon görünür
 stack:                    # isteğe bağlı — sayfanın altındaki "Teknik künye"
   Donanım: [STM32, INA219]
   Yazılım: [C, Python]
@@ -106,7 +107,8 @@ links:
 
 - Klasör: `assets/img/projeler/<proje-adı>/` ya da `assets/img/yazilar/<yazı-adı>/`.
 - Biçim: **WebP**, genişlik en fazla 1600px, dosya başına mümkünse 300 KB'ın altında.
-- Proje kapakları **16:10** oranında olmalıdır; kartlar aynı oranla gösterilir.
+- Proje kapakları (`cover:`) **16:10** oranında olmalıdır; kartlar aynı oranla gösterilir.
+- Link paylaşıldığında görünen önizleme görseli varsayılan olarak `assets/og-default.png`'dir. Bir yazı ya da projeye özel önizleme için ön bilgiye `image: /assets/img/...png` eklenir (1200×630 PNG ya da JPG; WebP bazı platformlarda görünmez).
 - Yazı içinde: `![Kısa açıklama](/assets/img/yazilar/bellek-duvari/grafik.webp)`
 
 ### Kategoriler
