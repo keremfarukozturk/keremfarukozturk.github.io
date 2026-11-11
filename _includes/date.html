@@ -1,0 +1,4 @@
+{%- comment -%} Türkçe tarih. Kullanım: {% include date.html date=page.date long=true %} {%- endcomment -%}
+{%- assign t = site.data.ui[site.lang] -%}
+{%- assign m = include.date | date: "%-m" | minus: 1 -%}
+<time datetime="{{ include.date | date_to_xmlschema }}">{{ include.date | date: "%d" }} {% if include.long %}{{ t.months_long[m] }}{% else %}{{ t.months[m] }}{% endif %} {{ include.date | date: "%Y" }}</time>

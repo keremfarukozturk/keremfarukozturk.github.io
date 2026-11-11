@@ -1,103 +1,49 @@
+---
+layout: default
+intro_animation: true
+hero:
+  - "Sinyalden zekâya:"
+  - "her katmanı ciddiye alan"
+  - "bir mühendislik."
+---
+{%- assign t = site.data.ui[site.lang] -%}
+<div class="w">
+  <section class="hero" aria-label="Giriş">
+    <span class="bar" aria-hidden="true"></span>
+    <h1>{% for line in page.hero %}<span>{{ line }}</span> {% endfor %}</h1>
+    <div class="media"><canvas id="intro" role="img" aria-label="{{ t.intro_alt }}"></canvas></div>
+    <p>{{ site.intro }}</p>
+    {%- if site.focus != "" %}
+    <div class="focus mono">{{ t.focus }} — <b>{{ site.focus }}</b></div>
+    {%- endif %}
+  </section>
 
-<!DOCTYPE html>
-<html lang="tr">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Kerem Faruk Öztürk'ün kişisel web sitesi, projeleri ve yazıları.">
-  <title>Kerem Faruk Öztürk</title>
-  <style>
-    * { box-sizing: border-box; }
-    body {
-      margin: 0;
-      background: #fafaf8;
-      color: #222;
-      font-family: Arial, sans-serif;
-      line-height: 1.7;
-    }
-    .container {
-      max-width: 850px;
-      margin: auto;
-      padding: 24px;
-    }
-    nav {
-      display: flex;
-      gap: 22px;
-      flex-wrap: wrap;
-      padding: 20px 0;
-    }
-    a { color: inherit; }
-    nav a { text-decoration: none; }
-    h1 { font-size: clamp(36px, 7vw, 58px); line-height: 1.15; }
-    h2 { margin-top: 60px; }
-    .intro { font-size: 20px; color: #555; }
-    .card {
-      border: 1px solid #ddd;
-      border-radius: 12px;
-      padding: 24px;
-      margin: 16px 0;
-      background: white;
-    }
-    footer {
-      margin-top: 80px;
-      border-top: 1px solid #ddd;
-      padding: 25px 0;
-      color: #777;
-    }
-  </style>
-</head>
-<body>
-  <div class="container">
-    <nav>
-      <a href="#hakkimda">Hakkımda</a>
-      <a href="#projeler">Projeler</a>
-      <a href="#yazilar">Yazılar</a>
-      <a href="#iletisim">İletişim</a>
-    </nav>
+  <section class="sec" aria-labelledby="projeler-baslik">
+    <div class="sec-head">
+      <h2 class="label" id="projeler-baslik">{{ t.projects }}</h2>
+      {%- if site.projects.size > 3 %}<a href="{{ '/projeler/' | relative_url }}">{{ t.all }} →</a>{% endif %}
+    </div>
+    {%- assign projects = site.projects | sort: "year" | reverse -%}
+    {%- if projects.size > 0 %}
+    <div class="cards">
+      {%- for p in projects limit: 3 %}{% include project-card.html p=p %}{% endfor %}
+    </div>
+    {%- else %}
+    {% include empty.html icon="wave" text=t.projects_soon %}
+    {%- endif %}
+  </section>
 
-    <main>
-      <h1>Kerem Faruk Öztürk</h1>
-      <p class="intro">
-        Kişisel web siteme hoş geldiniz.
-        Projelerimi, çalışmalarımı ve yazılarımı
-        burada paylaşıyorum.
-      </p>
-
-      <section id="hakkimda">
-        <h2>Hakkımda</h2>
-        <p>
-          Bu bölümde kendimi, ilgi alanlarımı
-          ve çalışmalarımı tanıtacağım.
-        </p>
-      </section>
-
-      <section id="projeler">
-        <h2>Projeler</h2>
-        <div class="card">
-          <h3>Projelerim</h3>
-          <p>Çalışmalarım yakında burada yer alacak.</p>
-        </div>
-      </section>
-
-      <section id="yazilar">
-        <h2>Yazılar</h2>
-        <div class="card">
-          <h3>Yazılarım</h3>
-          <p>Makalelerimi ve düşüncelerimi burada paylaşacağım.</p>
-        </div>
-      </section>
-
-      <section id="iletisim">
-        <h2>İletişim</h2>
-        <p>
-          <a href="https://github.com/keremfarukozturk">
-            GitHub profilim
-          </a>
-        </p>
-      </section>
-    </main>
-
-    <footer>© 2026 Kerem Faruk Öztürk</footer>
-  </div>
-</body>
-</html>
+  <section class="sec" aria-labelledby="yazilar-baslik">
+    <div class="sec-head">
+      <h2 class="label" id="yazilar-baslik">{{ t.posts }}</h2>
+      {%- if site.posts.size > 5 %}<a href="{{ '/yazilar/' | relative_url }}">{{ t.all }} →</a>{% endif %}
+    </div>
+    {%- if site.posts.size > 0 %}
+    <ul class="list">
+      {%- for p in site.posts limit: 5 %}{% include post-item.html p=p %}{% endfor %}
+    </ul>
+    {%- else %}
+    {% include empty.html icon="cursor" text=t.posts_soon %}
+    {%- endif %}
+  </section>
+</div>

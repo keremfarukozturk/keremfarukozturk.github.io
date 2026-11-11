@@ -1,0 +1,10 @@
+{%- comment -%} "Yakında" kutusu. icon: wave | cursor {%- endcomment -%}
+{%- assign t = site.data.ui[site.lang] -%}
+<div class="empty reveal">
+  {%- if include.icon == "cursor" -%}
+  <span class="cursor" aria-hidden="true"></span>
+  {%- else -%}
+  <svg viewBox="0 0 48 24" aria-hidden="true"><path d="M2 18H10V6H20V18H30V6H40V18H46" fill="none" stroke="#C2AA8C" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/></svg>
+  {%- endif -%}
+  <div><span class="mono">{{ t.soon }}</span><p>{{ include.text }}</p></div>
+</div>

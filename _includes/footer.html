@@ -1,0 +1,11 @@
+<footer class="site-footer">
+  <div class="w">
+    <span>© {{ site.time | date: "%Y" }} {{ site.author.name }}</span>
+    <div class="links">
+      {%- if site.social.github != "" %}<a href="{{ site.social.github }}" rel="me">GitHub</a>{% endif %}
+      {%- if site.social.linkedin != "" %}<a href="{{ site.social.linkedin }}" rel="me">LinkedIn</a>{% endif %}
+      <a href="{{ '/feed.xml' | relative_url }}">RSS</a>
+      <a class="mail" href="mailto:{{ site.author.email }}">{{ site.author.email }}</a>
+    </div>
+  </div>
+</footer>

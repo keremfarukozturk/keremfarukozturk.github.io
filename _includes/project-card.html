@@ -1,0 +1,5 @@
+<a class="card reveal" href="{{ include.p.url | relative_url }}">
+  <h3>{{ include.p.title }}</h3>
+  <p>{{ include.p.summary }}</p>
+  <span class="mono">{% if include.p.status == "sürüyor" %}<i class="dot" aria-hidden="true"></i>{% endif %}{{ include.p.year }}{% if include.p.status %} · {{ include.p.status | capitalize }}{% endif %}</span>
+</a>

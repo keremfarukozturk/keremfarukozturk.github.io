@@ -1,0 +1,10 @@
+{%- assign t = site.data.ui[site.lang] -%}
+<a class="skip" href="#icerik">{{ t.skip }}</a>
+<header class="site-header w">
+  <a class="brand" href="{{ '/' | relative_url }}" aria-label="{{ site.title }} — {{ t.home }}"><i aria-hidden="true"></i>{{ site.title }}</a>
+  <nav class="nav" aria-label="Ana menü">
+    {%- for link in t.nav %}
+    <a href="{{ link.url | relative_url }}"{% if page.url == link.url or page.url contains link.url %} aria-current="page"{% endif %}>{{ link.title }}</a>
+    {%- endfor %}
+  </nav>
+</header>
