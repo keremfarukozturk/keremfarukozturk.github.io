@@ -1,0 +1,33 @@
+---
+layout: default
+---
+{%- assign cat = site.data.categories[page.type] -%}
+<article class="article w">
+  <div class="meta mono">
+    {%- if cat %}<span class="k with-icon">{% include icon.html name=cat.icon %}{{ cat.title }}</span>{% endif %}
+    <span>{{ page.year }}</span>
+    {%- if page.status %}<span>{% if page.status == "sürüyor" %}<i class="dot" aria-hidden="true"></i> {% endif %}{{ page.status | capitalize }}</span>{% endif %}
+  </div>
+  <h1>{{ page.title }}</h1>
+  {%- if page.summary %}<p class="lede">{{ page.summary }}</p>{% endif %}
+  {%- if page.cover %}
+  <figure class="cover"><img src="{{ page.cover | relative_url }}" alt="{{ page.cover_alt | default: page.title }}"></figure>
+  {%- endif %}
+  <div class="prose">
+    {{ content }}
+  </div>
+
+  {%- if page.stack or page.links %}
+  <section class="spec" aria-labelledby="kunye">
+    <h2 class="label" id="kunye">Teknik künye</h2>
+    <dl>
+      {%- for group in page.stack %}
+      <div><dt class="mono">{{ group[0] }}</dt><dd>{{ group[1] | join: " · " }}</dd></div>
+      {%- endfor %}
+      {%- for l in page.links %}
+      <div><dt class="mono">{{ l[0] }}</dt><dd><a href="{{ l[1] }}">{{ l[1] | remove: "https://" | remove: "www." }} ↗</a></dd></div>
+      {%- endfor %}
+    </dl>
+  </section>
+  {%- endif %}
+</article>

@@ -1,0 +1,15 @@
+---
+layout: page
+title: Yazılar
+lede: Notlar, denemeler ve öğrendiklerim.
+---
+{%- assign t = site.data.ui[site.lang] -%}
+<section class="sec">
+{%- if site.posts.size > 0 %}
+  <ul class="list">
+    {%- for p in site.posts %}{% include post-item.html p=p show_cat=true %}{% endfor %}
+  </ul>
+{%- else %}
+  {% include empty.html icon="cursor" text=t.posts_soon %}
+{%- endif %}
+</section>

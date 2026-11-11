@@ -1,0 +1,20 @@
+# Arayüz metinleri. İleride İngilizce sürüm için "en:" bloğu eklenir
+# ve şablonlar site.lang / page.lang'e göre buradan okur.
+tr:
+  nav:
+    - { title: "Hakkımda", url: "/hakkimda/" }
+    - { title: "Projeler", url: "/projeler/" }
+    - { title: "Yazılar",  url: "/yazilar/" }
+    - { title: "İletişim", url: "/hakkimda/#iletisim" }
+  skip: "İçeriğe geç"
+  home: "Ana sayfa"
+  projects: "Projeler"
+  posts: "Yazılar"
+  all: "Tümü"
+  focus: "Odak"
+  soon: "Yakında"
+  projects_soon: "İlk projeler üzerinde çalışıyorum. Hazır olduklarında burada yer alacak."
+  posts_soon: "İlk yazı hazırlanıyor."
+  intro_alt: "Animasyon: bir elektrik sinyali dijital bitlere, bitler bir çipe ve koda, kod bir yapay sinir ağına dönüşüyor; sonunda “future.” yazılıyor."
+  months: ["Oca", "Şub", "Mar", "Nis", "May", "Haz", "Tem", "Ağu", "Eyl", "Eki", "Kas", "Ara"]
+  months_long: ["Ocak", "Şubat", "Mart", "Nisan", "Mayıs", "Haziran", "Temmuz", "Ağustos", "Eylül", "Ekim", "Kasım", "Aralık"]
