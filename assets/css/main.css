@@ -305,6 +305,17 @@ img, video, svg, canvas { display: block; max-width: 100%; }
 .status b { font-family: var(--sans); font-weight: 500; font-size: 17px; }
 .about-note { max-width: 660px; margin: 48px 0 0; font-family: var(--serif); font-style: italic; font-size: 18px; color: var(--soft); }
 
+/* Hakkımda: özgeçmiş */
+.bg { max-width: 660px; margin-top: 48px; padding-top: 22px; border-top: 1px solid var(--line); }
+.bg ul { margin-top: 10px; }
+.bg li { display: grid; grid-template-columns: 150px 1fr; gap: 20px; padding: 12px 0; align-items: baseline; }
+.bg li + li { border-top: 1px solid var(--line); }
+.bg .when { font-family: var(--mono); font-size: 12.5px; color: var(--faint); }
+.bg b { font-weight: 500; font-size: 16px; }
+.bg .role { font-size: 15px; color: var(--soft); }
+.bg b + .role::before { content: "· "; color: var(--faint); }
+.bg p { margin: 6px 0 0; font-family: var(--serif); font-size: 16px; line-height: 1.55; color: var(--ink); }
+
 /* Hakkımda > iletişim */
 .contact { margin-top: 72px; padding-top: 28px; border-top: 1px solid var(--line); max-width: 660px; scroll-margin-top: 24px; }
 .contact ul { margin-top: 18px; }
@@ -395,6 +406,7 @@ img, video, svg, canvas { display: block; max-width: 100%; }
   .about { grid-template-columns: 1fr; gap: 28px; }
   .about-photo { grid-column: 1; grid-row: 1; width: 140px; margin: 0; }
   .about .prose { grid-row: 2; }
+  .bg li { grid-template-columns: 1fr; gap: 4px; }
   .status li { font-size: 17px; }
   .site-footer .w { flex-direction: column; align-items: flex-start; gap: 14px; }
 }

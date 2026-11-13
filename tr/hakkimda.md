@@ -22,6 +22,8 @@ Ana odağım yapay zekâ donanımı: çip tasarımı ve doğrulama. Güç elektr
 
 {% include now-status.html %}
 
+{% include background.html %}
+
 <p class="about-note">Bu sitede projelerimi, deneylerimi ve öğrendiklerimi hatalarımla birlikte belgeliyorum.</p>
 
 {% include contact.html id="iletisim" %}

@@ -21,6 +21,8 @@ My main focus is AI hardware: chip design and verification. Power electronics an
 
 {% include now-status.html %}
 
+{% include background.html %}
+
 <p class="about-note">On this site, I document my projects, experiments and what I learn, mistakes included.</p>
 
 {% include contact.html id="contact" %}
