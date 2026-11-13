@@ -53,6 +53,9 @@ permalink: pretty   # sayfa adresleri /about/ biçiminde (sonunda .html yok)
 #   _posts/tr, _projects/tr  → Türkçe      (/tr/yazilar/…, /tr/projeler/…)
 #   tr/ klasöründeki sayfalar → Türkçe
 defaults:
+  # Google Search Console doğrulama dosyası — silinmemeli; site haritasına girmez
+  - scope: { path: "google3a078c23848147d5.html" }
+    values: { sitemap: false }
   - scope: { path: "" }
     values: { lang: en, locale: en_US, image: /assets/og-en.png }
   - scope: { path: "tr" }
