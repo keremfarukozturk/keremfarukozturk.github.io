@@ -16,10 +16,23 @@ author:
 # Bağlantılar — boş bırakılan görünmez
 social:
   github: "https://github.com/keremfarukozturk"
-  linkedin: ""
+  linkedin: "https://www.linkedin.com/in/kerem-faruk-%C3%B6zt%C3%BCrk-20286a320/"
   name: Kerem Faruk Öztürk          # jekyll-seo-tag: arama motorları için kişi bilgisi
   links:
     - "https://github.com/keremfarukozturk"
+    - "https://www.linkedin.com/in/kerem-faruk-%C3%B6zt%C3%BCrk-20286a320/"
+
+# Özgeçmiş (PDF). Boş bırakılırsa bağlantı gizlenir.
+cv: /assets/kerem-faruk-ozturk-cv.pdf
+
+# Ziyaretçi sayacı (GoatCounter, ücretsiz, çerez kullanmaz).
+# goatcounter.com'da hesap açınca seçtiğin kodu buraya yaz (ör. "keremfarukozturk"). Boşken sayaç kapalıdır.
+goatcounter: ""
+
+# Google Search Console doğrulaması: Google'ın verdiği "content" değerini yazıp
+# aşağıdaki iki satırın başındaki # işaretini kaldır.
+# webmaster_verifications:
+#   google: "BURAYA-KOD"
 
 
 # jekyll-seo-tag için

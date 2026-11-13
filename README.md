@@ -192,6 +192,8 @@ Kategoriler, iki dildeki adları ve ikonları `_data/categories.yml` dosyasında
 ### Site metinleri
 
 - İsim, e-posta, sosyal bağlantılar: `_config.yml`
+- Özgeçmiş: `assets/kerem-faruk-ozturk-cv.pdf` (aynı adla yenisini yükleyerek güncellenir; yüklemeden önce telefon ve kişisel e-postayı çıkarın)
+- Ziyaretçi sayacı (GoatCounter) ve Google Search Console doğrulaması: `_config.yml` içindeki `goatcounter` ve `webmaster_verifications` satırları
 - Ana sayfa metinleri: `index.html` (İngilizce) ve `tr/index.html` (Türkçe) dosyalarının ön bilgisi
 - Hakkımda: `about.md` ve `tr/hakkimda.md`. **Birini değiştirince diğerini de güncelleyin.**
 - Menü, "Yakında" ve diğer arayüz metinleri: `_data/ui.yml` (iki dil)

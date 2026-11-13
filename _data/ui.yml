@@ -29,6 +29,8 @@ en:
   spec: "Specifications"
   contact: "Contact"
   email: "Email"
+  cv: "CV"
+  cv_link: "Download (PDF)"
   status: { planned: "Planned", starting: "Starting", ongoing: "Ongoing", completed: "Completed" }
   months: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
   months_long: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
@@ -70,6 +72,8 @@ tr:
   spec: "Teknik künye"
   contact: "İletişim"
   email: "E-posta"
+  cv: "Özgeçmiş"
+  cv_link: "İndir (PDF)"
   status: { planned: "Planlanıyor", starting: "Başlıyor", ongoing: "Sürüyor", completed: "Tamamlandı" }
   months: ["Oca", "Şub", "Mar", "Nis", "May", "Haz", "Tem", "Ağu", "Eyl", "Eki", "Kas", "Ara"]
   months_long: ["Ocak", "Şubat", "Mart", "Nisan", "Mayıs", "Haziran", "Temmuz", "Ağustos", "Eylül", "Ekim", "Kasım", "Aralık"]

@@ -7,8 +7,11 @@
     {%- if site.social.github != "" %}
     <li><span class="mono">GitHub</span><a href="{{ site.social.github }}" rel="me">{{ site.social.github | remove: "https://" }}</a></li>
     {%- endif %}
+    {%- if site.cv and site.cv != "" %}
+    <li><span class="mono">{{ t.cv }}</span><a href="{{ site.cv | relative_url }}" download>{{ t.cv_link }}</a></li>
+    {%- endif %}
     {%- if site.social.linkedin != "" %}
-    <li><span class="mono">LinkedIn</span><a href="{{ site.social.linkedin }}" rel="me">{{ site.social.linkedin | remove: "https://" | remove: "www." }}</a></li>
+    <li><span class="mono">LinkedIn</span><a href="{{ site.social.linkedin }}" rel="me">{{ site.social.linkedin | remove: "https://" | remove: "www." | url_decode | split: "/" | join: "/" }}</a></li>
     {%- endif %}
   </ul>
 </section>
