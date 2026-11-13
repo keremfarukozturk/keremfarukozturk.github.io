@@ -1,4 +1,5 @@
-// Giriş animasyonu — canvas, dış bağımlılık yok. 14 sn döngü.
+// Giriş animasyonu — canvas, dış bağımlılık yok.
+// Geniş ekranda kaydırmaya bağlı ilerler; mobilde ve dar ekranda 14 sn'lik döngüde oynar.
 // sinyal (sinüs) → bitler → çip + kod → sinir ağı → future.
 (() => {
   const cv = document.getElementById('intro');
@@ -12,6 +13,15 @@
   const ease = x => x < .5 ? 2 * x * x : 1 - Math.pow(-2 * x + 2, 2) / 2;
   const win = (t, a, b, f = .5) => Math.min(seg(t, a, a + f), 1 - seg(t, b - f, b)); // içeri-dışarı
   const lerp = (a, b, p) => a + (b - a) * p;
+
+  // Animasyonun altındaki tek satırlık açıklama: o an oynayan sahneyi gösterir
+  const bounds = [0, 2.7, 5.3, 8.5, 11.0];
+  const caps = [...document.querySelectorAll('.cap-step')];
+  let curStep = -1;
+  function setStep(t) {
+    let i = 0; for (let k = 0; k < bounds.length; k++) if (t >= bounds[k]) i = k;
+    if (i !== curStep) { curStep = i; caps.forEach((c, j) => c.classList.toggle('on', j === i)); }
+  }
 
   function fit() {
     const r = cv.getBoundingClientRect(), d = window.devicePixelRatio || 1;
@@ -50,6 +60,7 @@
   function frame(ms) {
     last = ms;
     const t = (ms / 1000) % T;
+    setStep(t);
     ctx.globalAlpha = 1; grid();
 
     // 1 — elektrik: sinüs çizilir
@@ -168,10 +179,37 @@
   }
 
   const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
-  let running = true, start = performance.now(), raf;
-  const loop = now => { frame(now - start); if (running) raf = requestAnimationFrame(loop); };
   if (reduce) { document.fonts.ready.then(() => frame(12800)); return; }      // hareket istemeyenlere son kare
-  new IntersectionObserver(([e]) => {                                         // ekranda değilse dur
-    running = e.isIntersecting; if (running) raf = requestAnimationFrame(loop); else cancelAnimationFrame(raf);
-  }).observe(cv);
+
+  const wrap = document.querySelector('.hero-wrap');
+  const wide = matchMedia('(min-width: 861px)');
+  const T0 = 2.4, T1 = 13.4;          // kaydırma başlangıcında sinüs zaten çizili olsun
+  let mode = null, visible = true, ticking = false, raf, start = performance.now();
+
+  // Döngü modu: ekranda görünürken tek bir rAF zinciri çalışır
+  const loop = now => {
+    if (mode !== 'loop' || !visible) { ticking = false; return; }
+    frame(now - start); raf = requestAnimationFrame(loop);
+  };
+  const kick = () => { if (!ticking && mode === 'loop' && visible) { ticking = true; raf = requestAnimationFrame(loop); } };
+
+  // Kaydırma modu: giriş bölümündeki ilerleme (0–1) animasyon zamanına çevrilir
+  const scrub = () => {
+    const r = wrap.getBoundingClientRect();
+    const p = clamp(-r.top / Math.max(1, r.height - innerHeight));
+    frame((T0 + p * (T1 - T0)) * 1000);
+  };
+
+  new IntersectionObserver(([e]) => { visible = e.isIntersecting; kick(); }).observe(cv);
+  const setMode = () => {
+    const m = (wrap && wide.matches) ? 'scrub' : 'loop';
+    if (m === mode) return;
+    mode = m;
+    if (m === 'scrub') { cancelAnimationFrame(raf); ticking = false; scrub(); document.fonts.ready.then(scrub); }
+    else { start = performance.now(); kick(); }
+  };
+  addEventListener('scroll', () => { if (mode === 'scrub') scrub(); }, { passive: true });
+  addEventListener('resize', () => { if (mode === 'scrub') scrub(); });
+  wide.addEventListener('change', setMode);
+  setMode();
 })();

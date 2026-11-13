@@ -1,0 +1,11 @@
+{%- comment -%}
+  Numaralı şekil. Kullanım:
+  {% include figure.html n=1 src="/assets/img/projeler/x/blok.webp" alt="Blok diyagramı" caption="Blok diyagramı" %}
+{%- endcomment -%}
+{%- assign lang = page.lang | default: site.lang -%}{%- assign t = site.data.ui[lang] -%}
+<figure class="figure">
+  <img src="{{ include.src | relative_url }}" alt="{{ include.alt | default: include.caption }}" loading="lazy" decoding="async">
+  {%- if include.caption %}
+  <figcaption>{% if include.n %}<b>{{ t.figure }} {{ include.n }}</b> — {% endif %}{{ include.caption }}</figcaption>
+  {%- endif %}
+</figure>

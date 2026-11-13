@@ -20,20 +20,7 @@ Ana odağım yapay zekâ donanımı: çip tasarımı ve doğrulama. Güç elektr
 </div>
 </div>
 
-<section class="status" aria-labelledby="simdi-baslik">
-  <h2 class="label" id="simdi-baslik">Şimdi</h2>
-  <ul>
-    <li>Siber Vatan programında siber güvenlik ve yapay zekâ güvenliği eğitimleri alıyorum.</li>
-    <li><b>Küçük bir yapay zekâ hızlandırıcısı:</b> Sinir ağı çıkarımı için sade bir donanım tasarımı üzerinde çalışmaya başlıyorum. Tasarımdan doğrulamaya ve FPGA'ya kadar her aşamayı burada belgeleyeceğim.</li>
-  </ul>
-</section>
-
-<section class="status" aria-labelledby="siradaki-baslik">
-  <h2 class="label" id="siradaki-baslik">Sıradaki</h2>
-  <ul>
-    <li><b>Güç elektroniği:</b> Veri merkezi güç mimarisinin küçük ölçekli bir modeli.</li>
-  </ul>
-</section>
+{% include now-status.html %}
 
 <p class="about-note">Bu sitede projelerimi, deneylerimi ve öğrendiklerimi hatalarımla birlikte belgeliyorum.</p>
 

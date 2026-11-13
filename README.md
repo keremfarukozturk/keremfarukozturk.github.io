@@ -29,6 +29,7 @@ Site iki dillidir. **Varsayılan dil İngilizce**; Türkçe sürüm `/tr/` altı
 _config.yml           Site ayarları: isim, e-posta, sosyal bağlantılar, dil kuralları
 _data/ui.yml          Arayüz metinleri, iki dilde (menü, "Yakında" metinleri, ay adları)
 _data/categories.yml  Kategoriler, iki dildeki adları ve ikonları
+_data/now.yml         "Şimdi ve sıradaki" maddeleri (ana sayfa + Hakkımda)
 _layouts/             Sayfa şablonları: default, home, page, post, project
 _includes/            Tekrar kullanılan parçalar: başlık, dil düğmesi, tarih, kartlar, iletişim
 _posts/en/, _posts/tr/        Yazılar (her yazı tek bir .md dosyası)
@@ -106,27 +107,41 @@ Dosya adı: `kisa-ad.md`.
 - `_projects/en/sensor-board.md` → `/projects/sensor-board/`
 - `_projects/tr/sensor-karti.md` → `/tr/projeler/sensor-karti/`
 
+Proje sayfaları bir **veri sayfası (datasheet)** düzenindedir: üstte belge numarası, revizyon, durum, tür ve güncelleme tarihi şeridi; sağda teknik özet tablosu; en altta revizyon geçmişi.
+
 ```markdown
 ---
 title: "Düşük güçlü sensör kartı"
 summary: "Hangi problemi nasıl çözdüğünü anlatan tek cümle."
+doc: KFO-002              # belge numarası: KFO-001, KFO-002, … (her projeye bir numara)
+rev: A                    # güncel revizyon harfi
+updated: 2026-12-01       # son güncelleme tarihi
 year: 2026
 status: ongoing           # ongoing | completed  (sitede "Sürüyor / Tamamlandı" yazar)
 type: electronics         # electronics | signals | software | ai — karttaki ikonu belirler
 ref: sensor-board         # isteğe bağlı; diğer dildeki çevirisiyle aynı değer
 order: 1                  # isteğe bağlı; küçük sayı en üstte. Yoksa yıla göre sıralanır
 cover: /assets/img/projeler/sensor-karti/kapak.webp   # isteğe bağlı kapak; yoksa ikon görünür
-stack:                    # isteğe bağlı — sayfanın altındaki "Teknik künye"
+stack:                    # isteğe bağlı — sağdaki "Teknik özet" tablosu
   Donanım: [STM32, INA219]
   Yazılım: [C, Python]
 links:
   GitHub: https://github.com/keremfarukozturk/...
+revisions:                # isteğe bağlı — en alttaki "Revizyon geçmişi"
+  - { rev: A, date: 2026-12-01, note: "İlk mimari ve blok diyagramı" }
+  - { rev: B, note: "Doğrulama sonuçları (planlanıyor)" }
 ---
 
 ## Problem
 ## Yaklaşım
+
+{% include figure.html n=1 src="/assets/img/projeler/sensor-karti/blok.webp" caption="Blok diyagramı" %}
+
 ## Sonuç
 ```
+
+- `figure.html`, görseli numaralı bir şekil olarak gösterir: "Şekil 1 — Blok diyagramı" (İngilizce sayfada "Figure 1"). Yazılarda da kullanılabilir.
+- Belge numarası (`doc`) her proje için bir kez verilir ve değişmez; iki dildeki sürümler aynı numarayı kullanır.
 
 ### Görseller
 
@@ -137,6 +152,16 @@ links:
 - Yazı içinde: `![Kısa açıklama](/assets/img/yazilar/bellek-duvari/grafik.webp)`
 - Fotoğraf yüklemeden önce içindeki konum bilgisini (EXIF/GPS) silin.
 
+### Şimdi ve sıradaki
+
+Ana sayfadaki zaman çizelgesi ve Hakkımda sayfasındaki "Şimdi / Sıradaki" listeleri **tek bir dosyadan** okunur: `_data/now.yml`. Bir maddeyi orada değiştirdiğinde iki sayfa ve iki dil birlikte güncellenir.
+
+```yaml
+- when: now               # now (şimdi) | next (sıradaki)
+  en: { title: "A small AI accelerator", text: "I'm starting work on …" }
+  tr: { title: "Küçük bir yapay zekâ hızlandırıcısı", text: "… çalışmaya başlıyorum." }
+```
+
 ### Kategoriler
 
 Kategoriler, iki dildeki adları ve ikonları `_data/categories.yml` dosyasındadır. Yeni bir kategori eklemeden önce mevcut beşinden birine uyup uymadığına bakın; az kategori, düzenli bir site demektir.
@@ -146,6 +171,7 @@ Kategoriler, iki dildeki adları ve ikonları `_data/categories.yml` dosyasında
 - İsim, e-posta, sosyal bağlantılar: `_config.yml`
 - Ana sayfa metinleri: `index.html` (İngilizce) ve `tr/index.html` (Türkçe) dosyalarının ön bilgisi
 - Hakkımda: `about.md` ve `tr/hakkimda.md`. **Birini değiştirince diğerini de güncelleyin.**
+- Giriş animasyonunun altındaki sahne açıklamaları: `_data/ui.yml` içindeki `story` listesi
 - Menü, "Yakında" ve diğer arayüz metinleri: `_data/ui.yml` (iki dil)
 
 ---
@@ -186,7 +212,7 @@ Büyük başlıklarda mono font kullanılmaz.
 
 ### 5. Hareket
 - Animasyonlar **bir kez** oynar ve 1 saniyeden kısadır. Zıplama ya da sekme yoktur.
-- Sitede tek bir sürekli animasyon vardır: ana sayfadaki giriş animasyonu.
+- Sitede tek bir sürekli animasyon vardır: ana sayfadaki giriş animasyonu. Geniş ekranda kaydırmaya bağlı ilerler (sayfa yaklaşık bir ekran boyu yapışık kalır); mobilde kendi kendine döner. Kaydırmanın hızı ya da yönü asla değiştirilmez.
 - İşletim sisteminde "hareketi azalt" ayarı açık olan ziyaretçiler için bütün animasyonlar kapanır.
 - Animasyon kütüphanesi kullanılmaz; yalnızca CSS ve birkaç satır JavaScript.
 

@@ -1,0 +1,12 @@
+# "Şimdi ve sıradaki" — ana sayfadaki zaman çizelgesi ve Hakkımda sayfası buradan okur.
+# when: now (şimdi) | next (sıradaki). Her madde iki dilde yazılır; title isteğe bağlıdır.
+# Bir işi bitirdiğinde maddeyi silebilir ya da ilgili projeye taşıyabilirsin.
+- when: now
+  en: { text: "Taking cybersecurity and AI security courses in Turkey's Siber Vatan program." }
+  tr: { text: "Siber Vatan programında siber güvenlik ve yapay zekâ güvenliği eğitimleri alıyorum." }
+- when: now
+  en: { title: "A small AI accelerator", text: "I'm starting work on a simple hardware design for neural network inference. I'll document every stage here, from design to verification to FPGA." }
+  tr: { title: "Küçük bir yapay zekâ hızlandırıcısı", text: "Sinir ağı çıkarımı için sade bir donanım tasarımı üzerinde çalışmaya başlıyorum. Tasarımdan doğrulamaya ve FPGA'ya kadar her aşamayı burada belgeleyeceğim." }
+- when: next
+  en: { title: "Power electronics", text: "A small-scale model of a data center power architecture." }
+  tr: { title: "Güç elektroniği", text: "Veri merkezi güç mimarisinin küçük ölçekli bir modeli." }
