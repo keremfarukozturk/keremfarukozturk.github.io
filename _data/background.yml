@@ -8,7 +8,7 @@ experience:
   - dates: { en: "Jul – Sep 2026", tr: "Tem – Eyl 2026" }
     org: "VakıfBank"
     role: { en: "Software Development Intern, Payment Systems", tr: "Yazılım Geliştirme Stajyeri, Ödeme Sistemleri" }
-    detail: { en: "Built a .NET virtual POS integration for merchants and worked on the backend of a Shopify payments app (ASP.NET Core, PostgreSQL).", tr: "Üye işyerleri için .NET ile sanal POS entegrasyonu geliştirdim; bir Shopify ödeme uygulamasının arka ucunda çalıştım (ASP.NET Core, PostgreSQL)." }
+    detail: { en: "Developed a .NET virtual POS integration that lets merchants run sales, cancellations and refunds, and built backend services for a Shopify payments app (ASP.NET Core, PostgreSQL).", tr: "Üye işyerlerinin sanal POS üzerinden satış, iptal ve iade işlemlerini yapabilmesi için .NET ile bir entegrasyon uygulaması geliştirdim. Shopify ödeme uygulaması için ASP.NET Core ve PostgreSQL ile backend servisleri yazdım." }
   - dates: { en: "Nov 2024 – May 2026", tr: "Kas 2024 – May 2026" }
     org: "Outlier (Scale AI)"
     role: { en: "Python Code Reviewer, AI Code Evaluator", tr: "Python Kod İnceleyici, Yapay Zekâ Kod Değerlendiricisi" }
@@ -21,7 +21,7 @@ programs:
   - dates: { en: "2026 – 2027", tr: "2026 – 2027" }
     org: "YÖK Digital University"
     role: { en: "Artificial Intelligence and Modern Software Development", tr: "Yapay Zekâ ve Modern Yazılım Geliştirme" }
-  - dates: { en: "One-year program", tr: "Bir yıllık program" }
+  - dates: { en: "2024 – 2025", tr: "2024 – 2025" }
     org: "Google Türkiye"
     role: { en: "AI and Technology Academy, scholarship recipient", tr: "Yapay Zekâ ve Teknoloji Akademisi, burslu katılımcı" }
 

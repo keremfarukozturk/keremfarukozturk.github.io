@@ -145,13 +145,28 @@ img, video, svg, canvas { display: block; max-width: 100%; }
 .card p { margin: 0; font-family: var(--serif); font-size: 15px; line-height: 1.55; color: var(--soft); }
 .card .mono { margin-top: auto; padding-top: 24px; display: flex; align-items: center; gap: 8px; }
 .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--tan); }
+.dot { flex: none; animation: live 2.6s ease-out infinite; }
+@keyframes live { 0% { box-shadow: 0 0 0 0 rgba(194, 170, 140, .55); } 70%, 100% { box-shadow: 0 0 0 6px rgba(194, 170, 140, 0); } }
 
 /* İkonlar (giriş animasyonundan) — üzerine gelince çizgi yeniden çizilir */
 .icon { width: 48px; height: 32px; color: var(--soft); }
-.icon .draw { stroke: var(--tan); stroke-dasharray: 220; stroke-dashoffset: 0; }
+.icon .base { stroke: var(--line); }
+.icon .draw { stroke: var(--tan); stroke-dasharray: 100; stroke-dashoffset: 0; }
+.icon .nodes circle { fill: var(--white); }
 .card-icon { height: 72px; display: flex; align-items: center; margin-bottom: 16px; }
-.card:hover .icon .draw { animation: draw 1s var(--ease); }
-@keyframes draw { from { stroke-dashoffset: 220; } to { stroke-dashoffset: 0; } }
+.card-icon .icon { width: 63px; height: 42px; }
+/* Kartlarda ikonlar sakin bir döngüde hareket eder: bej çizgi tabanın üzerinden çizilir, bekler, silinir */
+.cards .card { --d: 0s; }
+.cards .card:nth-child(3n+2) { --d: -1.7s; }
+.cards .card:nth-child(3n+3) { --d: -3.4s; }
+.card-icon .icon .draw { animation: trace 5.2s cubic-bezier(.45, 0, .25, 1) var(--d) infinite; }
+.card-icon .icon .draw.d2 { animation-delay: calc(var(--d) + .5s); }
+.card-icon .icon .draw.d3 { animation-delay: calc(var(--d) + 1s); }
+.card-icon .icon .nodes circle { animation: node 5.2s ease var(--d) infinite; }
+.card-icon .icon .nodes .n2 { animation-delay: calc(var(--d) + .7s); }
+.card-icon .icon .nodes .n3 { animation-delay: calc(var(--d) + 1.4s); }
+@keyframes trace { 0% { stroke-dashoffset: 100; } 40%, 70% { stroke-dashoffset: 0; } 100% { stroke-dashoffset: -100; } }
+@keyframes node { 0%, 18% { fill: var(--white); } 32%, 62% { fill: var(--tan); } 80%, 100% { fill: var(--white); } }
 .card-img { margin: -12px -12px 20px; aspect-ratio: 16 / 10; border-radius: 10px; overflow: hidden; background: var(--media); }
 .card-img img { width: 100%; height: 100%; object-fit: cover; transition: transform .8s var(--ease); }
 .card:hover .card-img img { transform: scale(1.04); }
@@ -336,6 +351,7 @@ img, video, svg, canvas { display: block; max-width: 100%; }
 .site-footer .w { display: flex; justify-content: space-between; align-items: center; padding-top: 28px; padding-bottom: 44px; font-size: 13px; color: var(--soft); }
 .site-footer .links { display: flex; flex-wrap: wrap; gap: 24px; }
 .site-footer a:hover { color: var(--ink); }
+.site-footer .upd { margin-left: 10px; font-family: var(--mono); font-size: 12px; color: var(--faint); }
 .site-footer .mail { color: var(--ink); text-decoration: underline; text-decoration-color: var(--tan); text-decoration-thickness: 2px; text-underline-offset: 5px; }
 
 /* ---------- 9. Hareket ---------- */
