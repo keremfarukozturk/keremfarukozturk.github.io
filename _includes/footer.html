@@ -1,6 +1,7 @@
+{%- assign lang = page.lang | default: site.lang -%}{%- assign t = site.data.ui[lang] -%}
 <footer class="site-footer">
   <div class="w">
-    <span>© {{ site.time | date: "%Y" }} {{ site.author.name }}</span>
+    <span>© {{ site.time | date: "%Y" }} {{ site.author.name }}<span class="upd">· {{ t.ds.updated }} {% include date.html date=site.time %}</span></span>
     <div class="links">
       {%- if site.social.github != "" %}<a href="{{ site.social.github }}" rel="me">GitHub</a>{% endif %}
       {%- if site.social.linkedin != "" %}<a href="{{ site.social.linkedin }}" rel="me">LinkedIn</a>{% endif %}
