@@ -2,8 +2,8 @@
 # Site ayarları — kişisel bilgiler ve metinler buradan değişir.
 # ------------------------------------------------------------
 title: Kerem Faruk Öztürk
-tagline: "Sinyalden zekâya: her katmanı ciddiye alan bir mühendislik."
-description: "Kerem Faruk Öztürk — elektrik-elektronik mühendisliği öğrencisi. Yazılar, projeler ve notlar."
+tagline: "Yapay zekâ silikonda çalışır, elektrikle beslenir."
+description: "Kerem Faruk Öztürk — elektrik-elektronik mühendisliği öğrencisi. Yapay zekâ donanımı, güç elektroniği ve yapay zekâ güvenliği üzerine projeler, deneyler ve notlar."
 lang: tr
 locale: tr_TR
 url: "https://keremfarukozturk.github.io"
@@ -14,8 +14,8 @@ author:
   email: keremfarukozturk@outlook.com
 
 # Ana sayfa
-intro: "Elektrik-elektronik mühendisliği öğrencisiyim."
-focus: "yapay zekâ donanımı ve sistemleri"   # boş bırakılırsa "Odak" satırı gizlenir
+intro: "Yapay zekâ donanımına odaklanıyor; güç elektroniği ve yapay zekâ güvenliğini öğreniyorum. Projelerimi, deneylerimi ve öğrendiklerimi burada belgeliyorum."
+focus: ""   # doluysa ana sayfada "Odak — …" satırı görünür
 
 # Bağlantılar — boş bırakılan görünmez
 social:
