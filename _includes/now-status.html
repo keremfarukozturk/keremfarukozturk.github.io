@@ -1,0 +1,17 @@
+{%- comment -%} Hakkımda: "Şimdi" ve "Sıradaki" listeleri (_data/now.yml) {%- endcomment -%}
+{%- assign lang = page.lang | default: site.lang -%}{%- assign t = site.data.ui[lang] -%}
+{%- assign _whens = "now,next" | split: "," -%}
+{%- for when in _whens %}
+{%- assign items = site.data.now | where: "when", when %}
+{%- if items.size > 0 %}
+<section class="status" aria-labelledby="status-{{ when }}">
+  <h2 class="label" id="status-{{ when }}">{{ t[when] }}</h2>
+  <ul>
+    {%- for item in items %}
+    {%- assign x = item[lang] %}
+    <li>{% if x.title %}<b>{{ x.title }}:</b> {% endif %}{{ x.text }}</li>
+    {%- endfor %}
+  </ul>
+</section>
+{%- endif %}
+{%- endfor %}

@@ -5,7 +5,15 @@
   if (!cv) return;
   const ctx = cv.getContext('2d');
   const W = 400, H = 500, T = 14;
-  const C = { bg: '#F3EEE5', dot: '#E3DBCD', ink: '#24211E', soft: '#6B655D', tan: '#C2AA8C', tanSoft: '#D9C8AE', white: '#FFFFFF', line: '#E0D8CC' };
+  // Renkler sitenin tema değişkenlerinden okunur; koyu temaya geçince yeniden çizilir
+  const darkQ = matchMedia('(prefers-color-scheme: dark)');
+  const palette = () => {
+    const g = getComputedStyle(document.documentElement), v = n => g.getPropertyValue(n).trim(), d = darkQ.matches;
+    return { bg: v('--media') || '#F3EEE5', dot: d ? '#2B2723' : '#E3DBCD', ink: v('--ink') || '#24211E', soft: v('--soft') || '#6B655D',
+             tan: v('--tan') || '#C2AA8C', tanSoft: d ? '#5A4C3C' : '#D9C8AE', white: v('--white') || '#FFFFFF', line: d ? '#3A352F' : '#E0D8CC' };
+  };
+  let C = palette();
+  darkQ.addEventListener('change', () => { C = palette(); frame(last); });
   const MONO = '"IBM Plex Mono", ui-monospace, monospace';
   const clamp = v => Math.max(0, Math.min(1, v));
   const seg = (t, a, b) => clamp((t - a) / (b - a));

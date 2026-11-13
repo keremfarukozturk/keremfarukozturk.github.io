@@ -18,6 +18,7 @@ Site iki dillidir. **Varsayılan dil İngilizce**; Türkçe sürüm `/tr/` altı
 | `/about/` | `/tr/hakkimda/` |
 | `/projects/` | `/tr/projeler/` |
 | `/writing/` | `/tr/yazilar/` |
+| `/log/` | `/tr/gunluk/` |
 
 - Eski Türkçe adresler (`/hakkimda/`, `/projeler/`, `/yazilar/`) yeni adreslerine otomatik yönlenir.
 - İki sayfanın birbirinin çevirisi olduğunu, ön bilgilerine yazılan **aynı `ref` değeri** belirtir. Örneğin `about.md` ve `tr/hakkimda.md` dosyalarının ikisinde de `ref: about` yazar.
@@ -29,11 +30,13 @@ Site iki dillidir. **Varsayılan dil İngilizce**; Türkçe sürüm `/tr/` altı
 _config.yml           Site ayarları: isim, e-posta, sosyal bağlantılar, dil kuralları
 _data/ui.yml          Arayüz metinleri, iki dilde (menü, "Yakında" metinleri, ay adları)
 _data/categories.yml  Kategoriler, iki dildeki adları ve ikonları
+_data/now.yml         Hakkımda sayfasındaki "Şimdi / Sıradaki" maddeleri
+_data/log.yml         Mühendislik günlüğü kayıtları
 _layouts/             Sayfa şablonları: default, home, page, post, project
 _includes/            Tekrar kullanılan parçalar: başlık, dil düğmesi, tarih, kartlar, iletişim
 _posts/en/, _posts/tr/        Yazılar (her yazı tek bir .md dosyası)
 _projects/en/, _projects/tr/  Projeler (her proje tek bir .md dosyası)
-index.html, about.md, projects/, writing/   İngilizce sayfalar
+index.html, about.md, projects/, writing/, log/   İngilizce sayfalar
 tr/                   Türkçe sayfalar
 assets/css/main.css   Tasarım sistemi (fontlar dahil, tek dosya)
 assets/fonts/         IBM Plex fontları (OFL lisansı, siteyle birlikte barındırılır)
@@ -77,7 +80,7 @@ Dosya adı: `YYYY-AA-GG-kisa-baslik.md`. Dosya adında Türkçe karakter ve boş
 ---
 title: "Bellek duvarı: yapay zekânın asıl darboğazı"
 description: "Listede ve paylaşım önizlemesinde görünen tek cümlelik özet."
-category: ai              # electronics | signals | software | ai | notes
+category: ai              # electronics | signals | software | ai | security | notes
 ref: memory-wall          # isteğe bağlı; diğer dildeki çevirisiyle aynı değer
 math: true                # formül varsa ekle, yoksa bu satırı sil
 ---
@@ -96,6 +99,7 @@ $$
 ```
 
 - Tarihi ileri bir gün olan yazı, o gün gelene kadar yayınlanmaz.
+- **Taslak:** Ön bilgiye `published: false` yazılan yazı ya da proje canlı sitede görünmez. Codespace'te `bundle exec jekyll serve --host 0.0.0.0 --unpublished` ile önizlenir; yayınlamak için o satırı silmek yeterlidir.
 - Okuma süresi ve tarih, yazının dilinde otomatik yazılır.
 - Blok formül için `$$ ... $$` öncesinde ve sonrasında boş satır bırakılmalıdır.
 
@@ -106,27 +110,41 @@ Dosya adı: `kisa-ad.md`.
 - `_projects/en/sensor-board.md` → `/projects/sensor-board/`
 - `_projects/tr/sensor-karti.md` → `/tr/projeler/sensor-karti/`
 
+Proje sayfaları bir **veri sayfası (datasheet)** düzenindedir: üstte belge numarası, revizyon, durum, tür ve güncelleme tarihi şeridi; sağda teknik özet tablosu; en altta revizyon geçmişi.
+
 ```markdown
 ---
 title: "Düşük güçlü sensör kartı"
 summary: "Hangi problemi nasıl çözdüğünü anlatan tek cümle."
+doc: KFO-002              # belge numarası: KFO-001, KFO-002, … (her projeye bir numara)
+rev: A                    # güncel revizyon harfi
+updated: 2026-12-01       # son güncelleme tarihi
 year: 2026
-status: ongoing           # ongoing | completed  (sitede "Sürüyor / Tamamlandı" yazar)
-type: electronics         # electronics | signals | software | ai — karttaki ikonu belirler
+status: ongoing           # planned | starting | ongoing | completed  (Planlanıyor / Başlıyor / Sürüyor / Tamamlandı)
+type: electronics         # electronics | signals | software | ai | security — karttaki ikonu belirler
 ref: sensor-board         # isteğe bağlı; diğer dildeki çevirisiyle aynı değer
 order: 1                  # isteğe bağlı; küçük sayı en üstte. Yoksa yıla göre sıralanır
 cover: /assets/img/projeler/sensor-karti/kapak.webp   # isteğe bağlı kapak; yoksa ikon görünür
-stack:                    # isteğe bağlı — sayfanın altındaki "Teknik künye"
+stack:                    # isteğe bağlı — sağdaki "Teknik özet" tablosu
   Donanım: [STM32, INA219]
   Yazılım: [C, Python]
 links:
   GitHub: https://github.com/keremfarukozturk/...
+revisions:                # isteğe bağlı — en alttaki "Revizyon geçmişi"
+  - { rev: A, date: 2026-12-01, note: "İlk mimari ve blok diyagramı" }
+  - { rev: B, note: "Doğrulama sonuçları (planlanıyor)" }
 ---
 
 ## Problem
 ## Yaklaşım
+
+{% include figure.html n=1 src="/assets/img/projeler/sensor-karti/blok.webp" caption="Blok diyagramı" %}
+
 ## Sonuç
 ```
+
+- `figure.html`, görseli numaralı bir şekil olarak gösterir: "Şekil 1 — Blok diyagramı" (İngilizce sayfada "Figure 1"). Yazılarda da kullanılabilir.
+- Belge numarası (`doc`) her proje için bir kez verilir ve değişmez; iki dildeki sürümler aynı numarayı kullanır.
 
 ### Görseller
 
@@ -137,6 +155,36 @@ links:
 - Yazı içinde: `![Kısa açıklama](/assets/img/yazilar/bellek-duvari/grafik.webp)`
 - Fotoğraf yüklemeden önce içindeki konum bilgisini (EXIF/GPS) silin.
 
+### Mühendislik günlüğü (Log)
+
+Kısa, tarihli notlar: ne denedin, ne bozuldu, ne öğrendin. Tam bir yazıdan çok daha kolay yazılır ve sitenin yaşadığını gösterir. Kayıtlar `_data/log.yml` dosyasına **en yenisi en üstte** olacak şekilde eklenir. Ana sayfada son üç kayıt görünür.
+
+```yaml
+- date: 2026-11-20
+  tag: electronics        # electronics | signals | software | ai | security | notes
+  en: "First cocotb test for the MAC unit; found an overflow bug."
+  tr: "MAC birimi için ilk cocotb testi; bir taşma hatası buldum."   # isteğe bağlı
+```
+
+Türkçe metin yazılmazsa Türkçe sayfada İngilizcesi gösterilir.
+
+### Yazılarda kenar notu ve etkileşimli şekil
+
+- **Kenar notu:** Geniş ekranda metnin sağ kenarında, dar ekranda paragrafın altında görünür. Paragrafın içine yazılır:
+  `…bant genişliğiyle sınırlanır.{% include sidenote.html n=1 text="Roofline modeli: …" %} Bu yüzden…`
+- **Numaralı şekil:** `{% include figure.html n=1 src="/assets/img/…" caption="…" %}`
+- **RC filtresi (etkileşimli):** `{% include rc-filter.html n=2 %}` — direnç ve kapasite kaydırıcılarıyla genlik yanıtını ve kesim frekansını canlı gösterir. Yeni etkileşimli şekiller aynı kalıpla `_includes/` altına eklenebilir.
+
+### Şimdi ve sıradaki
+
+Hakkımda sayfasındaki "Şimdi / Sıradaki" listeleri **tek bir dosyadan** okunur: `_data/now.yml`. Bir maddeyi orada değiştirdiğinde iki dildeki sayfa birlikte güncellenir.
+
+```yaml
+- when: now               # now (şimdi) | next (sıradaki)
+  en: { title: "A small AI accelerator", text: "I'm starting work on …" }
+  tr: { title: "Küçük bir yapay zekâ hızlandırıcısı", text: "… çalışmaya başlıyorum." }
+```
+
 ### Kategoriler
 
 Kategoriler, iki dildeki adları ve ikonları `_data/categories.yml` dosyasındadır. Yeni bir kategori eklemeden önce mevcut beşinden birine uyup uymadığına bakın; az kategori, düzenli bir site demektir.
@@ -144,6 +192,8 @@ Kategoriler, iki dildeki adları ve ikonları `_data/categories.yml` dosyasında
 ### Site metinleri
 
 - İsim, e-posta, sosyal bağlantılar: `_config.yml`
+- Özgeçmiş: `assets/kerem-faruk-ozturk-cv.pdf` (aynı adla yenisini yükleyerek güncellenir; yüklemeden önce telefon ve kişisel e-postayı çıkarın)
+- Ziyaretçi sayacı (GoatCounter) ve Google Search Console doğrulaması: `_config.yml` içindeki `goatcounter` ve `webmaster_verifications` satırları
 - Ana sayfa metinleri: `index.html` (İngilizce) ve `tr/index.html` (Türkçe) dosyalarının ön bilgisi
 - Hakkımda: `about.md` ve `tr/hakkimda.md`. **Birini değiştirince diğerini de güncelleyin.**
 - Menü, "Yakında" ve diğer arayüz metinleri: `_data/ui.yml` (iki dil)
@@ -190,7 +240,11 @@ Büyük başlıklarda mono font kullanılmaz.
 - İşletim sisteminde "hareketi azalt" ayarı açık olan ziyaretçiler için bütün animasyonlar kapanır.
 - Animasyon kütüphanesi kullanılmaz; yalnızca CSS ve birkaç satır JavaScript.
 
-### 6. Boşluk
+### 6. Koyu tema ve geçişler
+- Koyu tema ("gece laboratuvarı") ziyaretçinin işletim sistemi ayarını izler; renkleri `main.css` başındaki `prefers-color-scheme: dark` bloğundadır. Yeni bir renk eklerken iki temaya da tanımlayın; renkleri doğrudan yazmak yerine değişken kullanın.
+- Sayfa değişirken menüdeki bej çizgi yeni yerine kayar (View Transitions; desteklemeyen tarayıcılarda normal geçiş olur).
+
+### 7. Boşluk
 Bölümler arasında geniş boşluk (112px) bırakılır. Yoğun görünen bir sayfayı düzeltmenin ilk yolu, bir şey eklemek değil, bir şey çıkarmaktır.
 
 ---

@@ -5,3 +5,4 @@ signals:     { en: "Signals",     tr: "Sinyal",     icon: sinyal }
 software:    { en: "Software",    tr: "Yazılım",    icon: yazilim }
 ai:          { en: "AI",          tr: "Yapay Zekâ", icon: yapay-zeka }
 notes:       { en: "Notes",       tr: "Notlar",     icon: not }
+security:    { en: "Security",    tr: "Güvenlik",   icon: yazilim }

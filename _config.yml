@@ -16,10 +16,23 @@ author:
 # Bağlantılar — boş bırakılan görünmez
 social:
   github: "https://github.com/keremfarukozturk"
-  linkedin: ""
+  linkedin: "https://www.linkedin.com/in/keremfarukozturk/"
   name: Kerem Faruk Öztürk          # jekyll-seo-tag: arama motorları için kişi bilgisi
   links:
     - "https://github.com/keremfarukozturk"
+    - "https://www.linkedin.com/in/keremfarukozturk/"
+
+# Özgeçmiş (PDF). Boş bırakılırsa bağlantı gizlenir.
+cv: /assets/kerem-faruk-ozturk-cv.pdf
+
+# Ziyaretçi sayacı (GoatCounter, ücretsiz, çerez kullanmaz).
+# goatcounter.com'da hesap açınca seçtiğin kodu buraya yaz (ör. "keremfarukozturk"). Boşken sayaç kapalıdır.
+goatcounter: ""
+
+# Google Search Console doğrulaması: Google'ın verdiği "content" değerini yazıp
+# aşağıdaki iki satırın başındaki # işaretini kaldır.
+# webmaster_verifications:
+#   google: "BURAYA-KOD"
 
 
 # jekyll-seo-tag için
@@ -40,6 +53,9 @@ permalink: pretty   # sayfa adresleri /about/ biçiminde (sonunda .html yok)
 #   _posts/tr, _projects/tr  → Türkçe      (/tr/yazilar/…, /tr/projeler/…)
 #   tr/ klasöründeki sayfalar → Türkçe
 defaults:
+  # Google Search Console doğrulama dosyası — silinmemeli; site haritasına girmez
+  - scope: { path: "google3a078c23848147d5.html" }
+    values: { sitemap: false }
   - scope: { path: "" }
     values: { lang: en, locale: en_US, image: /assets/og-en.png }
   - scope: { path: "tr" }

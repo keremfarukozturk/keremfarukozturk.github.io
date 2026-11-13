@@ -19,20 +19,7 @@ My main focus is AI hardware: chip design and verification. Power electronics an
 </div>
 </div>
 
-<section class="status" aria-labelledby="now-heading">
-  <h2 class="label" id="now-heading">Now</h2>
-  <ul>
-    <li>Taking cybersecurity and AI security courses in Turkey's Siber Vatan program.</li>
-    <li><b>A small AI accelerator:</b> I'm starting work on a simple hardware design for neural network inference. I'll document every stage here, from design to verification to FPGA.</li>
-  </ul>
-</section>
-
-<section class="status" aria-labelledby="next-heading">
-  <h2 class="label" id="next-heading">Next</h2>
-  <ul>
-    <li><b>Power electronics:</b> A small-scale model of a data center power architecture.</li>
-  </ul>
-</section>
+{% include now-status.html %}
 
 <p class="about-note">On this site, I document my projects, experiments and what I learn, mistakes included.</p>
 

@@ -6,10 +6,12 @@ en:
   home_url: "/"
   projects_url: "/projects/"
   posts_url: "/writing/"
+  log_url: "/log/"
   nav:
     - { title: "About",    url: "/about/" }
     - { title: "Projects", url: "/projects/" }
     - { title: "Writing",  url: "/writing/" }
+    - { title: "Log",      url: "/log/" }
     - { title: "Contact",  url: "/about/#contact" }
   nav_label: "Main menu"
   lang_label: "Language"
@@ -27,9 +29,19 @@ en:
   spec: "Specifications"
   contact: "Contact"
   email: "Email"
-  status: { ongoing: "Ongoing", completed: "Completed" }
+  cv: "CV"
+  cv_link: "Download (PDF)"
+  status: { planned: "Planned", starting: "Starting", ongoing: "Ongoing", completed: "Completed" }
   months: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
   months_long: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
+  now: "Now"
+  next: "Next"
+  ds: { document: "Document", revision: "Revision", status: "Status", type: "Type", updated: "Updated", summary: "Technical summary", revisions: "Revision history", links: "Links" }
+  figure: "Figure"
+  log: "Log"
+  log_soon: "Short, dated notes from the bench will appear here."
+  index: { doc: "Doc.", title: "Project", status: "Status", year: "Year" }
+  rc: { title: "RC low-pass filter", r: "Resistance", c: "Capacitance", fc: "Cutoff frequency", tau: "Time constant", gain: "Gain", freq: "Frequency" }
 
 tr:
   code: "TR"
@@ -37,10 +49,12 @@ tr:
   home_url: "/tr/"
   projects_url: "/tr/projeler/"
   posts_url: "/tr/yazilar/"
+  log_url: "/tr/gunluk/"
   nav:
     - { title: "Hakkımda", url: "/tr/hakkimda/" }
     - { title: "Projeler", url: "/tr/projeler/" }
     - { title: "Yazılar",  url: "/tr/yazilar/" }
+    - { title: "Günlük",   url: "/tr/gunluk/" }
     - { title: "İletişim", url: "/tr/hakkimda/#iletisim" }
   nav_label: "Ana menü"
   lang_label: "Dil"
@@ -58,6 +72,16 @@ tr:
   spec: "Teknik künye"
   contact: "İletişim"
   email: "E-posta"
-  status: { ongoing: "Sürüyor", completed: "Tamamlandı" }
+  cv: "Özgeçmiş"
+  cv_link: "İndir (PDF)"
+  status: { planned: "Planlanıyor", starting: "Başlıyor", ongoing: "Sürüyor", completed: "Tamamlandı" }
   months: ["Oca", "Şub", "Mar", "Nis", "May", "Haz", "Tem", "Ağu", "Eyl", "Eki", "Kas", "Ara"]
   months_long: ["Ocak", "Şubat", "Mart", "Nisan", "Mayıs", "Haziran", "Temmuz", "Ağustos", "Eylül", "Ekim", "Kasım", "Aralık"]
+  now: "Şimdi"
+  next: "Sıradaki"
+  ds: { document: "Belge", revision: "Revizyon", status: "Durum", type: "Tür", updated: "Güncelleme", summary: "Teknik özet", revisions: "Revizyon geçmişi", links: "Bağlantılar" }
+  figure: "Şekil"
+  log: "Günlük"
+  log_soon: "Tezgâhtan kısa, tarihli notlar burada yer alacak."
+  index: { doc: "Belge", title: "Proje", status: "Durum", year: "Yıl" }
+  rc: { title: "RC alçak geçiren filtre", r: "Direnç", c: "Kapasite", fc: "Kesim frekansı", tau: "Zaman sabiti", gain: "Kazanç", freq: "Frekans" }

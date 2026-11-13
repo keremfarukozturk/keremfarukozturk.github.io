@@ -1,0 +1,5 @@
+{%- comment -%}
+  Kenar notu — geniş ekranda metnin sağ kenarında, dar ekranda paragrafın içinde görünür.
+  Kullanım (paragraf içinde): …sınırlanır.{% include sidenote.html n=1 text="Roofline modeli: …" %} Bu yüzden…
+{%- endcomment -%}
+<sup class="sn-ref" id="snref-{{ include.n }}"><a href="#sn-{{ include.n }}" aria-describedby="sn-{{ include.n }}">{{ include.n }}</a></sup><span class="sn" id="sn-{{ include.n }}" role="note"><b>{{ include.n }}</b> {{ include.text }}</span>
