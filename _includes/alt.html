@@ -1,0 +1,22 @@
+{%- comment -%}
+  Sayfanın diğer dildeki karşılığını bulur. Sonuç: other, alt_url, alt_exact.
+  Eşleştirme: iki sayfanın ön bilgisinde aynı `ref` değeri.
+  Karşılığı olmayan yazı/projede diğer dilin liste sayfasına, diğerlerinde ana sayfasına gider.
+{%- endcomment -%}
+{%- assign lang = page.lang | default: site.lang -%}
+{%- if lang == "en" %}{% assign other = "tr" %}{% else %}{% assign other = "en" %}{% endif -%}
+{%- assign alt = nil -%}
+{%- if page.ref -%}
+  {%- assign alt = site.pages | where: "ref", page.ref | where: "lang", other | first -%}
+  {%- unless alt %}{% assign alt = site.posts | where: "ref", page.ref | where: "lang", other | first %}{% endunless -%}
+  {%- unless alt %}{% assign alt = site.projects | where: "ref", page.ref | where: "lang", other | first %}{% endunless -%}
+{%- endif -%}
+{%- assign _to = site.data.ui[other] -%}
+{%- if alt -%}
+  {%- assign alt_url = alt.url -%}{%- assign alt_exact = true -%}
+{%- else -%}
+  {%- assign alt_exact = false -%}
+  {%- if page.collection == "posts" %}{% assign alt_url = _to.posts_url %}
+  {%- elsif page.collection == "projects" %}{% assign alt_url = _to.projects_url %}
+  {%- else %}{% assign alt_url = _to.home_url %}{% endif -%}
+{%- endif -%}

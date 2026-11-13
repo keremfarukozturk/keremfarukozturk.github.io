@@ -1,32 +1,48 @@
 # keremfarukozturk.github.io
 
 Kerem Faruk Öztürk'ün kişisel web sitesi: yazılar, projeler ve notlar.
-**Yapay zekâ silikonda çalışır, elektrikle beslenir. Ben bu katmanları öğreniyorum.**
+**AI runs on silicon and is powered by electricity. I'm learning these layers.**
+*Yapay zekâ silikonda çalışır, elektrikle beslenir. Ben bu katmanları öğreniyorum.*
 
 Site [Jekyll](https://jekyllrb.com/) ile yazıldı ve GitHub Pages tarafından ücretsiz olarak derlenip yayınlanır. Ek bir derleme hattı, Node.js ya da dış kütüphane yoktur.
 
 ---
 
+## Diller
+
+Site iki dillidir. **Varsayılan dil İngilizce**; Türkçe sürüm `/tr/` altındadır. Her sayfanın sağ üstündeki `EN / TR` düğmesi, sayfanın diğer dildeki karşılığına götürür.
+
+| İngilizce | Türkçe |
+|---|---|
+| `/` | `/tr/` |
+| `/about/` | `/tr/hakkimda/` |
+| `/projects/` | `/tr/projeler/` |
+| `/writing/` | `/tr/yazilar/` |
+
+- Eski Türkçe adresler (`/hakkimda/`, `/projeler/`, `/yazilar/`) yeni adreslerine otomatik yönlenir.
+- İki sayfanın birbirinin çevirisi olduğunu, ön bilgilerine yazılan **aynı `ref` değeri** belirtir. Örneğin `about.md` ve `tr/hakkimda.md` dosyalarının ikisinde de `ref: about` yazar.
+- Bir yazı ya da projenin çevirisi yoksa dil düğmesi, diğer dildeki liste sayfasına götürür. Bu yüzden her yazıyı iki dilde yazmak zorunlu değildir.
+
 ## Klasör yapısı
 
 ```
-_config.yml          Site ayarları: isim, tanım, e-posta, sosyal bağlantılar
-_data/ui.yml         Arayüz metinleri (menü, "Yakında" metinleri, ay adları)
-_layouts/            Sayfa şablonları: default, page, post, project
-_includes/           Tekrar kullanılan parçalar: head, header, footer, tarih, kartlar
-_posts/              Yazılar (her yazı tek bir .md dosyası)
-_projects/           Projeler (her proje tek bir .md dosyası)
-assets/css/main.css  Tasarım sistemi (fontlar dahil, tek dosya)
-assets/fonts/        IBM Plex fontları (OFL lisansı, siteyle birlikte barındırılır)
-assets/js/           motion.js (kaydırma animasyonları), intro.js (giriş animasyonu)
-assets/vendor/katex/ Formül desteği (MIT lisansı, yalnızca `math: true` sayfalarda yüklenir)
-_data/categories.yml Kategoriler ve ikonları
-index.html           Ana sayfa
-hakkimda.md          Hakkımda + İletişim
-projeler/, yazilar/  Liste sayfaları
+_config.yml           Site ayarları: isim, e-posta, sosyal bağlantılar, dil kuralları
+_data/ui.yml          Arayüz metinleri, iki dilde (menü, "Yakında" metinleri, ay adları)
+_data/categories.yml  Kategoriler, iki dildeki adları ve ikonları
+_layouts/             Sayfa şablonları: default, home, page, post, project
+_includes/            Tekrar kullanılan parçalar: başlık, dil düğmesi, tarih, kartlar, iletişim
+_posts/en/, _posts/tr/        Yazılar (her yazı tek bir .md dosyası)
+_projects/en/, _projects/tr/  Projeler (her proje tek bir .md dosyası)
+index.html, about.md, projects/, writing/   İngilizce sayfalar
+tr/                   Türkçe sayfalar
+assets/css/main.css   Tasarım sistemi (fontlar dahil, tek dosya)
+assets/fonts/         IBM Plex fontları (OFL lisansı, siteyle birlikte barındırılır)
+assets/js/            motion.js (kaydırma animasyonları), intro.js (giriş animasyonu)
+assets/vendor/katex/  Formül desteği (MIT lisansı, yalnızca `math: true` sayfalarda yüklenir)
+assets/og-en.png, og-tr.png   Link paylaşıldığında görünen önizleme görselleri
 ```
 
-Projeler ya da yazılar klasörü boşken ilgili bölümlerde otomatik olarak "Yakında" kutusu görünür. İlk dosya eklendiği anda kutu kendiliğinden kalkar.
+Bir dilde hiç proje ya da yazı yokken, o dilin sayfalarında otomatik olarak "Yakında" kutusu görünür. İlk dosya eklendiği anda kutu kendiliğinden kalkar.
 
 ## Yerelde önizleme (isteğe bağlı)
 
@@ -43,21 +59,26 @@ Ardından tarayıcıda `http://localhost:4000` adresi açılır.
 
 Yeni içerik eklemek için bilgisayara bir şey kurmak gerekmez. GitHub'da dosya oluşturmak yeterlidir:
 
-1. GitHub'da depoyu aç, `_posts` (yazı) ya da `_projects` (proje) klasörüne gir.
+1. GitHub'da depoyu aç ve doğru klasöre gir: İngilizce yazı için `_posts/en`, Türkçe yazı için `_posts/tr`; projeler için `_projects/en` ya da `_projects/tr`.
 2. **Add file → Create new file** de.
 3. Aşağıdaki şablonu yapıştır, doldur, **Commit changes** de.
-4. Bir iki dakika içinde site güncellenir. İlk içerik eklendiğinde ilgili "Yakında" kutusu kendiliğinden kalkar.
+4. Bir iki dakika içinde site güncellenir.
+
+Dil, adres ve paylaşım görseli dosyanın bulunduğu klasöre göre **otomatik** atanır; ön bilgiye ayrıca dil yazılmaz.
 
 ### Yazı
 
-Dosya adı: `_posts/YYYY-AA-GG-kisa-baslik.md`, örneğin `_posts/2026-12-01-bellek-duvari.md`.
-Dosya adında Türkçe karakter ve boşluk kullanılmaz; sayfa adresi bu addan oluşur (`/yazilar/bellek-duvari/`).
+Dosya adı: `YYYY-AA-GG-kisa-baslik.md`. Dosya adında Türkçe karakter ve boşluk kullanılmaz; sayfa adresi bu addan oluşur.
+
+- `_posts/en/2026-12-01-memory-wall.md` → `/writing/memory-wall/`
+- `_posts/tr/2026-12-01-bellek-duvari.md` → `/tr/yazilar/bellek-duvari/`
 
 ```markdown
 ---
 title: "Bellek duvarı: yapay zekânın asıl darboğazı"
 description: "Listede ve paylaşım önizlemesinde görünen tek cümlelik özet."
-category: yapay-zeka      # elektronik | sinyal | yazilim | yapay-zeka | notlar
+category: ai              # electronics | signals | software | ai | notes
+ref: memory-wall          # isteğe bağlı; diğer dildeki çevirisiyle aynı değer
 math: true                # formül varsa ekle, yoksa bu satırı sil
 ---
 
@@ -75,21 +96,25 @@ $$
 ```
 
 - Tarihi ileri bir gün olan yazı, o gün gelene kadar yayınlanmaz.
-- Okuma süresi ve Türkçe tarih otomatik hesaplanır.
+- Okuma süresi ve tarih, yazının dilinde otomatik yazılır.
 - Blok formül için `$$ ... $$` öncesinde ve sonrasında boş satır bırakılmalıdır.
 
 ### Proje
 
-Dosya adı: `_projects/kisa-ad.md`, örneğin `_projects/sensor-karti.md`. Adres: `/projeler/sensor-karti/`.
+Dosya adı: `kisa-ad.md`.
+
+- `_projects/en/sensor-board.md` → `/projects/sensor-board/`
+- `_projects/tr/sensor-karti.md` → `/tr/projeler/sensor-karti/`
 
 ```markdown
 ---
 title: "Düşük güçlü sensör kartı"
 summary: "Hangi problemi nasıl çözdüğünü anlatan tek cümle."
 year: 2026
-status: sürüyor           # sürüyor | tamamlandı
+status: ongoing           # ongoing | completed  (sitede "Sürüyor / Tamamlandı" yazar)
+type: electronics         # electronics | signals | software | ai — karttaki ikonu belirler
+ref: sensor-board         # isteğe bağlı; diğer dildeki çevirisiyle aynı değer
 order: 1                  # isteğe bağlı; küçük sayı en üstte. Yoksa yıla göre sıralanır
-type: elektronik          # elektronik | sinyal | yazilim | yapay-zeka — karttaki ikonu belirler
 cover: /assets/img/projeler/sensor-karti/kapak.webp   # isteğe bağlı kapak; yoksa ikon görünür
 stack:                    # isteğe bağlı — sayfanın altındaki "Teknik künye"
   Donanım: [STM32, INA219]
@@ -105,21 +130,23 @@ links:
 
 ### Görseller
 
-- Klasör: `assets/img/projeler/<proje-adı>/` ya da `assets/img/yazilar/<yazı-adı>/`.
+- Klasör: `assets/img/projeler/<proje-adı>/` ya da `assets/img/yazilar/<yazı-adı>/`. İki dil aynı görselleri kullanabilir.
 - Biçim: **WebP**, genişlik en fazla 1600px, dosya başına mümkünse 300 KB'ın altında.
 - Proje kapakları (`cover:`) **16:10** oranında olmalıdır; kartlar aynı oranla gösterilir.
-- Link paylaşıldığında görünen önizleme görseli varsayılan olarak `assets/og-default.png`'dir. Bir yazı ya da projeye özel önizleme için ön bilgiye `image: /assets/img/...png` eklenir (1200×630 PNG ya da JPG; WebP bazı platformlarda görünmez).
+- Link paylaşıldığında görünen önizleme görseli dile göre `assets/og-en.png` ya da `assets/og-tr.png`'dir. Bir yazı ya da projeye özel önizleme için ön bilgiye `image: /assets/img/...png` eklenir (1200×630 PNG ya da JPG; WebP bazı platformlarda görünmez).
 - Yazı içinde: `![Kısa açıklama](/assets/img/yazilar/bellek-duvari/grafik.webp)`
+- Fotoğraf yüklemeden önce içindeki konum bilgisini (EXIF/GPS) silin.
 
 ### Kategoriler
 
-Kategoriler ve ikonları `_data/categories.yml` dosyasındadır. Yeni bir kategori eklemeden önce mevcut beşinden birine uyup uymadığına bakın; az kategori, düzenli bir site demektir.
+Kategoriler, iki dildeki adları ve ikonları `_data/categories.yml` dosyasındadır. Yeni bir kategori eklemeden önce mevcut beşinden birine uyup uymadığına bakın; az kategori, düzenli bir site demektir.
 
 ### Site metinleri
 
-- İsim, tanım, e-posta, sosyal bağlantılar, ana sayfadaki "Odak" satırı: `_config.yml`
-- Ana sayfa başlığı: `index.html` dosyasının başındaki `hero:` satırları
-- Menü ve "Yakında" metinleri: `_data/ui.yml`
+- İsim, e-posta, sosyal bağlantılar: `_config.yml`
+- Ana sayfa metinleri: `index.html` (İngilizce) ve `tr/index.html` (Türkçe) dosyalarının ön bilgisi
+- Hakkımda: `about.md` ve `tr/hakkimda.md`. **Birini değiştirince diğerini de güncelleyin.**
+- Menü, "Yakında" ve diğer arayüz metinleri: `_data/ui.yml` (iki dil)
 
 ---
 

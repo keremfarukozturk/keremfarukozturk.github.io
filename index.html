@@ -1,53 +1,11 @@
 ---
-layout: default
+layout: home
+ref: home
 intro_animation: true
-kicker: "Elektrik-elektronik mühendisliği öğrencisi"
+kicker: "Electrical & electronics engineering student"
 hero:
-  - "Yapay zekâ silikonda çalışır,"
-  - "elektrikle beslenir."
-hero_soft: "Ben bu katmanları öğreniyorum."
+  - "AI runs on silicon"
+  - "and is powered by electricity."
+hero_soft: "I'm learning these layers."
+intro: "I focus on AI hardware while learning power electronics and AI security. Here, I document my projects, experiments and what I learn along the way."
 ---
-{%- assign t = site.data.ui[site.lang] -%}
-<div class="w">
-  <section class="hero" aria-label="Giriş">
-    <div class="hero-text">
-      <span class="bar" aria-hidden="true"></span>
-      <p class="kicker label">{{ page.kicker }}</p>
-      <h1>{% for line in page.hero %}<span>{{ line }}</span> {% endfor %}<span class="soft">{{ page.hero_soft }}</span></h1>
-      <p class="intro">{{ site.intro }}</p>
-      {%- if site.focus != "" %}
-      <div class="focus mono">{{ t.focus }} — <b>{{ site.focus }}</b></div>
-      {%- endif %}
-    </div>
-    <div class="media"><canvas id="intro" role="img" aria-label="{{ t.intro_alt }}"></canvas></div>
-  </section>
-
-  <section class="sec" aria-labelledby="projeler-baslik">
-    <div class="sec-head">
-      <h2 class="label" id="projeler-baslik">{{ t.projects }}</h2>
-      {%- if site.projects.size > 3 %}<a href="{{ '/projeler/' | relative_url }}">{{ t.all }} →</a>{% endif %}
-    </div>
-    {%- include sorted-projects.html -%}
-    {%- if projects.size > 0 %}
-    <div class="cards">
-      {%- for p in projects limit: 3 %}{% include project-card.html p=p %}{% endfor %}
-    </div>
-    {%- else %}
-    {% include empty.html icon="wave" text=t.projects_soon %}
-    {%- endif %}
-  </section>
-
-  <section class="sec" aria-labelledby="yazilar-baslik">
-    <div class="sec-head">
-      <h2 class="label" id="yazilar-baslik">{{ t.posts }}</h2>
-      {%- if site.posts.size > 5 %}<a href="{{ '/yazilar/' | relative_url }}">{{ t.all }} →</a>{% endif %}
-    </div>
-    {%- if site.posts.size > 0 %}
-    <ul class="list">
-      {%- for p in site.posts limit: 5 %}{% include post-item.html p=p %}{% endfor %}
-    </ul>
-    {%- else %}
-    {% include empty.html icon="cursor" text=t.posts_soon %}
-    {%- endif %}
-  </section>
-</div>

@@ -1,10 +1,12 @@
 {%- comment -%}
-  Projeleri sıralar ve `projects` değişkenine yazar.
+  Sayfanın dilindeki projeleri sıralar ve `projects` değişkenine yazar.
   1) `order` alanı olanlar önce, küçük sayı en üstte (order: 1 → ilk).
   2) `order` alanı olmayanlar sonra, yeniden eskiye (year), aynı yılda başlığa göre.
 {%- endcomment -%}
-{%- assign _ordered = site.projects | where_exp: "p", "p.order" | sort: "order" -%}
-{%- assign _rest = site.projects | where_exp: "p", "p.order == nil" | sort: "title" -%}
+{%- assign lang = page.lang | default: site.lang -%}
+{%- assign _all = site.projects | where: "lang", lang -%}
+{%- assign _ordered = _all | where_exp: "p", "p.order" | sort: "order" -%}
+{%- assign _rest = _all | where_exp: "p", "p.order == nil" | sort: "title" -%}
 {%- assign _years = _rest | map: "year" | uniq | sort | reverse -%}
 {%- assign projects = _ordered -%}
 {%- for y in _years -%}

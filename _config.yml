@@ -2,20 +2,16 @@
 # Site ayarları — kişisel bilgiler ve metinler buradan değişir.
 # ------------------------------------------------------------
 title: Kerem Faruk Öztürk
-tagline: "Yapay zekâ silikonda çalışır, elektrikle beslenir."
-description: "Kerem Faruk Öztürk — elektrik-elektronik mühendisliği öğrencisi. Yapay zekâ donanımı, güç elektroniği ve yapay zekâ güvenliği üzerine projeler, deneyler ve notlar."
-lang: tr
-locale: tr_TR
+tagline: "AI runs on silicon and is powered by electricity."
+description: "Kerem Faruk Öztürk — electrical and electronics engineering student. Projects, experiments and notes on AI hardware, power electronics and AI security."
+lang: en            # varsayılan dil; Türkçe sayfalar /tr/ altında
+locale: en_US
 url: "https://keremfarukozturk.github.io"
 baseurl: ""
 
 author:
   name: Kerem Faruk Öztürk
   email: keremfarukozturk@outlook.com
-
-# Ana sayfa
-intro: "Yapay zekâ donanımına odaklanıyor; güç elektroniği ve yapay zekâ güvenliğini öğreniyorum. Projelerimi, deneylerimi ve öğrendiklerimi burada belgeliyorum."
-focus: ""   # doluysa ana sayfada "Odak — …" satırı görünür
 
 # Bağlantılar — boş bırakılan görünmez
 social:
@@ -36,19 +32,34 @@ twitter:
 collections:
   projects:
     output: true
-    permalink: /projeler/:name/
 
-permalink: /yazilar/:title/
+permalink: pretty   # sayfa adresleri /about/ biçiminde (sonunda .html yok)
 
+# Dil, adres ve paylaşım görseli klasöre göre otomatik atanır:
+#   _posts/en, _projects/en  → İngilizce   (/writing/…, /projects/…)
+#   _posts/tr, _projects/tr  → Türkçe      (/tr/yazilar/…, /tr/projeler/…)
+#   tr/ klasöründeki sayfalar → Türkçe
 defaults:
-  # Link paylaşıldığında görünen önizleme görseli (1200×630).
-  # Bir yazıya özel görsel için o yazının ön bilgisine `image:` yazılır.
   - scope: { path: "" }
-    values: { image: /assets/og-default.png }
+    values: { lang: en, locale: en_US, image: /assets/og-en.png }
+  - scope: { path: "tr" }
+    values:
+      lang: tr
+      locale: tr_TR
+      image: /assets/og-tr.png
+      description: "Kerem Faruk Öztürk — elektrik-elektronik mühendisliği öğrencisi. Yapay zekâ donanımı, güç elektroniği ve yapay zekâ güvenliği üzerine projeler, deneyler ve notlar."
   - scope: { path: "", type: posts }
     values: { layout: post }
+  - scope: { path: "_posts/en", type: posts }
+    values: { lang: en, locale: en_US, permalink: "/writing/:title/" }
+  - scope: { path: "_posts/tr", type: posts }
+    values: { lang: tr, locale: tr_TR, image: /assets/og-tr.png, permalink: "/tr/yazilar/:title/" }
   - scope: { path: "", type: projects }
     values: { layout: project }
+  - scope: { path: "_projects/en", type: projects }
+    values: { lang: en, locale: en_US, permalink: "/projects/:name/" }
+  - scope: { path: "_projects/tr", type: projects }
+    values: { lang: tr, locale: tr_TR, image: /assets/og-tr.png, permalink: "/tr/projeler/:name/" }
 
 # ------------------------------------------------------------
 # Derleme (GitHub Pages'in izin verdiği eklentiler)
@@ -63,6 +74,7 @@ plugins:
   - jekyll-seo-tag
   - jekyll-sitemap
   - jekyll-feed
+  - jekyll-redirect-from    # eski Türkçe adresleri /tr/ altına yönlendirir
 
 feed:
   path: feed.xml
