@@ -4,6 +4,8 @@ Kerem Faruk Öztürk'ün kişisel web sitesi: yazılar, projeler ve notlar.
 **AI runs on silicon and is powered by electricity. I'm learning these layers.**
 *Yapay zekâ silikonda çalışır, elektrikle beslenir. Ben bu katmanları öğreniyorum.*
 
+Adres: **https://keremfarukozturk.dev** (eski `keremfarukozturk.github.io` adresi buraya yönlenir). Alan adı `CNAME` dosyasında tanımlıdır; bu dosya silinmemelidir.
+
 Site [Jekyll](https://jekyllrb.com/) ile yazıldı ve GitHub Pages tarafından ücretsiz olarak derlenip yayınlanır. Ek bir derleme hattı, Node.js ya da dış kütüphane yoktur.
 
 ---
