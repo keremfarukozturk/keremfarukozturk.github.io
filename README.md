@@ -99,6 +99,7 @@ $$
 ```
 
 - Tarihi ileri bir gün olan yazı, o gün gelene kadar yayınlanmaz.
+- **Taslak:** Ön bilgiye `published: false` yazılan yazı ya da proje canlı sitede görünmez. Codespace'te `bundle exec jekyll serve --host 0.0.0.0 --unpublished` ile önizlenir; yayınlamak için o satırı silmek yeterlidir.
 - Okuma süresi ve tarih, yazının dilinde otomatik yazılır.
 - Blok formül için `$$ ... $$` öncesinde ve sonrasında boş satır bırakılmalıdır.
 
@@ -119,7 +120,7 @@ doc: KFO-002              # belge numarası: KFO-001, KFO-002, … (her projeye 
 rev: A                    # güncel revizyon harfi
 updated: 2026-12-01       # son güncelleme tarihi
 year: 2026
-status: ongoing           # ongoing | completed  (sitede "Sürüyor / Tamamlandı" yazar)
+status: ongoing           # planned | starting | ongoing | completed  (Planlanıyor / Başlıyor / Sürüyor / Tamamlandı)
 type: electronics         # electronics | signals | software | ai — karttaki ikonu belirler
 ref: sensor-board         # isteğe bağlı; diğer dildeki çevirisiyle aynı değer
 order: 1                  # isteğe bağlı; küçük sayı en üstte. Yoksa yıla göre sıralanır

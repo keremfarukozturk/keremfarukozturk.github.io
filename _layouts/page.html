@@ -2,24 +2,10 @@
 layout: default
 ---
 <div class="page w">
-  {%- if page.bold %}
-  <header class="bold-head">
-    <div class="bh-cols" aria-hidden="true">{% for i in (1..12) %}<i></i>{% endfor %}</div>
-    <p class="label">{{ page.title }}</p>
-    <h1>{% for w in page.bold.words %}<span{% if forloop.first %} class="main"{% endif %}>{{ w }}</span>{% endfor %}</h1>
-    {%- if page.lede %}<p class="bh-lede">{{ page.lede }}</p>{% endif %}
-    <dl class="bh-row">
-      {%- for r in page.bold.row %}
-      <div{% if forloop.first %} class="main"{% endif %}><dt>{{ r.k }}</dt><dd>{{ r.v }}</dd></div>
-      {%- endfor %}
-    </dl>
-  </header>
-  {%- else %}
   <header class="page-head">
     <span class="bar" aria-hidden="true"></span>
     <h1>{{ page.title }}</h1>
     {%- if page.lede %}<p>{{ page.lede }}</p>{% endif %}
   </header>
-  {%- endif %}
   {{ content }}
 </div>

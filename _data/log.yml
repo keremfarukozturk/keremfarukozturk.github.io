@@ -1,10 +1,6 @@
 # Mühendislik günlüğü — kısa, tarihli notlar. En yeni kayıt en üste yazılır.
 # tag: _data/categories.yml anahtarlarından biri (electronics | signals | software | ai | notes)
 # en: İngilizce metin (zorunlu) · tr: Türkçe metin (isteğe bağlı; yoksa İngilizcesi gösterilir)
-- date: 2026-11-13
-  tag: software
-  en: "Made this site bilingual: English by default, Turkish under /tr/."
-  tr: "Bu siteyi iki dilli yaptım: varsayılan İngilizce, Türkçesi /tr/ altında."
 - date: 2026-11-11
   tag: notes
   en: "Launched this site."
