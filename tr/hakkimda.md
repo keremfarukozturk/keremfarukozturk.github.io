@@ -1,7 +1,9 @@
 ---
 layout: page
+ref: about
 title: Hakkımda
 lede: Elektrik-elektronik mühendisliği öğrencisiyim.
+redirect_from: /hakkimda/
 ---
 
 <div class="about">
@@ -35,15 +37,4 @@ Ana odağım yapay zekâ donanımı: çip tasarımı ve doğrulama. Güç elektr
 
 <p class="about-note">Bu sitede projelerimi, deneylerimi ve öğrendiklerimi hatalarımla birlikte belgeliyorum.</p>
 
-<section class="contact" id="iletisim" aria-labelledby="iletisim-baslik">
-  <h2 class="label" id="iletisim-baslik">İletişim</h2>
-  <ul>
-    <li><span class="mono">E-posta</span><a href="mailto:{{ site.author.email }}">{{ site.author.email }}</a></li>
-    {%- if site.social.github != "" %}
-    <li><span class="mono">GitHub</span><a href="{{ site.social.github }}" rel="me">{{ site.social.github | remove: "https://" }}</a></li>
-    {%- endif %}
-    {%- if site.social.linkedin != "" %}
-    <li><span class="mono">LinkedIn</span><a href="{{ site.social.linkedin }}" rel="me">{{ site.social.linkedin | remove: "https://" | remove: "www." }}</a></li>
-    {%- endif %}
-  </ul>
-</section>
+{% include contact.html id="iletisim" %}

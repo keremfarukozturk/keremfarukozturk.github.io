@@ -1,7 +1,7 @@
 # Kategoriler — yazılar (category:) ve projeler (type:) bu anahtarları kullanır.
-# icon: _includes/icon.html içindeki çizimlerden biri (sinyal | elektronik | yazilim | yapay-zeka | not)
-elektronik:  { title: "Elektronik",  icon: elektronik }
-sinyal:      { title: "Sinyal",      icon: sinyal }
-yazilim:     { title: "Yazılım",     icon: yazilim }
-yapay-zeka:  { title: "Yapay Zekâ",  icon: yapay-zeka }
-notlar:      { title: "Notlar",      icon: not }
+# icon: _includes/icon.html içindeki çizimlerden biri.
+electronics: { en: "Electronics", tr: "Elektronik", icon: elektronik }
+signals:     { en: "Signals",     tr: "Sinyal",     icon: sinyal }
+software:    { en: "Software",    tr: "Yazılım",    icon: yazilim }
+ai:          { en: "AI",          tr: "Yapay Zekâ", icon: yapay-zeka }
+notes:       { en: "Notes",       tr: "Notlar",     icon: not }

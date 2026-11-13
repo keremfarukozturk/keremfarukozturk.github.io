@@ -1,9 +1,4 @@
----
-layout: page
-title: Projeler
-lede: Üzerinde çalıştığım ve tamamladığım işler.
----
-{%- assign t = site.data.ui[site.lang] -%}
+{%- assign lang = page.lang | default: site.lang -%}{%- assign t = site.data.ui[lang] -%}
 {%- include sorted-projects.html -%}
 <section class="sec">
 {%- if projects.size > 0 %}

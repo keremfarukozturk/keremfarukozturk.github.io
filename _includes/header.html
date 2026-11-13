@@ -1,10 +1,20 @@
-{%- assign t = site.data.ui[site.lang] -%}
-<a class="skip" href="#icerik">{{ t.skip }}</a>
+{%- assign lang = page.lang | default: site.lang -%}{%- assign t = site.data.ui[lang] -%}
+{%- include alt.html -%}
+<a class="skip" href="#content">{{ t.skip }}</a>
 <header class="site-header w">
-  <a class="brand" href="{{ '/' | relative_url }}" aria-label="{{ site.title }} — {{ t.home }}"><i aria-hidden="true"></i>{{ site.title }}</a>
-  <nav class="nav" aria-label="Ana menü">
-    {%- for link in t.nav %}
-    <a href="{{ link.url | relative_url }}"{% if page.url == link.url or page.url contains link.url %} aria-current="page"{% endif %}>{{ link.title }}</a>
-    {%- endfor %}
-  </nav>
+  <a class="brand" href="{{ t.home_url | relative_url }}" aria-label="{{ site.title }} — {{ t.home }}"><i aria-hidden="true"></i>{{ site.title }}</a>
+  <div class="header-right">
+    <nav class="nav" aria-label="{{ t.nav_label }}">
+      {%- for link in t.nav %}
+      <a href="{{ link.url | relative_url }}"{% if page.url == link.url or page.url contains link.url %} aria-current="page"{% endif %}>{{ link.title }}</a>
+      {%- endfor %}
+    </nav>
+    <div class="lang" role="group" aria-label="{{ t.lang_label }}">
+      {%- if lang == "en" %}
+      <span class="on" lang="en" aria-current="true">EN</span><span class="sep" aria-hidden="true">/</span><a href="{{ alt_url | relative_url }}" hreflang="tr" lang="tr" title="Türkçe">TR</a>
+      {%- else %}
+      <a href="{{ alt_url | relative_url }}" hreflang="en" lang="en" title="English">EN</a><span class="sep" aria-hidden="true">/</span><span class="on" lang="tr" aria-current="true">TR</span>
+      {%- endif %}
+    </div>
+  </div>
 </header>

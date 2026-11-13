@@ -1,5 +1,5 @@
 {%- comment -%} "Yakında" kutusu. icon: wave | cursor {%- endcomment -%}
-{%- assign t = site.data.ui[site.lang] -%}
+{%- assign lang = page.lang | default: site.lang -%}{%- assign t = site.data.ui[lang] -%}
 <div class="empty reveal">
   {%- if include.icon == "cursor" -%}
   <span class="cursor" aria-hidden="true"></span>

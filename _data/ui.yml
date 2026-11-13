@@ -1,20 +1,63 @@
-# Arayüz metinleri. İleride İngilizce sürüm için "en:" bloğu eklenir
-# ve şablonlar site.lang / page.lang'e göre buradan okur.
-tr:
+# Arayüz metinleri — iki dil. Şablonlar sayfanın diline (page.lang) göre buradan okur.
+# Yeni bir metin eklerken iki dile de eklemeyi unutmayın.
+en:
+  code: "EN"
+  name: "English"
+  home_url: "/"
+  projects_url: "/projects/"
+  posts_url: "/writing/"
   nav:
-    - { title: "Hakkımda", url: "/hakkimda/" }
-    - { title: "Projeler", url: "/projeler/" }
-    - { title: "Yazılar",  url: "/yazilar/" }
-    - { title: "İletişim", url: "/hakkimda/#iletisim" }
+    - { title: "About",    url: "/about/" }
+    - { title: "Projects", url: "/projects/" }
+    - { title: "Writing",  url: "/writing/" }
+    - { title: "Contact",  url: "/about/#contact" }
+  nav_label: "Main menu"
+  lang_label: "Language"
+  skip: "Skip to content"
+  home: "Home"
+  intro_label: "Introduction"
+  projects: "Projects"
+  posts: "Writing"
+  all: "All"
+  soon: "Coming soon"
+  projects_soon: "I'm working on my first projects. They'll appear here when they're ready."
+  posts_soon: "The first post is on its way."
+  intro_alt: "Animation: an electrical signal becomes digital bits, the bits flow into a chip and code, the code grows into a neural network, and finally the word “future.” is typed."
+  min: "min"
+  spec: "Specifications"
+  contact: "Contact"
+  email: "Email"
+  status: { ongoing: "Ongoing", completed: "Completed" }
+  months: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
+  months_long: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
+
+tr:
+  code: "TR"
+  name: "Türkçe"
+  home_url: "/tr/"
+  projects_url: "/tr/projeler/"
+  posts_url: "/tr/yazilar/"
+  nav:
+    - { title: "Hakkımda", url: "/tr/hakkimda/" }
+    - { title: "Projeler", url: "/tr/projeler/" }
+    - { title: "Yazılar",  url: "/tr/yazilar/" }
+    - { title: "İletişim", url: "/tr/hakkimda/#iletisim" }
+  nav_label: "Ana menü"
+  lang_label: "Dil"
   skip: "İçeriğe geç"
   home: "Ana sayfa"
+  intro_label: "Giriş"
   projects: "Projeler"
   posts: "Yazılar"
   all: "Tümü"
-  focus: "Odak"
   soon: "Yakında"
   projects_soon: "İlk projeler üzerinde çalışıyorum. Hazır olduklarında burada yer alacak."
   posts_soon: "İlk yazı hazırlanıyor."
   intro_alt: "Animasyon: bir elektrik sinyali dijital bitlere, bitler bir çipe ve koda, kod bir yapay sinir ağına dönüşüyor; sonunda “future.” yazılıyor."
+  min: "dk"
+  spec: "Teknik künye"
+  contact: "İletişim"
+  email: "E-posta"
+  status: { ongoing: "Sürüyor", completed: "Tamamlandı" }
   months: ["Oca", "Şub", "Mar", "Nis", "May", "Haz", "Tem", "Ağu", "Eyl", "Eki", "Kas", "Ara"]
   months_long: ["Ocak", "Şubat", "Mart", "Nisan", "Mayıs", "Haziran", "Temmuz", "Ağustos", "Eylül", "Ekim", "Kasım", "Aralık"]

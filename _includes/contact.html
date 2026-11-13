@@ -1,0 +1,14 @@
+{%- comment -%} İletişim bölümü. Kullanım: {% include contact.html id="contact" %} {%- endcomment -%}
+{%- assign lang = page.lang | default: site.lang -%}{%- assign t = site.data.ui[lang] -%}
+<section class="contact" id="{{ include.id }}" aria-labelledby="{{ include.id }}-heading">
+  <h2 class="label" id="{{ include.id }}-heading">{{ t.contact }}</h2>
+  <ul>
+    <li><span class="mono">{{ t.email }}</span><a href="mailto:{{ site.author.email }}">{{ site.author.email }}</a></li>
+    {%- if site.social.github != "" %}
+    <li><span class="mono">GitHub</span><a href="{{ site.social.github }}" rel="me">{{ site.social.github | remove: "https://" }}</a></li>
+    {%- endif %}
+    {%- if site.social.linkedin != "" %}
+    <li><span class="mono">LinkedIn</span><a href="{{ site.social.linkedin }}" rel="me">{{ site.social.linkedin | remove: "https://" | remove: "www." }}</a></li>
+    {%- endif %}
+  </ul>
+</section>

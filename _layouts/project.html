@@ -1,12 +1,13 @@
 ---
 layout: default
 ---
+{%- assign lang = page.lang | default: site.lang -%}{%- assign t = site.data.ui[lang] -%}
 {%- assign cat = site.data.categories[page.type] -%}
 <article class="article w">
   <div class="meta mono">
-    {%- if cat %}<span class="k with-icon">{% include icon.html name=cat.icon %}{{ cat.title }}</span>{% endif %}
+    {%- if cat %}<span class="k with-icon">{% include icon.html name=cat.icon %}{{ cat[lang] }}</span>{% endif %}
     <span>{{ page.year }}</span>
-    {%- if page.status %}<span>{% if page.status == "sürüyor" %}<i class="dot" aria-hidden="true"></i> {% endif %}{{ page.status | capitalize }}</span>{% endif %}
+    {%- if page.status %}<span>{% if page.status == "ongoing" %}<i class="dot" aria-hidden="true"></i> {% endif %}{{ t.status[page.status] | default: page.status }}</span>{% endif %}
   </div>
   <h1>{{ page.title }}</h1>
   {%- if page.summary %}<p class="lede">{{ page.summary }}</p>{% endif %}
@@ -18,8 +19,8 @@ layout: default
   </div>
 
   {%- if page.stack or page.links %}
-  <section class="spec" aria-labelledby="kunye">
-    <h2 class="label" id="kunye">Teknik künye</h2>
+  <section class="spec" aria-labelledby="spec-heading">
+    <h2 class="label" id="spec-heading">{{ t.spec }}</h2>
     <dl>
       {%- for group in page.stack %}
       <div><dt class="mono">{{ group[0] }}</dt><dd>{{ group[1] | join: " · " }}</dd></div>

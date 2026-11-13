@@ -80,6 +80,12 @@ img, video, svg, canvas { display: block; max-width: 100%; }
 .nav { display: flex; gap: 32px; font-size: 14px; color: var(--soft); }
 .nav a { position: relative; padding: 4px 0; transition: color .2s; }
 .nav a:hover, .nav a[aria-current] { color: var(--ink); }
+.header-right { display: flex; align-items: center; gap: 28px; }
+.lang { display: flex; align-items: center; gap: 6px; padding-left: 24px; border-left: 1px solid var(--line); font-family: var(--mono); font-size: 12px; letter-spacing: .04em; color: var(--faint); }
+.lang a { padding: 4px 2px; transition: color .2s; }
+.lang a:hover { color: var(--ink); }
+.lang .on { color: var(--ink); }
+.lang .sep { color: var(--line); }
 .nav a[aria-current]::after { content: ""; position: absolute; left: 0; right: 0; bottom: -6px; height: 3px; border-radius: 3px; background: var(--tan); }
 
 /* ---------- 5. Ana sayfa: giriş ---------- */
@@ -211,7 +217,8 @@ img, video, svg, canvas { display: block; max-width: 100%; }
 .notfound .flatline path { stroke: var(--tan); stroke-width: 2; stroke-dasharray: 900; stroke-dashoffset: 900; animation: flat 2.4s var(--ease) .2s forwards; }
 @keyframes flat { to { stroke-dashoffset: 0; } }
 .notfound .page-head .mono { display: block; margin-bottom: 18px; }
-.notfound .back { font-size: 15px; text-decoration: underline; text-decoration-color: var(--tan); text-decoration-thickness: 2px; text-underline-offset: 5px; }
+.notfound .tr-line { margin-top: 10px; font-size: 16px; }
+.notfound .back { display: inline-block; margin-right: 28px; font-size: 15px; text-decoration: underline; text-decoration-color: var(--tan); text-decoration-thickness: 2px; text-underline-offset: 5px; }
 @media (prefers-reduced-motion: reduce) { .notfound .flatline path { stroke-dashoffset: 0; } }
 
 /* ---------- 8. Alt bilgi ---------- */
@@ -253,7 +260,10 @@ img, video, svg, canvas { display: block; max-width: 100%; }
 @media (max-width: 860px) {
   :root { --gutter: 20px; }
   .site-header { flex-direction: column; align-items: flex-start; gap: 18px; padding-top: 28px; padding-bottom: 20px; }
+  .site-header { position: relative; }
+  .header-right { width: 100%; }
   .nav { gap: 22px; flex-wrap: wrap; }
+  .lang { position: absolute; top: 28px; right: var(--gutter); padding-left: 0; border-left: 0; }
   .hero { padding: 56px 0 80px; }
   .hero-text, .media { grid-column: 1 / 13; }
   .hero h1 { font-size: 31px; }
