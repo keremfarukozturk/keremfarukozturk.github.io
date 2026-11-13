@@ -29,7 +29,7 @@ Site iki dillidir. **Varsayılan dil İngilizce**; Türkçe sürüm `/tr/` altı
 _config.yml           Site ayarları: isim, e-posta, sosyal bağlantılar, dil kuralları
 _data/ui.yml          Arayüz metinleri, iki dilde (menü, "Yakında" metinleri, ay adları)
 _data/categories.yml  Kategoriler, iki dildeki adları ve ikonları
-_data/now.yml         "Şimdi ve sıradaki" maddeleri (ana sayfa + Hakkımda)
+_data/now.yml         Hakkımda sayfasındaki "Şimdi / Sıradaki" maddeleri
 _layouts/             Sayfa şablonları: default, home, page, post, project
 _includes/            Tekrar kullanılan parçalar: başlık, dil düğmesi, tarih, kartlar, iletişim
 _posts/en/, _posts/tr/        Yazılar (her yazı tek bir .md dosyası)
@@ -154,7 +154,7 @@ revisions:                # isteğe bağlı — en alttaki "Revizyon geçmişi"
 
 ### Şimdi ve sıradaki
 
-Ana sayfadaki zaman çizelgesi ve Hakkımda sayfasındaki "Şimdi / Sıradaki" listeleri **tek bir dosyadan** okunur: `_data/now.yml`. Bir maddeyi orada değiştirdiğinde iki sayfa ve iki dil birlikte güncellenir.
+Hakkımda sayfasındaki "Şimdi / Sıradaki" listeleri **tek bir dosyadan** okunur: `_data/now.yml`. Bir maddeyi orada değiştirdiğinde iki dildeki sayfa birlikte güncellenir.
 
 ```yaml
 - when: now               # now (şimdi) | next (sıradaki)
@@ -171,7 +171,6 @@ Kategoriler, iki dildeki adları ve ikonları `_data/categories.yml` dosyasında
 - İsim, e-posta, sosyal bağlantılar: `_config.yml`
 - Ana sayfa metinleri: `index.html` (İngilizce) ve `tr/index.html` (Türkçe) dosyalarının ön bilgisi
 - Hakkımda: `about.md` ve `tr/hakkimda.md`. **Birini değiştirince diğerini de güncelleyin.**
-- Giriş animasyonunun altındaki sahne açıklamaları: `_data/ui.yml` içindeki `story` listesi
 - Menü, "Yakında" ve diğer arayüz metinleri: `_data/ui.yml` (iki dil)
 
 ---
@@ -212,7 +211,7 @@ Büyük başlıklarda mono font kullanılmaz.
 
 ### 5. Hareket
 - Animasyonlar **bir kez** oynar ve 1 saniyeden kısadır. Zıplama ya da sekme yoktur.
-- Sitede tek bir sürekli animasyon vardır: ana sayfadaki giriş animasyonu. Geniş ekranda kaydırmaya bağlı ilerler (sayfa yaklaşık bir ekran boyu yapışık kalır); mobilde kendi kendine döner. Kaydırmanın hızı ya da yönü asla değiştirilmez.
+- Sitede tek bir sürekli animasyon vardır: ana sayfadaki giriş animasyonu.
 - İşletim sisteminde "hareketi azalt" ayarı açık olan ziyaretçiler için bütün animasyonlar kapanır.
 - Animasyon kütüphanesi kullanılmaz; yalnızca CSS ve birkaç satır JavaScript.
 

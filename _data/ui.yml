@@ -30,16 +30,8 @@ en:
   status: { ongoing: "Ongoing", completed: "Completed" }
   months: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
   months_long: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
-  scroll: "Scroll"
   now: "Now"
   next: "Next"
-  now_next: "Now & next"
-  story:
-    - { name: "Signal",       text: "Everything starts with a signal." }
-    - { name: "Bits",         text: "The analog world becomes numbers." }
-    - { name: "Silicon",      text: "Numbers come alive in chips. This is my main focus." }
-    - { name: "Intelligence", text: "Chips run systems that learn." }
-    - { name: "Future",       text: "And building every layer securely." }
   ds: { document: "Document", revision: "Revision", status: "Status", type: "Type", updated: "Updated", summary: "Technical summary", revisions: "Revision history", links: "Links" }
   figure: "Figure"
 
@@ -73,15 +65,7 @@ tr:
   status: { ongoing: "Sürüyor", completed: "Tamamlandı" }
   months: ["Oca", "Şub", "Mar", "Nis", "May", "Haz", "Tem", "Ağu", "Eyl", "Eki", "Kas", "Ara"]
   months_long: ["Ocak", "Şubat", "Mart", "Nisan", "Mayıs", "Haziran", "Temmuz", "Ağustos", "Eylül", "Ekim", "Kasım", "Aralık"]
-  scroll: "Aşağı kaydır"
   now: "Şimdi"
   next: "Sıradaki"
-  now_next: "Şimdi ve sıradaki"
-  story:
-    - { name: "Sinyal",  text: "Her şey bir sinyalle başlar." }
-    - { name: "Bit",     text: "Analog dünya sayılara dönüşür." }
-    - { name: "Silikon", text: "Sayılar çiplerde hayat bulur. Ana odağım burası." }
-    - { name: "Zekâ",    text: "Çipler öğrenen sistemleri çalıştırır." }
-    - { name: "Gelecek", text: "Ve tüm bu katmanları güvenle inşa etmek." }
   ds: { document: "Belge", revision: "Revizyon", status: "Durum", type: "Tür", updated: "Güncelleme", summary: "Teknik özet", revisions: "Revizyon geçmişi", links: "Bağlantılar" }
   figure: "Şekil"

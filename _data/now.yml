@@ -1,4 +1,4 @@
-# "Şimdi ve sıradaki" — ana sayfadaki zaman çizelgesi ve Hakkımda sayfası buradan okur.
+# Hakkımda sayfasındaki "Şimdi / Sıradaki" listeleri buradan okunur.
 # when: now (şimdi) | next (sıradaki). Her madde iki dilde yazılır; title isteğe bağlıdır.
 # Bir işi bitirdiğinde maddeyi silebilir ya da ilgili projeye taşıyabilirsin.
 - when: now
