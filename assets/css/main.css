@@ -356,14 +356,14 @@ img, video, svg, canvas { display: block; max-width: 100%; }
 
 /* Saat darbesi: başlığın altındaki ve alt bilginin üstündeki ince çizgilerden,
    dijital devrelerdeki saat sinyali gibi düzenli aralıklarla küçük bir ışık darbesi geçer */
-.site-header { position: relative; }
-.site-header::after, .site-footer::before {
+.site-top { position: relative; }
+.site-top::after, .site-footer::before {
   content: ""; position: absolute; height: 1px; pointer-events: none;
   background: linear-gradient(90deg, transparent, var(--tan) 30%, var(--tan-text) 50%, var(--tan) 70%, transparent) no-repeat, var(--line);
   background-size: 200px 1px, 100% 1px; background-position: -200px 0, 0 0;
   animation: tick 7s cubic-bezier(.45, 0, .25, 1) infinite;
 }
-.site-header::after { left: var(--gutter); right: var(--gutter); bottom: 0; }
+.site-top::after { left: 0; right: 0; bottom: 0; }
 .site-footer::before { left: 0; right: 0; top: 0; animation-delay: -3.5s; }
 @keyframes tick { 0% { background-position: -200px 0, 0 0; } 35%, 100% { background-position: calc(100% + 200px) 0, 0 0; } }
 
