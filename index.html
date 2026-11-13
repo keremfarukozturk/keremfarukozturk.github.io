@@ -1,21 +1,25 @@
 ---
 layout: default
 intro_animation: true
+kicker: "Elektrik-elektronik mühendisliği öğrencisi"
 hero:
-  - "Sinyalden zekâya:"
-  - "her katmanı ciddiye alan"
-  - "bir mühendislik."
+  - "Yapay zekâ silikonda çalışır,"
+  - "elektrikle beslenir."
+hero_soft: "Ben bu katmanları öğreniyorum."
 ---
 {%- assign t = site.data.ui[site.lang] -%}
 <div class="w">
   <section class="hero" aria-label="Giriş">
-    <span class="bar" aria-hidden="true"></span>
-    <h1>{% for line in page.hero %}<span>{{ line }}</span> {% endfor %}</h1>
+    <div class="hero-text">
+      <span class="bar" aria-hidden="true"></span>
+      <p class="kicker label">{{ page.kicker }}</p>
+      <h1>{% for line in page.hero %}<span>{{ line }}</span> {% endfor %}<span class="soft">{{ page.hero_soft }}</span></h1>
+      <p class="intro">{{ site.intro }}</p>
+      {%- if site.focus != "" %}
+      <div class="focus mono">{{ t.focus }} — <b>{{ site.focus }}</b></div>
+      {%- endif %}
+    </div>
     <div class="media"><canvas id="intro" role="img" aria-label="{{ t.intro_alt }}"></canvas></div>
-    <p>{{ site.intro }}</p>
-    {%- if site.focus != "" %}
-    <div class="focus mono">{{ t.focus }} — <b>{{ site.focus }}</b></div>
-    {%- endif %}
   </section>
 
   <section class="sec" aria-labelledby="projeler-baslik">

@@ -1,7 +1,7 @@
 # keremfarukozturk.github.io
 
 Kerem Faruk Öztürk'ün kişisel web sitesi: yazılar, projeler ve notlar.
-**Sinyalden zekâya: her katmanı ciddiye alan bir mühendislik.**
+**Yapay zekâ silikonda çalışır, elektrikle beslenir. Ben bu katmanları öğreniyorum.**
 
 Site [Jekyll](https://jekyllrb.com/) ile yazıldı ve GitHub Pages tarafından ücretsiz olarak derlenip yayınlanır. Ek bir derleme hattı, Node.js ya da dış kütüphane yoktur.
 
