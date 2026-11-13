@@ -1,0 +1,34 @@
+# Hakkımda sayfasındaki özgeçmiş bölümü — iki dilde. CV değişince burası da güncellenir.
+education:
+  - dates: { en: "2023 – 2028 (expected)", tr: "2023 – 2028 (beklenen)" }
+    org: "Istanbul Bilgi University"
+    role: { en: "B.Sc. Electrical and Electronics Engineering (English-medium)", tr: "Elektrik-Elektronik Mühendisliği lisans (İngilizce)" }
+
+experience:
+  - dates: { en: "Jul – Sep 2026", tr: "Tem – Eyl 2026" }
+    org: "VakıfBank"
+    role: { en: "Software Development Intern, Payment Systems", tr: "Yazılım Geliştirme Stajyeri, Ödeme Sistemleri" }
+    detail: { en: "Built a .NET virtual POS integration for merchants and worked on the backend of a Shopify payments app (ASP.NET Core, PostgreSQL).", tr: "Üye işyerleri için .NET ile sanal POS entegrasyonu geliştirdim; bir Shopify ödeme uygulamasının arka ucunda çalıştım (ASP.NET Core, PostgreSQL)." }
+  - dates: { en: "Nov 2024 – May 2026", tr: "Kas 2024 – May 2026" }
+    org: "Outlier (Scale AI)"
+    role: { en: "Python Code Reviewer, AI Code Evaluator", tr: "Python Kod İnceleyici, Yapay Zekâ Kod Değerlendiricisi" }
+    detail: { en: "Reviewed AI-generated code for correctness, efficiency, edge cases and security issues.", tr: "Yapay zekâ tarafından üretilen kodu doğruluk, verim, uç durumlar ve güvenlik açısından inceledim." }
+
+programs:
+  - dates: { en: "2026 – present", tr: "2026 – sürüyor" }
+    org: "Siber Vatan"
+    role: { en: "AI-supported cybersecurity talent program, Ministry of Industry and Technology", tr: "Yapay zekâ destekli siber güvenlik yetenek programı, Sanayi ve Teknoloji Bakanlığı" }
+  - dates: { en: "2026 – 2027", tr: "2026 – 2027" }
+    org: "YÖK Digital University"
+    role: { en: "Artificial Intelligence and Modern Software Development", tr: "Yapay Zekâ ve Modern Yazılım Geliştirme" }
+  - dates: { en: "One-year program", tr: "Bir yıllık program" }
+    org: "Google Türkiye"
+    role: { en: "AI and Technology Academy, scholarship recipient", tr: "Yapay Zekâ ve Teknoloji Akademisi, burslu katılımcı" }
+
+skills:
+  - label: { en: "Hardware", tr: "Donanım" }
+    items: "Verilog, SystemVerilog Assertions, cocotb, Icarus Verilog, Verilator, Yosys, SymbiYosys, FPGA"
+  - label: { en: "Software", tr: "Yazılım" }
+    items: "Python, C#, ASP.NET Core, SQL, PostgreSQL, REST APIs, Docker, Linux, Git"
+  - label: { en: "Languages", tr: "Diller" }
+    items: { en: "Turkish (native), English (professional working proficiency)", tr: "Türkçe (ana dil), İngilizce (profesyonel çalışma düzeyi)" }

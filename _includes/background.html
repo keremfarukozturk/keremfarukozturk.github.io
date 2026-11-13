@@ -1,0 +1,27 @@
+{%- comment -%} Hakkımda: özgeçmiş (_data/background.yml) {%- endcomment -%}
+{%- assign lang = page.lang | default: site.lang -%}{%- assign t = site.data.ui[lang] -%}
+{%- assign bg = site.data.background -%}
+{%- assign _groups = "education,experience,programs" | split: "," -%}
+{%- for g in _groups %}
+{%- assign rows = bg[g] %}
+{%- if rows and rows.size > 0 %}
+<section class="bg" aria-labelledby="bg-{{ g }}">
+  <h2 class="label" id="bg-{{ g }}">{{ t.bg[g] }}</h2>
+  <ul>
+    {%- for r in rows %}
+    <li><span class="when">{{ r.dates[lang] }}</span><div><b>{{ r.org }}</b> <span class="role">{{ r.role[lang] }}</span>{% if r.detail %}<p>{{ r.detail[lang] }}</p>{% endif %}</div></li>
+    {%- endfor %}
+  </ul>
+</section>
+{%- endif %}
+{%- endfor %}
+{%- if bg.skills %}
+<section class="bg" aria-labelledby="bg-skills">
+  <h2 class="label" id="bg-skills">{{ t.bg.skills }}</h2>
+  <ul>
+    {%- for s in bg.skills %}
+    <li><span class="when">{{ s.label[lang] }}</span><div><span class="role">{% if s.items[lang] %}{{ s.items[lang] }}{% else %}{{ s.items }}{% endif %}</span></div></li>
+    {%- endfor %}
+  </ul>
+</section>
+{%- endif %}

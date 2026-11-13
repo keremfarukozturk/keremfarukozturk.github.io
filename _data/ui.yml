@@ -30,6 +30,7 @@ en:
   contact: "Contact"
   email: "Email"
   cv: "CV"
+  bg: { education: "Education", experience: "Experience", programs: "Programs", skills: "Skills" }
   cv_link: "Download (PDF)"
   status: { planned: "Planned", starting: "Starting", ongoing: "Ongoing", completed: "Completed" }
   months: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
@@ -73,6 +74,7 @@ tr:
   contact: "İletişim"
   email: "E-posta"
   cv: "Özgeçmiş"
+  bg: { education: "Eğitim", experience: "Deneyim", programs: "Programlar", skills: "Beceriler" }
   cv_link: "İndir (PDF)"
   status: { planned: "Planlanıyor", starting: "Başlıyor", ongoing: "Sürüyor", completed: "Tamamlandı" }
   months: ["Oca", "Şub", "Mar", "Nis", "May", "Haz", "Tem", "Ağu", "Eyl", "Eki", "Kas", "Ara"]
