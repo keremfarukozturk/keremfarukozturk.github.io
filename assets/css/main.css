@@ -37,6 +37,7 @@
   --ink:      #24211E;  /* metin (zeminde 15.3:1) */
   --soft:     #6B655D;  /* ikincil metin (5.5:1) */
   --faint:    #736C64;  /* etiket, tarih (5.0:1) */
+  --tan-text: #7A6750;  /* bej tonunda küçük metin (5.2:1) */
 
   /* Fontlar — tek aile, üç görev */
   --sans:  "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;  /* başlık, arayüz */
@@ -48,6 +49,25 @@
   --gutter: 48px;
   --maxw: 1120px;
   --ease: cubic-bezier(.2, .7, .2, 1);
+}
+
+/* Koyu tema — "gece laboratuvarı". İşletim sisteminin ayarını izler. */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg:       #171513;
+    --white:    #201D1A;
+    --line:     #2E2A26;
+    --edge:     #2A2622;
+    --dash:     #3A352F;
+    --grey:     #26221F;
+    --media:    #1D1A17;
+    --tan-soft: #3A3128;
+    --ink:      #ECE5DA;  /* 14.6:1 */
+    --soft:     #B5AB9E;  /* 8.1:1 */
+    --faint:    #9E9488;  /* 6.1:1 */
+    --tan-text: #CDB696;  /* 9.3:1 */
+    color-scheme: dark;
+  }
 }
 
 /* ---------- 2. Temel ---------- */
@@ -86,7 +106,13 @@ img, video, svg, canvas { display: block; max-width: 100%; }
 .lang a:hover { color: var(--ink); }
 .lang .on { color: var(--ink); }
 .lang .sep { color: var(--line); }
-.nav a[aria-current]::after { content: ""; position: absolute; left: 0; right: 0; bottom: -6px; height: 3px; border-radius: 3px; background: var(--tan); }
+.nav-ind { position: absolute; left: 0; right: 0; bottom: -6px; height: 3px; border-radius: 3px; background: var(--tan); view-transition-name: nav-ind; }
+/* Sayfa değişirken aktif menü çizgisi yeni yerine kayar (destekleyen tarayıcılarda; diğerlerinde normal geçiş) */
+@media (prefers-reduced-motion: no-preference) {
+  @view-transition { navigation: auto; }
+  ::view-transition-group(nav-ind) { animation-duration: .45s; animation-timing-function: cubic-bezier(.2, .7, .2, 1); }
+  ::view-transition-old(root), ::view-transition-new(root) { animation-duration: .18s; }
+}
 
 /* ---------- 5. Ana sayfa: giriş ---------- */
 .hero { display: grid; grid-template-columns: repeat(12, 1fr); gap: 24px; align-items: center; padding: 104px 0 136px; }
@@ -201,13 +227,74 @@ img, video, svg, canvas { display: block; max-width: 100%; }
 .ds-rev { margin-top: 72px; padding-top: 22px; border-top: 1px solid var(--line); }
 .ds-rev table { width: 100%; border-collapse: collapse; margin-top: 12px; font-size: 14px; }
 .ds-rev td { padding: 12px 16px 12px 0; border-bottom: 1px solid var(--line); vertical-align: baseline; }
-.ds-rev .r { font-family: var(--mono); font-size: 12px; color: var(--tan-text, #7A6750); width: 72px; white-space: nowrap; }
+.ds-rev .r { font-family: var(--mono); font-size: 12px; color: var(--tan-text); width: 72px; white-space: nowrap; }
 .ds-rev .d { font-family: var(--mono); font-size: 12px; color: var(--faint); width: 130px; white-space: nowrap; }
 /* Numaralı şekil */
 .prose .figure, .figure { margin: 40px 0; padding: 24px; background: var(--white); border: 1px solid var(--line); border-radius: var(--radius); }
 .figure img { width: 100%; border: 0; border-radius: 6px; margin: 0; }
 .figure figcaption { margin-top: 14px; font-family: var(--mono); font-size: 12px; color: var(--faint); }
 .figure figcaption b { font-weight: 500; color: var(--ink); }
+
+/* Projeler sayfası: belge dizini */
+.pindex { margin-top: 8px; }
+.pindex-head, .pindex-row { display: grid; grid-template-columns: 110px 1fr 140px 64px; gap: 24px; align-items: baseline; }
+.pindex-head { padding: 0 0 12px; border-bottom: 1px solid var(--ink); font-family: var(--mono); font-size: 11.5px; letter-spacing: .06em; text-transform: uppercase; color: var(--faint); }
+.pindex-row { padding: 20px 0; border-bottom: 1px solid var(--line); transition: background .2s; }
+.pindex-row:hover { background: linear-gradient(90deg, transparent, var(--white) 12%, var(--white) 88%, transparent); }
+.pindex-row .doc, .pindex-row .yr { font-family: var(--mono); font-size: 13px; color: var(--tan-text); }
+.pindex-row .yr { color: var(--faint); text-align: right; }
+.pindex-row .ttl b { display: block; font-weight: 400; font-size: 20px; letter-spacing: -.015em; }
+.pindex-row .ttl em { display: block; margin-top: 4px; font-style: normal; font-family: var(--serif); font-size: 15px; color: var(--soft); }
+.pindex-row .st { font-family: var(--mono); font-size: 12.5px; color: var(--soft); display: flex; align-items: center; gap: 8px; }
+.pindex-head span:last-child { text-align: right; }
+
+/* Mühendislik günlüğü */
+.log { list-style: none; margin: 28px 0 0; padding: 0; }
+.log li { display: grid; grid-template-columns: 120px 1fr auto; gap: 24px; align-items: baseline; padding: 18px 0; border-bottom: 1px solid var(--line); }
+.log li:first-child { padding-top: 0; }
+.log .d { font-family: var(--mono); font-size: 12.5px; color: var(--faint); font-variant-numeric: tabular-nums; }
+.log p { margin: 0; font-family: var(--serif); font-size: 17px; line-height: 1.55; }
+.log .t { font-family: var(--mono); font-size: 11px; color: var(--soft); border: 1px solid var(--line); border-radius: 999px; padding: 2px 9px; white-space: nowrap; }
+
+/* Kenar notları */
+.sn-ref { font-family: var(--mono); font-size: 11px; line-height: 0; margin-left: 1px; }
+.sn-ref a { color: var(--tan-text); text-decoration: none; padding: 0 2px; }
+.sn { display: block; margin: 14px 0 6px; padding-left: 14px; border-left: 2px solid var(--tan); font-family: var(--sans); font-size: 14px; line-height: 1.55; color: var(--soft); }
+.sn b { font-family: var(--mono); font-weight: 500; font-size: 11px; color: var(--ink); margin-right: 4px; }
+@media (min-width: 1180px) {
+  .article .prose .sn { float: right; clear: right; width: 220px; margin: 4px -270px 18px 0; }
+  .ds .prose .sn { float: none; width: auto; margin: 14px 0 6px; }
+}
+
+/* Etkileşimli şekil: RC filtresi */
+.rcf-plot { width: 100%; height: auto; overflow: visible; }
+.rcf-grid line { stroke: var(--line); stroke-width: 1; }
+.rcf-ax text { font-family: var(--mono); font-size: 11px; fill: var(--faint); }
+.rcf-curve { fill: none; stroke: var(--ink); stroke-width: 1.8; }
+.rcf-fc { stroke: var(--tan); stroke-width: 1.5; stroke-dasharray: 4 4; }
+.rcf-pt { fill: var(--tan); }
+.rcf-ctrl { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 18px; }
+.rcf-ctrl label { display: grid; grid-template-columns: auto 1fr auto; gap: 12px; align-items: center; font-family: var(--mono); font-size: 12px; color: var(--faint); }
+.rcf-ctrl output { color: var(--ink); min-width: 64px; text-align: right; }
+.rcf input[type=range] { width: 100%; accent-color: var(--tan); }
+.rcf-read { display: flex; flex-wrap: wrap; gap: 28px; margin: 14px 0 0; font-family: var(--mono); font-size: 12.5px; color: var(--faint); }
+.rcf-read b { font-weight: 500; color: var(--ink); margin-left: 6px; }
+
+/* Hakkımda: cesur başlık */
+.bold-head { position: relative; margin-bottom: 72px; padding: 8px 0 0; }
+.bh-cols { position: absolute; inset: -40px 0 0; display: grid; grid-template-columns: repeat(12, 1fr); gap: 24px; pointer-events: none; }
+.bh-cols i { border-left: 1px solid var(--line); opacity: .7; }
+.bold-head > * { position: relative; }
+.bold-head .label { margin: 0 0 28px; }
+.bold-head h1 { margin: 0; font-weight: 300; font-size: clamp(52px, 8vw, 96px); line-height: .98; letter-spacing: -.055em; }
+.bold-head h1 span { display: block; color: var(--soft); }
+.bold-head h1 .main { color: var(--ink); }
+.bh-lede { margin: 32px 0 0; max-width: 560px; font-family: var(--serif); font-size: 19px; color: var(--soft); }
+.bh-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin: 48px 0 0; padding-top: 18px; border-top: 1px solid var(--ink); }
+.bh-row dt { font-family: var(--mono); font-size: 12px; color: var(--faint); }
+.bh-row dd { margin: 6px 0 0; font-size: 19px; letter-spacing: -.01em; color: var(--soft); }
+.bh-row .main dt { color: var(--tan-text); }
+.bh-row .main dd { color: var(--ink); }
 
 /* Proje: kapak ve teknik künye */
 .cover { max-width: 900px; margin: 0 0 48px; }
@@ -262,7 +349,6 @@ img, video, svg, canvas { display: block; max-width: 100%; }
 @keyframes fade  { from { opacity: 0; } to { opacity: 1; } }
 @keyframes lift  { from { opacity: .3; transform: translateY(12px); } to { opacity: 1; transform: none; } }
 @keyframes blink { 50% { opacity: 0; } }
-.site-header { animation: fade .8s ease both; }
 .hero .bar, .page-head .bar { animation: grow .9s var(--ease) .1s both; }
 .hero h1 span { animation: lift .9s var(--ease) both; }
 .hero h1 span:nth-child(1) { animation-delay: .25s; }
@@ -313,6 +399,18 @@ img, video, svg, canvas { display: block; max-width: 100%; }
   .ds-strip > .end { margin-left: 0; text-align: left; border-left: 0; }
   .ds-strip .end dd { justify-content: flex-start; }
   .ds-rev .d { width: auto; }
+  .pindex-head { display: none; }
+  .pindex-row { grid-template-columns: 1fr auto; gap: 6px 16px; }
+  .pindex-row .doc { grid-column: 1; grid-row: 1; }
+  .pindex-row .yr { grid-column: 2; grid-row: 1; }
+  .pindex-row .ttl { grid-column: 1 / 3; }
+  .pindex-row .st { grid-column: 1 / 3; }
+  .log li { grid-template-columns: 1fr auto; gap: 6px 16px; }
+  .log p { grid-column: 1 / 3; grid-row: 2; }
+  .rcf-ctrl { grid-template-columns: 1fr; }
+  .bh-row { grid-template-columns: 1fr; gap: 14px; }
+  .bh-cols { grid-template-columns: repeat(4, 1fr); }
+  .bh-cols i:nth-child(n+5) { display: none; }
   .about { grid-template-columns: 1fr; gap: 28px; }
   .about-photo { grid-column: 1; grid-row: 1; width: 140px; margin: 0; }
   .about .prose { grid-row: 2; }

@@ -4,6 +4,12 @@ ref: about
 title: Hakkımda
 lede: Elektrik-elektronik mühendisliği öğrencisiyim.
 redirect_from: /hakkimda/
+bold:
+  words: ["Silikon.", "Enerji.", "Güvenlik."]
+  row:
+    - { k: "01 — Ana odak", v: "Yapay zekâ donanımı" }
+    - { k: "02 — Yan alan", v: "Güç elektroniği" }
+    - { k: "03 — Yan alan", v: "Yapay zekâ güvenliği" }
 ---
 
 <div class="about">

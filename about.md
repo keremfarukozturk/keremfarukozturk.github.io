@@ -3,6 +3,12 @@ layout: page
 ref: about
 title: About
 lede: I'm an electrical and electronics engineering student.
+bold:
+  words: ["Silicon.", "Energy.", "Security."]
+  row:
+    - { k: "01 — Main focus", v: "AI hardware" }
+    - { k: "02 — Adjacent",   v: "Power electronics" }
+    - { k: "03 — Adjacent",   v: "AI security" }
 ---
 
 <div class="about">

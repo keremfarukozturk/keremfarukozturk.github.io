@@ -42,4 +42,12 @@ layout: default
     {% include empty.html icon="cursor" text=t.posts_soon %}
     {%- endif %}
   </section>
+
+  <section class="sec" aria-labelledby="log-heading">
+    <div class="sec-head">
+      <h2 class="label" id="log-heading">{{ t.log }}</h2>
+      {%- if site.data.log.size > 3 %}<a href="{{ t.log_url | relative_url }}">{{ t.all }} →</a>{% endif %}
+    </div>
+    {% include log-list.html limit=3 %}
+  </section>
 </div>

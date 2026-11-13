@@ -1,0 +1,44 @@
+{%- comment -%}
+  Etkileşimli şekil: RC alçak geçiren filtrenin genlik yanıtı (Bode).
+  Kullanım: {% include rc-filter.html n=2 %}   (n: şekil numarası, isteğe bağlı)
+{%- endcomment -%}
+{%- assign lang = page.lang | default: site.lang -%}{%- assign t = site.data.ui[lang] -%}
+<figure class="figure rcf" data-rcf>
+  <svg class="rcf-plot" viewBox="0 0 640 260" role="img" aria-label="{{ t.rc.title }}">
+    <g class="rcf-grid"></g>
+    <path class="rcf-curve" d=""/>
+    <line class="rcf-fc" x1="0" y1="20" x2="0" y2="220"/>
+    <circle class="rcf-pt" r="4"/>
+    <g class="rcf-ax"></g>
+  </svg>
+  <div class="rcf-ctrl">
+    <label><span>{{ t.rc.r }}</span><input type="range" min="2" max="5" step="0.01" value="3" data-r><output data-ro></output></label>
+    <label><span>{{ t.rc.c }}</span><input type="range" min="-9" max="-5" step="0.01" value="-7" data-c><output data-co></output></label>
+  </div>
+  <p class="rcf-read" aria-live="polite"><span>{{ t.rc.fc }} <b data-fc></b></span><span>{{ t.rc.tau }} <b data-tau></b></span></p>
+  <figcaption>{% if include.n %}<b>{{ t.figure }} {{ include.n }}</b> — {% endif %}{{ t.rc.title }}: f<sub>c</sub> = 1 / (2πRC)</figcaption>
+</figure>
+<script>
+(() => {
+  const fig = document.currentScript.previousElementSibling;
+  const X0 = 50, X1 = 620, Y0 = 20, Y1 = 220, F0 = 1, F1 = 7, D0 = 0, D1 = -40; // 10 Hz–10 MHz, 0…-40 dB
+  const x = lf => X0 + (lf - F0) / (F1 - F0) * (X1 - X0), y = db => Y0 + (db - D0) / (D1 - D0) * (Y1 - Y0);
+  const ns = 'http://www.w3.org/2000/svg', el = (n, a) => { const e = document.createElementNS(ns, n); for (const k in a) e.setAttribute(k, a[k]); return e; };
+  const grid = fig.querySelector('.rcf-grid'), ax = fig.querySelector('.rcf-ax');
+  for (let d = F0; d <= F1; d++) { grid.appendChild(el('line', { x1: x(d), y1: Y0, x2: x(d), y2: Y1 })); ax.appendChild(el('text', { x: x(d), y: 242, 'text-anchor': 'middle' })).textContent = ['10', '100', '1k', '10k', '100k', '1M', '10M'][d - 1]; }
+  for (let db = 0; db >= -40; db -= 10) { grid.appendChild(el('line', { x1: X0, y1: y(db), x2: X1, y2: y(db) })); ax.appendChild(el('text', { x: X0 - 8, y: y(db) + 4, 'text-anchor': 'end' })).textContent = db; }
+  const unit = (v, u) => { const p = [[1e6, 'M'], [1e3, 'k'], [1, ''], [1e-3, 'm'], [1e-6, 'µ'], [1e-9, 'n']]; for (const [m, s] of p) if (Math.abs(v) >= m) return (v / m).toPrecision(3).replace(/(\.\d*?)0+$/, '$1').replace(/\.$/, '') + ' ' + s + u; return v.toPrecision(3) + ' ' + u; };
+  const r = fig.querySelector('[data-r]'), c = fig.querySelector('[data-c]');
+  const draw = () => {
+    const R = 10 ** +r.value, C = 10 ** +c.value, fc = 1 / (2 * Math.PI * R * C);
+    let d = ''; for (let i = 0; i <= 200; i++) { const lf = F0 + i / 200 * (F1 - F0), f = 10 ** lf, db = Math.max(D1, -10 * Math.log10(1 + (f / fc) ** 2)); d += (i ? 'L' : 'M') + x(lf).toFixed(1) + ' ' + y(db).toFixed(1); }
+    fig.querySelector('.rcf-curve').setAttribute('d', d);
+    const lfc = Math.min(F1, Math.max(F0, Math.log10(fc))), xf = x(lfc);
+    const ln = fig.querySelector('.rcf-fc'); ln.setAttribute('x1', xf); ln.setAttribute('x2', xf);
+    const pt = fig.querySelector('.rcf-pt'); pt.setAttribute('cx', xf); pt.setAttribute('cy', y(-3.01));
+    fig.querySelector('[data-ro]').value = unit(R, 'Ω'); fig.querySelector('[data-co]').value = unit(C, 'F');
+    fig.querySelector('[data-fc]').textContent = unit(fc, 'Hz'); fig.querySelector('[data-tau]').textContent = unit(R * C, 's');
+  };
+  r.addEventListener('input', draw); c.addEventListener('input', draw); draw();
+})();
+</script>

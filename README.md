@@ -18,6 +18,7 @@ Site iki dillidir. **Varsayılan dil İngilizce**; Türkçe sürüm `/tr/` altı
 | `/about/` | `/tr/hakkimda/` |
 | `/projects/` | `/tr/projeler/` |
 | `/writing/` | `/tr/yazilar/` |
+| `/log/` | `/tr/gunluk/` |
 
 - Eski Türkçe adresler (`/hakkimda/`, `/projeler/`, `/yazilar/`) yeni adreslerine otomatik yönlenir.
 - İki sayfanın birbirinin çevirisi olduğunu, ön bilgilerine yazılan **aynı `ref` değeri** belirtir. Örneğin `about.md` ve `tr/hakkimda.md` dosyalarının ikisinde de `ref: about` yazar.
@@ -30,11 +31,12 @@ _config.yml           Site ayarları: isim, e-posta, sosyal bağlantılar, dil k
 _data/ui.yml          Arayüz metinleri, iki dilde (menü, "Yakında" metinleri, ay adları)
 _data/categories.yml  Kategoriler, iki dildeki adları ve ikonları
 _data/now.yml         Hakkımda sayfasındaki "Şimdi / Sıradaki" maddeleri
+_data/log.yml         Mühendislik günlüğü kayıtları
 _layouts/             Sayfa şablonları: default, home, page, post, project
 _includes/            Tekrar kullanılan parçalar: başlık, dil düğmesi, tarih, kartlar, iletişim
 _posts/en/, _posts/tr/        Yazılar (her yazı tek bir .md dosyası)
 _projects/en/, _projects/tr/  Projeler (her proje tek bir .md dosyası)
-index.html, about.md, projects/, writing/   İngilizce sayfalar
+index.html, about.md, projects/, writing/, log/   İngilizce sayfalar
 tr/                   Türkçe sayfalar
 assets/css/main.css   Tasarım sistemi (fontlar dahil, tek dosya)
 assets/fonts/         IBM Plex fontları (OFL lisansı, siteyle birlikte barındırılır)
@@ -152,6 +154,26 @@ revisions:                # isteğe bağlı — en alttaki "Revizyon geçmişi"
 - Yazı içinde: `![Kısa açıklama](/assets/img/yazilar/bellek-duvari/grafik.webp)`
 - Fotoğraf yüklemeden önce içindeki konum bilgisini (EXIF/GPS) silin.
 
+### Mühendislik günlüğü (Log)
+
+Kısa, tarihli notlar: ne denedin, ne bozuldu, ne öğrendin. Tam bir yazıdan çok daha kolay yazılır ve sitenin yaşadığını gösterir. Kayıtlar `_data/log.yml` dosyasına **en yenisi en üstte** olacak şekilde eklenir. Ana sayfada son üç kayıt görünür.
+
+```yaml
+- date: 2026-11-20
+  tag: electronics        # electronics | signals | software | ai | notes
+  en: "First cocotb test for the MAC unit; found an overflow bug."
+  tr: "MAC birimi için ilk cocotb testi; bir taşma hatası buldum."   # isteğe bağlı
+```
+
+Türkçe metin yazılmazsa Türkçe sayfada İngilizcesi gösterilir.
+
+### Yazılarda kenar notu ve etkileşimli şekil
+
+- **Kenar notu:** Geniş ekranda metnin sağ kenarında, dar ekranda paragrafın altında görünür. Paragrafın içine yazılır:
+  `…bant genişliğiyle sınırlanır.{% include sidenote.html n=1 text="Roofline modeli: …" %} Bu yüzden…`
+- **Numaralı şekil:** `{% include figure.html n=1 src="/assets/img/…" caption="…" %}`
+- **RC filtresi (etkileşimli):** `{% include rc-filter.html n=2 %}` — direnç ve kapasite kaydırıcılarıyla genlik yanıtını ve kesim frekansını canlı gösterir. Yeni etkileşimli şekiller aynı kalıpla `_includes/` altına eklenebilir.
+
 ### Şimdi ve sıradaki
 
 Hakkımda sayfasındaki "Şimdi / Sıradaki" listeleri **tek bir dosyadan** okunur: `_data/now.yml`. Bir maddeyi orada değiştirdiğinde iki dildeki sayfa birlikte güncellenir.
@@ -215,7 +237,11 @@ Büyük başlıklarda mono font kullanılmaz.
 - İşletim sisteminde "hareketi azalt" ayarı açık olan ziyaretçiler için bütün animasyonlar kapanır.
 - Animasyon kütüphanesi kullanılmaz; yalnızca CSS ve birkaç satır JavaScript.
 
-### 6. Boşluk
+### 6. Koyu tema ve geçişler
+- Koyu tema ("gece laboratuvarı") ziyaretçinin işletim sistemi ayarını izler; renkleri `main.css` başındaki `prefers-color-scheme: dark` bloğundadır. Yeni bir renk eklerken iki temaya da tanımlayın; renkleri doğrudan yazmak yerine değişken kullanın.
+- Sayfa değişirken menüdeki bej çizgi yeni yerine kayar (View Transitions; desteklemeyen tarayıcılarda normal geçiş olur).
+
+### 7. Boşluk
 Bölümler arasında geniş boşluk (112px) bırakılır. Yoğun görünen bir sayfayı düzeltmenin ilk yolu, bir şey eklemek değil, bir şey çıkarmaktır.
 
 ---

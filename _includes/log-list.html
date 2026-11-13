@@ -1,0 +1,17 @@
+{%- comment -%} Mühendislik günlüğü (_data/log.yml). Kullanım: {% include log-list.html limit=3 %} {%- endcomment -%}
+{%- assign lang = page.lang | default: site.lang -%}{%- assign t = site.data.ui[lang] -%}
+{%- assign _n = include.limit | default: 1000 -%}
+{%- if site.data.log and site.data.log.size > 0 %}
+<ol class="log">
+  {%- for e in site.data.log limit: _n %}
+  {%- assign cat = site.data.categories[e.tag] %}
+  <li class="reveal">
+    <span class="d">{% include date.html date=e.date %}</span>
+    <p>{% if lang == "tr" and e.tr %}{{ e.tr }}{% else %}{{ e.en }}{% endif %}</p>
+    {%- if cat %}<span class="t">{{ cat[lang] }}</span>{% endif %}
+  </li>
+  {%- endfor %}
+</ol>
+{%- else %}
+{% include empty.html icon="cursor" text=t.log_soon %}
+{%- endif %}

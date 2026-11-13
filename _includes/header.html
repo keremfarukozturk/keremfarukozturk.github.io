@@ -6,7 +6,7 @@
   <div class="header-right">
     <nav class="nav" aria-label="{{ t.nav_label }}">
       {%- for link in t.nav %}
-      <a href="{{ link.url | relative_url }}"{% if page.url == link.url or page.url contains link.url %} aria-current="page"{% endif %}>{{ link.title }}</a>
+      {%- if page.url == link.url or page.url contains link.url %}<a href="{{ link.url | relative_url }}" aria-current="page">{{ link.title }}<span class="nav-ind" aria-hidden="true"></span></a>{% else %}<a href="{{ link.url | relative_url }}">{{ link.title }}</a>{% endif %}
       {%- endfor %}
     </nav>
     <div class="lang" role="group" aria-label="{{ t.lang_label }}">

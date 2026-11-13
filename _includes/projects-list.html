@@ -1,9 +1,19 @@
+{%- comment -%} Projeler sayfası: belge dizini (index) düzeni {%- endcomment -%}
 {%- assign lang = page.lang | default: site.lang -%}{%- assign t = site.data.ui[lang] -%}
 {%- include sorted-projects.html -%}
 <section class="sec">
 {%- if projects.size > 0 %}
-  <div class="cards">
-    {%- for p in projects %}{% include project-card.html p=p %}{% endfor %}
+  <div class="pindex" role="table" aria-label="{{ t.projects }}">
+    <div class="pindex-head" role="row"><span role="columnheader">{{ t.index.doc }}</span><span role="columnheader">{{ t.index.title }}</span><span role="columnheader">{{ t.index.status }}</span><span role="columnheader">{{ t.index.year }}</span></div>
+    {%- for p in projects %}
+    {%- assign cat = site.data.categories[p.type] %}
+    <a class="pindex-row reveal" role="row" href="{{ p.url | relative_url }}">
+      <span class="doc" role="cell">{{ p.doc | default: "—" }}</span>
+      <span class="ttl" role="cell"><b>{{ p.title }}</b>{% if p.summary %}<em>{{ p.summary }}</em>{% endif %}</span>
+      <span class="st" role="cell">{% if p.status == "ongoing" %}<i class="dot" aria-hidden="true"></i>{% endif %}{{ t.status[p.status] | default: p.status }}</span>
+      <span class="yr" role="cell">{{ p.year }}</span>
+    </a>
+    {%- endfor %}
   </div>
 {%- else %}
   {% include empty.html icon="wave" text=t.projects_soon %}
