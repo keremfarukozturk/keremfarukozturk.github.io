@@ -16,11 +16,11 @@ author:
 # Bağlantılar — boş bırakılan görünmez
 social:
   github: "https://github.com/keremfarukozturk"
-  linkedin: "https://www.linkedin.com/in/kerem-faruk-%C3%B6zt%C3%BCrk-20286a320/"
+  linkedin: "https://www.linkedin.com/in/keremfarukozturk/"
   name: Kerem Faruk Öztürk          # jekyll-seo-tag: arama motorları için kişi bilgisi
   links:
     - "https://github.com/keremfarukozturk"
-    - "https://www.linkedin.com/in/kerem-faruk-%C3%B6zt%C3%BCrk-20286a320/"
+    - "https://www.linkedin.com/in/keremfarukozturk/"
 
 # Özgeçmiş (PDF). Boş bırakılırsa bağlantı gizlenir.
 cv: /assets/kerem-faruk-ozturk-cv.pdf

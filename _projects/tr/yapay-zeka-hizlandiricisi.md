@@ -1,18 +1,18 @@
 ---
 title: "Küçük bir yapay zekâ hızlandırıcısı"
-summary: "Sinir ağı çıkarımı için sade bir donanım tasarımı; RTL'den doğrulamaya ve FPGA'ya kadar belgeleniyor."
+summary: "Verilog ile tasarlanan, bit düzeyinde doğrulanan ve FPGA ile Tiny Tapeout'u hedefleyen küçük bir INT8 sinir ağı çıkarım hızlandırıcısı."
 doc: KFO-001
 rev: A
 updated: 2026-11-13
 year: 2026
-status: starting
+status: ongoing
 type: ai
 ref: ai-accelerator
 order: 1
 stack:
   Tasarım: [Verilog]
-  Doğrulama: [cocotb]
-  Hedef: [FPGA]
+  Doğrulama: [cocotb, Icarus Verilog, Verilator, Python]
+  Hedef: [FPGA, Tiny Tapeout (SkyWater 130 nm)]
 revisions:
   - { rev: A, date: 2026-11-13, note: "Proje sayfası ve plan" }
 ---
@@ -23,13 +23,14 @@ Sinir ağları zamanlarının büyük kısmını sayıları çarpıp toplayarak 
 
 ## Yaklaşım
 
-Düşük hassasiyetli, küçük bir çıkarım hızlandırıcısı: basit tamponlarla beslenen bir çarp-topla birimleri dizisi. Her modülün, birleştirilmeden önce kendi otomatik testleri olacak.
+El yazısı rakam sınıflandırması için küçük bir INT8 çıkarım hızlandırıcısı: çarp-topla (MAC) veri yolu, bir kontrol durum makinesi, ReLU aktivasyonu ve argmax çıkış katı. RTL, cocotb ile bir Python referans modeline karşı bit düzeyinde doğrulanıyor.
 
 ## Plan
 
 - Mimari ve blok diyagramı
-- Çarp-topla birimi ve dizi için RTL
-- cocotb ile doğrulama
-- FPGA üzerinde çalıştırma ve sonuçları ölçme
+- MAC veri yolu, kontrol ve aktivasyon için RTL
+- Python modeline karşı bit düzeyinde doğrulama
+- Düşük maliyetli bir FPGA kartında çalıştırma
+- Tiny Tapeout'a göndermeden önce varyantları (ağırlık bit genişliği, seri ve paralel MAC) alan, zamanlama ve doğruluk açısından karşılaştırma
 
 Bu sayfa her aşama tamamlandıkça güncellenir; değişiklikler aşağıdaki revizyon geçmişinde yer alır.

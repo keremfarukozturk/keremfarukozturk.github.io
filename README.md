@@ -80,7 +80,7 @@ Dosya adı: `YYYY-AA-GG-kisa-baslik.md`. Dosya adında Türkçe karakter ve boş
 ---
 title: "Bellek duvarı: yapay zekânın asıl darboğazı"
 description: "Listede ve paylaşım önizlemesinde görünen tek cümlelik özet."
-category: ai              # electronics | signals | software | ai | notes
+category: ai              # electronics | signals | software | ai | security | notes
 ref: memory-wall          # isteğe bağlı; diğer dildeki çevirisiyle aynı değer
 math: true                # formül varsa ekle, yoksa bu satırı sil
 ---
@@ -121,7 +121,7 @@ rev: A                    # güncel revizyon harfi
 updated: 2026-12-01       # son güncelleme tarihi
 year: 2026
 status: ongoing           # planned | starting | ongoing | completed  (Planlanıyor / Başlıyor / Sürüyor / Tamamlandı)
-type: electronics         # electronics | signals | software | ai — karttaki ikonu belirler
+type: electronics         # electronics | signals | software | ai | security — karttaki ikonu belirler
 ref: sensor-board         # isteğe bağlı; diğer dildeki çevirisiyle aynı değer
 order: 1                  # isteğe bağlı; küçük sayı en üstte. Yoksa yıla göre sıralanır
 cover: /assets/img/projeler/sensor-karti/kapak.webp   # isteğe bağlı kapak; yoksa ikon görünür
@@ -161,7 +161,7 @@ Kısa, tarihli notlar: ne denedin, ne bozuldu, ne öğrendin. Tam bir yazıdan �
 
 ```yaml
 - date: 2026-11-20
-  tag: electronics        # electronics | signals | software | ai | notes
+  tag: electronics        # electronics | signals | software | ai | security | notes
   en: "First cocotb test for the MAC unit; found an overflow bug."
   tr: "MAC birimi için ilk cocotb testi; bir taşma hatası buldum."   # isteğe bağlı
 ```

@@ -8,7 +8,7 @@ year: 2026
 status: planned
 type: electronics
 ref: 48v-power
-order: 2
+order: 3
 stack:
   Konu: [Güç dağıtımı, DC-DC dönüşüm]
   Ölçüm: [Verim, kayıplar]

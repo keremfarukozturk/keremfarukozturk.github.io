@@ -8,7 +8,7 @@ year: 2026
 status: planned
 type: electronics
 ref: 48v-power
-order: 2
+order: 3
 stack:
   Topic: [Power distribution, DC-DC conversion]
   Measurement: [Efficiency, losses]

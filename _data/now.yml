@@ -2,11 +2,14 @@
 # when: now (şimdi) | next (sıradaki). Her madde iki dilde yazılır; title isteğe bağlıdır.
 # Bir işi bitirdiğinde maddeyi silebilir ya da ilgili projeye taşıyabilirsin.
 - when: now
+  en: { title: "A small AI accelerator", text: "Designing a compact INT8 neural network inference accelerator in Verilog and verifying it bit-exactly with cocotb, on the way to an FPGA and Tiny Tapeout." }
+  tr: { title: "Küçük bir yapay zekâ hızlandırıcısı", text: "Verilog ile küçük bir INT8 sinir ağı çıkarım hızlandırıcısı tasarlıyor ve cocotb ile bit düzeyinde doğruluyorum; hedef FPGA ve Tiny Tapeout." }
+- when: now
+  en: { title: "RTL-SecCheck", text: "Building an open-source pipeline that checks AI-written RTL for functional and security defects." }
+  tr: { title: "RTL-SecCheck", text: "Yapay zekâ yardımıyla yazılmış RTL'yi işlevsel ve güvenlik hatalarına karşı denetleyen açık kaynak bir hat kuruyorum." }
+- when: now
   en: { text: "Taking cybersecurity and AI security courses in Turkey's Siber Vatan program." }
   tr: { text: "Siber Vatan programında siber güvenlik ve yapay zekâ güvenliği eğitimleri alıyorum." }
-- when: now
-  en: { title: "A small AI accelerator", text: "I'm starting work on a simple hardware design for neural network inference. I'll document every stage here, from design to verification to FPGA." }
-  tr: { title: "Küçük bir yapay zekâ hızlandırıcısı", text: "Sinir ağı çıkarımı için sade bir donanım tasarımı üzerinde çalışmaya başlıyorum. Tasarımdan doğrulamaya ve FPGA'ya kadar her aşamayı burada belgeleyeceğim." }
 - when: next
   en: { title: "Power electronics", text: "A small-scale model of a data center power architecture." }
   tr: { title: "Güç elektroniği", text: "Veri merkezi güç mimarisinin küçük ölçekli bir modeli." }
