@@ -236,7 +236,7 @@ Büyük başlıklarda mono font kullanılmaz.
 
 ### 5. Hareket
 - Animasyonlar **bir kez** oynar ve 1 saniyeden kısadır. Zıplama ya da sekme yoktur.
-- Sitede tek bir sürekli animasyon vardır: ana sayfadaki giriş animasyonu.
+- Sürekli hareket yalnızca üç yerde vardır ve hepsi "sinyal" fikrine bağlıdır: ana sayfadaki giriş animasyonu, proje kartlarındaki ikon döngüsü ve başlık ile alt bilgi çizgilerindeki saat darbesi. Bunların dışına sürekli hareket eklenmez.
 - İşletim sisteminde "hareketi azalt" ayarı açık olan ziyaretçiler için bütün animasyonlar kapanır.
 - Animasyon kütüphanesi kullanılmaz; yalnızca CSS ve birkaç satır JavaScript.
 

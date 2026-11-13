@@ -27,7 +27,7 @@ cv: /assets/kerem-faruk-ozturk-cv.pdf
 
 # Ziyaretçi sayacı (GoatCounter, ücretsiz, çerez kullanmaz).
 # goatcounter.com'da hesap açınca seçtiğin kodu buraya yaz (ör. "keremfarukozturk"). Boşken sayaç kapalıdır.
-goatcounter: ""
+goatcounter: "keremfarukozturk"
 
 # Google Search Console doğrulaması: Google'ın verdiği "content" değerini yazıp
 # aşağıdaki iki satırın başındaki # işaretini kaldır.
