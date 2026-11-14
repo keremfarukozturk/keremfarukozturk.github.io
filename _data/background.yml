@@ -27,7 +27,7 @@ programs:
 
 skills:
   - label: { en: "Hardware", tr: "Donanım" }
-    items: "Verilog, SystemVerilog Assertions, cocotb, Icarus Verilog, Verilator, Yosys, SymbiYosys, FPGA"
+    items: "Verilog, cocotb, Icarus Verilog, Verilator, Yosys, SymbiYosys, FPGA"
   - label: { en: "Software", tr: "Yazılım" }
     items: "Python, C#, ASP.NET Core, SQL, PostgreSQL, REST APIs, Docker, Linux, Git"
   - label: { en: "Languages", tr: "Diller" }

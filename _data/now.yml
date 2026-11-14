@@ -5,11 +5,11 @@
   en: { title: "A small AI accelerator", text: "Designing a compact INT8 neural network inference accelerator in Verilog and verifying it bit-exactly with cocotb, on the way to an FPGA and Tiny Tapeout." }
   tr: { title: "Küçük bir yapay zekâ hızlandırıcısı", text: "Verilog ile küçük bir INT8 sinir ağı çıkarım hızlandırıcısı tasarlıyor ve cocotb ile bit düzeyinde doğruluyorum; hedef FPGA ve Tiny Tapeout." }
 - when: now
-  en: { title: "RTL-SecCheck", text: "Building an open-source pipeline that checks AI-written RTL for functional and security defects." }
-  tr: { title: "RTL-SecCheck", text: "Yapay zekâ yardımıyla yazılmış RTL'yi işlevsel ve güvenlik hatalarına karşı denetleyen açık kaynak bir hat kuruyorum." }
+  en: { title: "RTL-SecCheck", text: "Building an open-source pipeline that audits the verification of AI-assisted hardware designs, starting with my own accelerator modules." }
+  tr: { title: "RTL-SecCheck", text: "Yapay zekâ yardımıyla yazılan donanım tasarımlarının doğrulamasını denetleyen açık kaynak bir hat kuruyorum; önce kendi hızlandırıcı modüllerimde." }
 - when: now
   en: { text: "Taking cybersecurity and AI security courses in Turkey's Siber Vatan program." }
   tr: { text: "Siber Vatan programında siber güvenlik ve yapay zekâ güvenliği eğitimleri alıyorum." }
 - when: next
-  en: { title: "Power electronics", text: "A small-scale model of a data center power architecture." }
-  tr: { title: "Güç elektroniği", text: "Veri merkezi güç mimarisinin küçük ölçekli bir modeli." }
+  en: { title: "Power electronics", text: "A bench-scale model of the 48 V → 12 V intermediate bus converter inside data center racks." }
+  tr: { title: "Güç elektroniği", text: "Veri merkezi raflarındaki 48 V → 12 V ara bara dönüştürücüsünün tezgâh ölçeğinde bir modeli." }
