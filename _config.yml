@@ -6,7 +6,7 @@ tagline: "AI runs on silicon and is powered by electricity."
 description: "Kerem Faruk Öztürk — electrical and electronics engineering student. Projects, experiments and notes on AI hardware, power electronics and AI security."
 lang: en            # varsayılan dil; Türkçe sayfalar /tr/ altında
 locale: en_US
-url: "https://keremfarukozturk.github.io"
+url: "https://keremfarukozturk.dev"
 baseurl: ""
 
 author:
