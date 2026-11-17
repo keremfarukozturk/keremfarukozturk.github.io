@@ -3,7 +3,7 @@
 # ------------------------------------------------------------
 title: Kerem Faruk Öztürk
 tagline: "AI runs on silicon and is powered by electricity."
-description: "Kerem Faruk Öztürk — electrical and electronics engineering student. Projects, experiments and notes on AI hardware, power electronics and AI security."
+description: "Kerem Faruk Öztürk — electrical and electronics engineering student. Projects, experiments and notes on power electronics for AI infrastructure, hardware verification and embedded security."
 lang: en            # varsayılan dil; Türkçe sayfalar /tr/ altında
 locale: en_US
 url: "https://keremfarukozturk.dev"
@@ -63,7 +63,7 @@ defaults:
       lang: tr
       locale: tr_TR
       image: /assets/og-tr.png
-      description: "Kerem Faruk Öztürk — elektrik-elektronik mühendisliği öğrencisi. Yapay zekâ donanımı, güç elektroniği ve yapay zekâ güvenliği üzerine projeler, deneyler ve notlar."
+      description: "Kerem Faruk Öztürk — elektrik-elektronik mühendisliği öğrencisi. Yapay zekâ altyapısı için güç elektroniği, donanım doğrulama ve gömülü sistem güvenliği üzerine projeler, deneyler ve notlar."
   - scope: { path: "", type: posts }
     values: { layout: post }
   - scope: { path: "_posts/en", type: posts }

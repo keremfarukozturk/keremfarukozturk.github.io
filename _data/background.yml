@@ -26,6 +26,8 @@ programs:
     role: { en: "AI and Technology Academy, scholarship recipient", tr: "Yapay Zekâ ve Teknoloji Akademisi, burslu katılımcı" }
 
 skills:
+  - label: { en: "Power & embedded", tr: "Güç ve gömülü" }
+    items: { en: "LTspice, KiCad, DC-DC converter design, digital control loops", tr: "LTspice, KiCad, DC-DC dönüştürücü tasarımı, dijital kontrol döngüleri" }
   - label: { en: "Hardware", tr: "Donanım" }
     items: "Verilog, cocotb, Icarus Verilog, Verilator, Yosys, SymbiYosys, FPGA"
   - label: { en: "Software", tr: "Yazılım" }

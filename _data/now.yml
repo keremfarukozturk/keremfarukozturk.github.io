@@ -2,14 +2,14 @@
 # when: now (şimdi) | next (sıradaki). Her madde iki dilde yazılır; title isteğe bağlıdır.
 # Bir işi bitirdiğinde maddeyi silebilir ya da ilgili projeye taşıyabilirsin.
 - when: now
-  en: { title: "A small AI accelerator", text: "Designing a compact INT8 neural network inference accelerator in Verilog and verifying it bit-exactly with cocotb, on the way to an FPGA and Tiny Tapeout." }
-  tr: { title: "Küçük bir yapay zekâ hızlandırıcısı", text: "Verilog ile küçük bir INT8 sinir ağı çıkarım hızlandırıcısı tasarlıyor ve cocotb ile bit düzeyinde doğruluyorum; hedef FPGA ve Tiny Tapeout." }
+  en: { title: "48 V → 12 V bus converter", text: "Working through buck converter theory and LTspice simulations before the first 24 V → 5 V board." }
+  tr: { title: "48 V → 12 V ara bara dönüştürücüsü", text: "İlk 24 V → 5 V kartından önce düşürücü dönüştürücü teorisini ve LTspice simülasyonlarını çalışıyorum." }
 - when: now
-  en: { title: "RTL-SecCheck", text: "Building an open-source pipeline that audits the verification of AI-assisted hardware designs, starting with my own accelerator modules." }
-  tr: { title: "RTL-SecCheck", text: "Yapay zekâ yardımıyla yazılan donanım tasarımlarının doğrulamasını denetleyen açık kaynak bir hat kuruyorum; önce kendi hızlandırıcı modüllerimde." }
+  en: { title: "A small AI accelerator", text: "Writing a small INT8 inference accelerator in Verilog and verifying it bit-exactly with cocotb. Its smallest working version goes to Tiny Tapeout, and then the project closes." }
+  tr: { title: "Küçük bir yapay zekâ hızlandırıcısı", text: "Verilog ile küçük bir INT8 çıkarım hızlandırıcısı yazıp cocotb ile bit düzeyinde doğruluyorum. En küçük çalışan sürümü Tiny Tapeout’a gönderip projeyi kapatacağım." }
 - when: now
-  en: { text: "Taking cybersecurity and AI security courses in Turkey's Siber Vatan program." }
+  en: { text: "Taking cybersecurity and AI security courses in Turkey’s Siber Vatan program." }
   tr: { text: "Siber Vatan programında siber güvenlik ve yapay zekâ güvenliği eğitimleri alıyorum." }
 - when: next
-  en: { title: "Power electronics", text: "A bench-scale model of the 48 V → 12 V intermediate bus converter inside data center racks." }
-  tr: { title: "Güç elektroniği", text: "Veri merkezi raflarındaki 48 V → 12 V ara bara dönüştürücüsünün tezgâh ölçeğinde bir modeli." }
+  en: { title: "Secure digital power controller", text: "A hardware-enforced protection layer that keeps the converter within safe limits even if the main controller’s firmware is compromised." }
+  tr: { title: "Güvenli dijital güç kontrolcüsü", text: "Ana denetleyicinin firmware’i ele geçirilse bile dönüştürücüyü güvenli sınırlarda tutan, donanımla zorlanan bir koruma katmanı." }
