@@ -15,7 +15,7 @@ redirect_from: /hakkimda/
 
 Yapay zekânın görünmeyen tarafıyla ilgileniyorum: modelleri çalıştıran çipler, o çipleri besleyen enerji ve bu sistemleri güvende tutmanın yolları. Yapay zekâ ne kadar hızlı gelişirse gelişsin silikonun, enerjinin ve güvenliğin sınırlarına takılıyor. Derinleşmek istediğim yer bu sınırlar.
 
-Ana odağım yapay zekâ donanımı: çip tasarımı ve doğrulama. Güç elektroniği ve yapay zekâ güvenliği bu odağı besleyen yan alanlarım. Hedefim, güvenliği sonradan eklenen değil, tasarımın ilk adımından itibaren düşünülen sistemler inşa eden bir mühendis olmak.
+Ana odağım yapay zekâ altyapısı için güç elektroniği: veri merkezlerinde yapay zekâ donanımını besleyen dönüştürücüler ve onların dijital kontrolü. Donanım doğrulama ve gömülü sistem güvenliği bu odağı destekleyen alanlarım. Hedefim, güvenliği sonradan eklenen değil, tasarımın ilk adımından itibaren düşünülen sistemler inşa eden bir mühendis olmak.
 
 </div>
 </div>

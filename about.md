@@ -14,7 +14,7 @@ lede: I'm an electrical and electronics engineering student.
 
 I'm drawn to the invisible side of AI: the chips that run models, the energy that powers those chips, and the ways to keep these systems secure. However fast AI advances, it keeps running into the limits of silicon, energy and security. Those limits are where I want to go deep.
 
-My main focus is AI hardware: chip design and verification. Power electronics and AI security are the adjacent fields that feed it. My goal is to become an engineer who builds systems where security is considered from the very first design step, not added afterwards.
+My main focus is power electronics for AI infrastructure: the converters that feed AI hardware in data centers, and their digital control. Hardware verification and embedded security are the supporting fields around it. My goal is to become an engineer who builds systems where security is considered from the very first design step, not added afterwards.
 
 </div>
 </div>

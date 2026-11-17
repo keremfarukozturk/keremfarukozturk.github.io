@@ -1,19 +1,20 @@
 ---
 title: "A small AI accelerator"
-summary: "A compact INT8 neural network inference accelerator in Verilog, verified bit-exactly and headed for an FPGA and Tiny Tapeout."
+summary: "A compact INT8 neural network inference accelerator in Verilog, verified bit-exactly; its smallest working version goes to Tiny Tapeout, and then the project closes."
 doc: KFO-001
-rev: B
-updated: 2026-11-14
+rev: C
+updated: 2026-11-17
 year: 2026
 status: ongoing
 type: ai
 ref: ai-accelerator
-order: 1
+order: 3
 stack:
   Design: [Verilog]
-  Verification: [cocotb, Icarus Verilog, Verilator, SymbiYosys, Python]
-  Target: [FPGA, Tiny Tapeout (GF180MCU)]
+  Verification: [cocotb, Icarus Verilog, Yosys, SymbiYosys, Python]
+  Target: [Tiny Tapeout, FPGA (optional)]
 revisions:
+  - { rev: C, date: 2026-11-17, note: "Rescoped as a closing project; verification checks folded into it" }
   - { rev: B, date: 2026-11-14, note: "Verification tools, target process and plan updated" }
   - { rev: A, date: 2026-11-13, note: "Project page and plan" }
 ---
@@ -24,15 +25,14 @@ Neural networks spend most of their time multiplying and adding numbers. General
 
 ## Approach
 
-A compact INT8 inference accelerator for handwritten-digit classification: a multiply-accumulate (MAC) datapath, a control state machine, ReLU activation and an argmax output stage. The weights don't fit on the chip, so they are streamed in from outside. The RTL is verified bit-exactly against a Python reference model with cocotb.
+A very small neural network trained in Python, with a fixed-point (INT8) reference model. On the hardware side, there is a multiply-accumulate (MAC) unit and a control unit that streams the weights in from off-chip. Every module goes through lint, simulation and formal checks, and the output is compared bit-exactly against the Python reference with cocotb.
 
 ## Plan
 
-- Architecture and block diagram
-- RTL for the MAC datapath, control and activation
-- Bit-exact verification against the Python model
-- Running on a low-cost FPGA board with ready/valid interfaces
-- Comparing variants (weight bit-width, serial vs. parallel MAC) on area, timing and accuracy before a Tiny Tapeout submission
-- Tiny Tapeout submission, and measurements once the chip arrives
+- A small network and its INT8 reference model in Python
+- A MAC unit and a control unit in Verilog (ready/valid interfaces)
+- Bit-exact match with cocotb; basic checks with Yosys and SymbiYosys
+- Shrinking the design and submitting it to Tiny Tapeout; a short measurement once the chip arrives
+- Optional: running it on an FPGA board
 
-This page is updated as each stage is completed; changes are listed in the revision history below.
+This is a closing project: it ends once the smallest working version is submitted to Tiny Tapeout. The scope is deliberately small.

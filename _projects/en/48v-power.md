@@ -2,17 +2,19 @@
 title: "48 V → 12 V intermediate bus converter"
 summary: "A small-scale, measurement-verified model of the last intermediate power stage that feeds AI hardware in a data center rack."
 doc: KFO-002
-rev: B
-updated: 2026-11-14
-year: 2027
-status: planned
+rev: C
+updated: 2026-11-17
+year: 2026
+status: ongoing
 type: electronics
 ref: 48v-power
-order: 3
+order: 1
 stack:
   Topic: [Power distribution, DC-DC conversion, digital control]
   Measurement: [Efficiency, load-step response, loop gain]
+  Tools: [LTspice, KiCad]
 revisions:
+  - { rev: C, date: 2026-11-17, note: "Became the main project; status ongoing, plan split into stages" }
   - { rev: B, date: 2026-11-14, note: "Scope narrowed to a 48 V → 12 V intermediate bus converter; plan updated" }
   - { rev: A, date: 2026-11-13, note: "Project page and plan" }
 ---
@@ -23,14 +25,14 @@ AI hardware draws a lot of power in a small space, and delivering that power eff
 
 ## Approach
 
-A bench-scale model of this intermediate stage: a synchronous buck converter controlled by a microcontroller. The first board is 24 V → 5 V, followed by 48 V → 12 V. At every stage, measurements are compared against simulation.
+A bench-scale model of this intermediate stage: a synchronous buck converter controlled by a microcontroller. The first board is 24 V → 5 V, followed by 48 V → 12 V. At every stage, measurements are compared against simulation, and the differences are explained.
 
 ## Plan
 
-- Reading notes on 48 V architectures
-- LTspice simulation and schematic
-- First 24 V → 5 V board and digital control loop
-- Bench measurements compared against simulation
-- 48 V → 12 V version
+- Theory and simulation: ideal, lossy and closed-loop buck converter
+- First 24 V → 5 V board: digital control loop and protection
+- Measurements: efficiency, load-step response and loop gain, compared against simulation
+- 48 V → 12 V version with the same measurements
+- Optional: a load rig that mimics an AI workload
 
-This project runs after the first stages of the AI accelerator.
+The project is currently in its first stage: theory and simulation.

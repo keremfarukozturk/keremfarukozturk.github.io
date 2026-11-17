@@ -1,11 +1,11 @@
-# keremfarukozturk.dev: Tasarım ve İçerik Standartları (Rev A, 17 Kas 2026)
+# keremfarukozturk.dev: Tasarım ve İçerik Standartları (Rev B, 17 Kas 2026)
 
 > Bu metin keremfarukozturk.dev kişisel sitesinin tasarım kurallarıdır. Siteyle ilgili her öneri, tasarım ve kod bu kurallara uymalı. Bir fikir bu kurallardan birini çiğniyorsa önce gerekçesiyle söyle, onay almadan uygulama.
 >
 > Asıl kaynak bu dosyadır (depoda `DESIGN.md`). Site değiştikçe aynı PR'da güncellenir; başka bir sohbete yapıştırırken her zaman depodaki son sürümü kullan.
 
 ## 1. Kimlik ve ilke
-- Site sahibi: Kerem Faruk Öztürk, elektrik-elektronik mühendisliği öğrencisi. Ana odak yapay zekâ donanımı; ikincil alanlar güç elektroniği ve yapay zekâ güvenliği.
+- Site sahibi: Kerem Faruk Öztürk, elektrik-elektronik mühendisliği öğrencisi. Ana odak yapay zekâ altyapısı için güç elektroniği; destekleyici alanlar donanım doğrulama ve gömülü sistem güvenliği. Çip tasarımı, Tiny Tapeout'a gönderilip kapanacak küçük bir hızlandırıcı projesiyle temsil edilir.
 - Ana fikir: "Yapay zekâ silikonda çalışır, elektrikle beslenir. Ben bu katmanları öğreniyorum." (EN: "AI runs on silicon and is powered by electricity. I'm learning these layers.")
 - Tasarım dili: sakin, sade, klas ve özgün bir "mühendislik belgesi" (datasheet) dili. Ağır, havalı ya da gösterişli değil; okunur ve düzenli.
 - Az ama doğru öğe: tek vurgu rengi, bol boşluk, ince çizgiler, yavaş ve ortam gibi hareket.
@@ -90,9 +90,10 @@ Tek aile, üç görev: IBM Plex. Fontlar depoda barındırılır (woff2; latin v
 - Tıklanabilen öğeler hafif kabarık görünür (beyaz yüzey ve alt kenar); tıklanamayanlar düzdür.
 - Metin içi bağlantı: alt çizgili; çizgi bej, 1.5px kalınlıkta, 4px aşağıda. Üzerine gelince çizgi --ink olur. Alt bilgideki e-posta çizgisi 2px.
 - Odak: 2px bej dış çizgi, 3px boşluk. Seçim rengi --tan-soft.
+- Üzerine gelme (hover) efektleri yalnız fareli cihazlarda çalışır (@media (hover: hover)); telefonda dokunulan öğe hover durumunda takılı kalmaz. Dokunma vurgusu (gri kutu) kapalıdır.
 
 ## 7. Bileşenler
-- Üst bar: solda marka; sağda menü ve EN/TR anahtarı. Menü: Hakkımda, Projeler, Yazılar, Günlük, İletişim (EN: About, Projects, Writing, Log, Contact). Aktif sayfa metni --ink ve altında 3px bej çizgi; sayfa değişince çizgi View Transitions ile yeni yerine kayar (.45s). EN/TR anahtarı Mono 12px; aktif dil --ink, ayraç "/".
+- Üst bar: solda marka; sağda menü ve EN/TR anahtarı. Menü: Hakkımda, Projeler, Yazılar, Günlük, İletişim (EN: About, Projects, Writing, Log, Contact). Aktif sayfa metni --ink ve altında 3px bej çizgi; sayfa değişince çizgi View Transitions ile yeni yerine kayar (.45s). EN/TR anahtarı Mono 12px; aktif dil --ink, diğeri --faint, ayraç "/" --dash renginde. Mobilde sağ üst köşede, markayla aynı hizada.
 - Giriş animasyonu (yalnız ana sayfa; canvas, 14 saniyelik döngü): sinüs sinyali → bitler → çip ve kod → sinir ağı → yazılan "future.". Zemin noktalı ızgara, renkler tema değişkenlerinden gelir, altta 5 küçük ilerleme çubuğu var. Yazı etiketi yok.
 - Proje kartı: ikon (ya da 16:10 kapak görseli), başlık, Serif açıklama ve altta mono meta ("2026 · Sürüyor · Yapay Zekâ"). Durum "Sürüyor" ise metaya nabız gibi atan 6px bej nokta eklenir. Üzerine gelince kart 2px yukarı kalkar ve kenarı --dash rengine geçer.
 - İkonlar: 48×32 viewBox, 1.6 çizgi kalınlığı, yuvarlak uçlar; soluk taban çizgisi (--line) ve üstünden çizilen bej çizgi. Giriş animasyonunun sahnelerinden türetildi: sinyal (sinüs), elektronik (kare dalga), yazılım (çip ve < >), yapay zekâ (ağ), not. Kartlarda 5.2 saniyelik sakin döngüyle çizilir, bekler, silinir; kartlar arasında faz farkı vardır.
@@ -123,6 +124,7 @@ Tek aile, üç görev: IBM Plex. Fontlar depoda barındırılır (woff2; latin v
 - Ses: birinci tekil şahıs, sade, kısa cümleler. Abartı ve pazarlama dili yok. Yapılmamış iş yapılmış gibi yazılmaz.
 - Durum etiketleri: Planlanıyor / Başlıyor / Sürüyor / Tamamlandı (planned / starting / ongoing / completed).
 - Proje sayfası yapısı Problem → Yaklaşım → Plan, isteğe bağlı bir kapanış cümlesiyle. Belge numarası KFO-001, KFO-002…; revizyon harfle (A, B…). Her içerik değişikliğinde yeni revizyon, tarih ve kısa not eklenir.
+- Proje sırası order alanıyla belirlenir; ana proje en başta durur. Kaldırılan bir projenin belge numarası yeniden kullanılmaz (KFO-003 RTL-SecCheck kaldırıldı); eski adresi projeler sayfasına yönlendirilir.
 - Proje alanları: title, summary (kart metni), lede (isteğe bağlı sayfa alt başlığı), doc, rev, updated, year, status, type, ref, order, stack (Teknik özet), links, revisions.
 - Kategoriler: electronics, signals, software, ai, notes, security; her birinin bir ikonu vardır.
 - Günlük: tarihli kısa notlar, en yenisi en üstte.
@@ -150,3 +152,4 @@ Tek aile, üç görev: IBM Plex. Fontlar depoda barındırılır (woff2; latin v
 | Rev | Tarih | Not |
 |---|---|---|
 | A | 17 Kas 2026 | İlk sürüm; README'deki stil rehberi buraya taşındı |
+| B | 17 Kas 2026 | Odak güç elektroniğine kaydı; hover yalnız fareli cihazlarda; proje sırası ve kaldırılan proje kuralı |
