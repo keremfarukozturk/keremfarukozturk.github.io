@@ -4,8 +4,8 @@ summary: "Ana denetleyicinin firmware’i ele geçirilse bile dijital kontrollü
 doc: KFO-004
 rev: A
 updated: 2026-11-17
-year: 2027
-status: planned
+year: 2026
+status: ongoing
 type: security
 ref: secure-power-controller
 order: 2
@@ -33,4 +33,4 @@ Ana denetleyici ile anahtar sürücüsü arasına, firmware'in değiştiremeyece
 - Güvenli önyükleme ve imzalı firmware güncellemesi
 - Kötü amaçlı bir firmware ile saldırı denemesi ve korumanın bunu durdurduğunun ölçümle gösterilmesi
 
-Proje, 48 V → 12 V dönüştürücünün kartı üzerine kurulur ve 2027 güzünde başlar.
+Proje, 48 V → 12 V dönüştürücünün kartı üzerine kurulur; donanım aşamaları o kart hazır olduktan sonra başlar.

@@ -5,11 +5,14 @@
   en: { title: "48 V → 12 V bus converter", text: "Working through buck converter theory and LTspice simulations before the first 24 V → 5 V board." }
   tr: { title: "48 V → 12 V ara bara dönüştürücüsü", text: "İlk 24 V → 5 V kartından önce düşürücü dönüştürücü teorisini ve LTspice simülasyonlarını çalışıyorum." }
 - when: now
+  en: { title: "Secure digital power controller", text: "A hardware-enforced protection layer that keeps the converter within safe limits even if the main controller’s firmware is compromised." }
+  tr: { title: "Güvenli dijital güç kontrolcüsü", text: "Ana denetleyicinin firmware’i ele geçirilse bile dönüştürücüyü güvenli sınırlarda tutan, donanımla zorlanan bir koruma katmanı." }
+- when: now
   en: { title: "A small AI accelerator", text: "Writing a small INT8 inference accelerator in Verilog and verifying it bit-exactly with cocotb. Its smallest working version goes to Tiny Tapeout, and then the project closes." }
   tr: { title: "Küçük bir yapay zekâ hızlandırıcısı", text: "Verilog ile küçük bir INT8 çıkarım hızlandırıcısı yazıp cocotb ile bit düzeyinde doğruluyorum. En küçük çalışan sürümü Tiny Tapeout’a gönderip projeyi kapatacağım." }
 - when: now
   en: { text: "Taking cybersecurity and AI security courses in Turkey’s Siber Vatan program." }
   tr: { text: "Siber Vatan programında siber güvenlik ve yapay zekâ güvenliği eğitimleri alıyorum." }
 - when: next
-  en: { title: "Secure digital power controller", text: "A hardware-enforced protection layer that keeps the converter within safe limits even if the main controller’s firmware is compromised." }
-  tr: { title: "Güvenli dijital güç kontrolcüsü", text: "Ana denetleyicinin firmware’i ele geçirilse bile dönüştürücüyü güvenli sınırlarda tutan, donanımla zorlanan bir koruma katmanı." }
+  en: { title: "First board", text: "A 24 V → 5 V synchronous buck converter with a digital control loop." }
+  tr: { title: "İlk kart", text: "Dijital kontrol döngüsüyle çalışan 24 V → 5 V senkron düşürücü dönüştürücü." }

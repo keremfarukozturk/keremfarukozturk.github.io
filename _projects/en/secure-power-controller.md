@@ -4,8 +4,8 @@ summary: "A hardware-enforced protection layer that keeps a digitally controlled
 doc: KFO-004
 rev: A
 updated: 2026-11-17
-year: 2027
-status: planned
+year: 2026
+status: ongoing
 type: security
 ref: secure-power-controller
 order: 2
@@ -33,4 +33,4 @@ An independent hardware protection circuit between the main controller and the g
 - Secure boot and signed firmware updates
 - An attack test with malicious firmware, with measurements showing that the protection stops it
 
-The project builds on the 48 V → 12 V converter's board and starts in fall 2027.
+The project builds on the 48 V → 12 V converter’s board; its hardware stages start once that board is ready.
