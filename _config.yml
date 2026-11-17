@@ -97,6 +97,8 @@ feed:
 
 exclude:
   - README.md
+  - DESIGN.md
+  - CLAUDE.md
   - Gemfile
   - Gemfile.lock
   - vendor

@@ -204,50 +204,7 @@ Kategoriler, iki dildeki adları ve ikonları `_data/categories.yml` dosyasında
 
 ## Stil rehberi
 
-Sitenin şıklığı, birkaç kurala tutarlı biçimde uyulmasından gelir. Yeni bir şey eklerken bu kurallara bakın.
-
-### 1. Tek imza öğesi
-Sitenin tek dekoratif imzası **bej, yuvarlatılmış yatay çizgi**dir (`.bar`). Sayfa başlıklarının üstünde, aktif menü öğesinin altında, bölüm etiketlerinin yanında ve madde işaretlerinde kullanılır. Bunun dışında süs (ikon kalabalığı, numaralandırma, renkli rozet) eklenmez.
-
-### 2. Renkler
-Palet ASUS Marshmallow KW100 klavyesinin tonlarından türetildi. Tüm değerler `assets/css/main.css` dosyasının başındaki `:root` bloğunda tanımlı.
-
-| Değişken | Değer | Kullanım |
-|---|---|---|
-| `--bg` | `#FBFAF7` | Zemin |
-| `--white` | `#FFFFFF` | Kart yüzeyi |
-| `--line` | `#ECE8E1` | İnce ayraçlar |
-| `--tan` | `#C2AA8C` | **Yalnızca** imza çizgisi, link alt çizgisi, durum noktası |
-| `--ink` | `#24211E` | Metin |
-| `--soft` / `--faint` | `#6B655D` / `#736C64` | İkincil metin, tarih, etiket |
-
-- Bej renk **metin rengi olarak kullanılmaz**; zemin üzerinde okunabilirlik eşiğinin altında kalır.
-- Tüm metin renkleri WCAG AA kontrast eşiğini (4.5:1) geçer. Yeni renk eklenirse kontrastı kontrol edilmelidir.
-
-### 3. Fontlar: tek aile, üç görev
-- **IBM Plex Sans:** başlıklar ve arayüz.
-- **IBM Plex Serif:** okuma metni (yazılar, açıklamalar).
-- **IBM Plex Mono:** yalnızca küçük teknik bilgiler (tarih, etiket, kod).
-
-Büyük başlıklarda mono font kullanılmaz.
-
-### 4. Biçim
-- Köşeler yumuşaktır: kartlarda 14px, küçük öğelerde 4–6px.
-- Kartların altında 1px'lik ince bir kenar vardır; büyük gölge kullanılmaz.
-- Tıklanabilen öğeler hafif kabarık görünür, tıklanamayanlar düzdür.
-
-### 5. Hareket
-- Animasyonlar **bir kez** oynar ve 1 saniyeden kısadır. Zıplama ya da sekme yoktur.
-- Sürekli hareket yalnızca üç yerde vardır ve hepsi "sinyal" fikrine bağlıdır: ana sayfadaki giriş animasyonu, proje kartlarındaki ikon döngüsü ve başlık ile alt bilgi çizgilerindeki saat darbesi. Bunların dışına sürekli hareket eklenmez.
-- İşletim sisteminde "hareketi azalt" ayarı açık olan ziyaretçiler için bütün animasyonlar kapanır.
-- Animasyon kütüphanesi kullanılmaz; yalnızca CSS ve birkaç satır JavaScript.
-
-### 6. Koyu tema ve geçişler
-- Koyu tema ("gece laboratuvarı") ziyaretçinin işletim sistemi ayarını izler; renkleri `main.css` başındaki `prefers-color-scheme: dark` bloğundadır. Yeni bir renk eklerken iki temaya da tanımlayın; renkleri doğrudan yazmak yerine değişken kullanın.
-- Sayfa değişirken menüdeki bej çizgi yeni yerine kayar (View Transitions; desteklemeyen tarayıcılarda normal geçiş olur).
-
-### 7. Boşluk
-Bölümler arasında geniş boşluk (112px) bırakılır. Yoğun görünen bir sayfayı düzeltmenin ilk yolu, bir şey eklemek değil, bir şey çıkarmaktır.
+Renkler, tipografi, yerleşim, bileşenler, hareket ve içerik kuralları tek bir belgede: **[`DESIGN.md`](DESIGN.md)**. Siteye yeni bir şey eklemeden önce oraya bakın. Tasarımı ya da içerik yapısını değiştiren her değişiklik bu belgeyi de günceller.
 
 ---
 
