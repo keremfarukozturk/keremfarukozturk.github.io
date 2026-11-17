@@ -94,7 +94,7 @@ Tek aile, üç görev: IBM Plex. Fontlar depoda barındırılır (woff2; latin v
 ## 7. Bileşenler
 - Üst bar: solda marka; sağda menü ve EN/TR anahtarı. Menü: Hakkımda, Projeler, Yazılar, Günlük, İletişim (EN: About, Projects, Writing, Log, Contact). Aktif sayfa metni --ink ve altında 3px bej çizgi; sayfa değişince çizgi View Transitions ile yeni yerine kayar (.45s). EN/TR anahtarı Mono 12px; aktif dil --ink, ayraç "/".
 - Giriş animasyonu (yalnız ana sayfa; canvas, 14 saniyelik döngü): sinüs sinyali → bitler → çip ve kod → sinir ağı → yazılan "future.". Zemin noktalı ızgara, renkler tema değişkenlerinden gelir, altta 5 küçük ilerleme çubuğu var. Yazı etiketi yok.
-- Proje kartı: ikon (ya da 16:10 kapak görseli), başlık, Serif açıklama ve altta mono meta ("2026 · Sürüyor · Yapay Zekâ"). Durum "Sürüyor" ise metaya nabız gibi atan 6px bej nokta eklenir. Üzerine gelince kart 2px yukarı kalkar ve kenarı koyulaşır.
+- Proje kartı: ikon (ya da 16:10 kapak görseli), başlık, Serif açıklama ve altta mono meta ("2026 · Sürüyor · Yapay Zekâ"). Durum "Sürüyor" ise metaya nabız gibi atan 6px bej nokta eklenir. Üzerine gelince kart 2px yukarı kalkar ve kenarı --dash rengine geçer.
 - İkonlar: 48×32 viewBox, 1.6 çizgi kalınlığı, yuvarlak uçlar; soluk taban çizgisi (--line) ve üstünden çizilen bej çizgi. Giriş animasyonunun sahnelerinden türetildi: sinyal (sinüs), elektronik (kare dalga), yazılım (çip ve < >), yapay zekâ (ağ), not. Kartlarda 5.2 saniyelik sakin döngüyle çizilir, bekler, silinir; kartlar arasında faz farkı vardır.
 - "Yakında" kutusu: kesikli --dash çerçeve, yanıp sönen bej imleç ya da dalga ikonu, mono "Yakında" ve altında Serif cümle.
 - Yazı listesi: satırda başlık ile mono tarih ve kategori, satır altında ince çizgi.
