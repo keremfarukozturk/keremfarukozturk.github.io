@@ -1,6 +1,10 @@
 # Mühendislik günlüğü — kısa, tarihli notlar. En yeni kayıt en üste yazılır.
 # tag: _data/categories.yml anahtarlarından biri (electronics | signals | software | ai | notes)
 # en: İngilizce metin (zorunlu) · tr: Türkçe metin (isteğe bağlı; yoksa İngilizcesi gösterilir)
+- date: 2026-11-23
+  tag: ai
+  en: "Published the project page for Konsey."
+  tr: "Konsey'in proje sayfasını yayımladım."
 - date: 2026-11-11
   tag: notes
   en: "Launched this site."
