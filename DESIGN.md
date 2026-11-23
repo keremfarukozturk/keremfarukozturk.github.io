@@ -1,4 +1,4 @@
-# keremfarukozturk.dev: Tasarım ve İçerik Standartları (Rev B, 17 Kas 2026)
+# keremfarukozturk.dev: Tasarım ve İçerik Standartları (Rev C, 23 Kas 2026)
 
 > Bu metin keremfarukozturk.dev kişisel sitesinin tasarım kurallarıdır. Siteyle ilgili her öneri, tasarım ve kod bu kurallara uymalı. Bir fikir bu kurallardan birini çiğniyorsa önce gerekçesiyle söyle, onay almadan uygulama.
 >
@@ -103,6 +103,7 @@ Tek aile, üç görev: IBM Plex. Fontlar depoda barındırılır (woff2; latin v
 - Projeler sayfası bir belge dizinidir: sütunlar Belge · Proje · Durum · Yıl. Başlık satırının çizgisi --ink renginde. Üzerine gelinen satırda kenarlara doğru solan beyaz şerit belirir. Mobilde başlık satırı gizlenir.
 - Proje sayfası bir datasheet'tir: üstte şerit (Belge KFO-00X · Revizyon · Durum · ikonlu Tür · sağda Güncelleme), ardından h1, italik özet, Problem / Yaklaşım / Plan bölümleri, yan panelde "Teknik özet" tablosu ("anahtar: değer · değer"), en altta revizyon geçmişi tablosu.
 - Yazı sayfası: meta, h1, özet; ekranın üstünde 3px bej okuma ilerleme çubuğu. Kenar notları geniş ekranda sağ boşlukta (220px), dar ekranda metin içinde sol çizgili blok olarak durur.
+- Akış şeması: satır içi SVG; çizgi ve yazılar currentColor, vurgu --accent (= --tan), adım numaraları --accent-text (= --tan-text, Mono). Yatay sürüm masaüstünde metin sütunundan sağa taşar (yan panelsiz sayfada, en fazla 1024px); 860px altında dikey sürüm görünür. Şema ekran okuyucudan gizlenir (aria-hidden), aynı adımlar sayfada yalnız ekran okuyucuya açık bir liste olarak kalır. İlk örnek: Konsey.
 - Şekil: beyaz yüzey, 24px iç boşluk, mono "Şekil 1 —" alt yazısı. Formüller (KaTeX) yalnız gereken sayfada yüklenir. Etkileşimli şekil örneği: RC filtresi (bej kaydırıcılar).
 - Hakkımda: metin ve kare fotoğraf; Şimdi / Sıradaki listeleri; Özgeçmiş (Eğitim, Deneyim, Programlar, Beceriler: solda mono tarih, sağda kurum · rol ve Serif açıklama); "İndir (PDF)"; İletişim tablosu.
 - Alt bilgi: solda "© yıl isim · Güncelleme tarih"; sağda GitHub, LinkedIn, RSS ve alt çizgili e-posta.
@@ -123,7 +124,7 @@ Tek aile, üç görev: IBM Plex. Fontlar depoda barındırılır (woff2; latin v
 - İki dil: İngilizce varsayılandır (kök adres), Türkçe /tr/ altındadır. Her içerik iki dilde birlikte güncellenir; çeviriler ref alanıyla bağlanır. Arayüz metinleri _data/ui.yml dosyasındadır.
 - Ses: birinci tekil şahıs, sade, kısa cümleler. Abartı ve pazarlama dili yok. Yapılmamış iş yapılmış gibi yazılmaz.
 - Durum etiketleri: Planlanıyor / Başlıyor / Sürüyor / Tamamlandı (planned / starting / ongoing / completed).
-- Proje sayfası yapısı Problem → Yaklaşım → Plan, isteğe bağlı bir kapanış cümlesiyle. Belge numarası KFO-001, KFO-002…; revizyon harfle (A, B…). Her içerik değişikliğinde yeni revizyon, tarih ve kısa not eklenir.
+- Proje sayfası yapısı Problem → Yaklaşım → Plan, isteğe bağlı bir kapanış cümlesiyle. Bitmiş bir araç için Neden → Nasıl çalışır → İlkeler → Künye yapısı da kullanılabilir (KFO-005 Konsey); künye metin içinde mono bir satırdır. Belge numarası KFO-001, KFO-002…; revizyon harfle (A, B…). Her içerik değişikliğinde yeni revizyon, tarih ve kısa not eklenir.
 - Proje sırası order alanıyla belirlenir; ana proje en başta durur. Kaldırılan bir projenin belge numarası yeniden kullanılmaz (KFO-003 RTL-SecCheck kaldırıldı); eski adresi projeler sayfasına yönlendirilir.
 - Proje alanları: title, summary (kart metni), lede (isteğe bağlı sayfa alt başlığı), doc, rev, updated, year, status, type, ref, order, stack (Teknik özet), links, revisions.
 - Kategoriler: electronics, signals, software, ai, notes, security; her birinin bir ikonu vardır.
@@ -153,3 +154,4 @@ Tek aile, üç görev: IBM Plex. Fontlar depoda barındırılır (woff2; latin v
 |---|---|---|
 | A | 17 Kas 2026 | İlk sürüm; README'deki stil rehberi buraya taşındı |
 | B | 17 Kas 2026 | Odak güç elektroniğine kaydı; hover yalnız fareli cihazlarda; proje sırası ve kaldırılan proje kuralı |
+| C | 23 Kas 2026 | KFO-005 Konsey proje sayfası; akış şeması bileşeni; araç sayfaları için Neden / Nasıl çalışır / İlkeler / Künye yapısı |

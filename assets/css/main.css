@@ -252,6 +252,18 @@ img, video, svg, canvas { display: block; max-width: 100%; }
 .figure figcaption { margin-top: 14px; font-family: var(--mono); font-size: 12px; color: var(--faint); }
 .figure figcaption b { font-weight: 500; color: var(--ink); }
 
+/* Akış şeması (satır içi SVG, ör. Konsey). Çizgi ve yazılar currentColor; --accent imza rengine,
+   --accent-text (adım numaraları) okunur bej metne bağlıdır. Yan panelsiz proje sayfasında metin
+   sütunundan sağa, boş panel alanına taşar (en fazla 1024px). Mobilde dikey sürüm görünür. */
+.prose .flow { --accent: var(--tan); --accent-text: var(--tan-text); width: min(1024px, calc(100vw - 2 * var(--gutter))); margin: 32px 0 40px; color: var(--ink); }
+.flow svg { width: 100%; height: auto; }
+.flow text { font-family: var(--sans); font-weight: 500; }
+.flow text[letter-spacing] { font-family: var(--mono); font-variant-numeric: tabular-nums; }
+.flow .flow-v { display: none; max-width: 360px; }
+/* Şema görünürken adım listesi yalnız ekran okuyucular için kalır */
+.prose .flow-steps { position: absolute; width: 1px; height: 1px; margin: 0; padding: 0; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+.prose .facts { font-family: var(--mono); font-size: 14px; color: var(--soft); font-variant-numeric: tabular-nums; }
+
 /* Projeler sayfası: belge dizini */
 .pindex { margin-top: 8px; }
 .pindex-head, .pindex-row { display: grid; grid-template-columns: 110px 1fr 140px 64px; gap: 24px; align-items: baseline; }
@@ -437,6 +449,9 @@ img, video, svg, canvas { display: block; max-width: 100%; }
   .contact li, .spec dl div { grid-template-columns: 1fr; gap: 2px; }
   .ds-grid { grid-template-columns: 1fr; gap: 40px; }
   .ds-side { position: static; }
+  .prose .flow { width: auto; }
+  .flow .flow-h { display: none; }
+  .flow .flow-v { display: block; }
   .ds-strip > div { flex: 1 1 45%; border-bottom: 1px solid var(--line); }
   .ds-strip > .end { margin-left: 0; text-align: left; border-left: 0; }
   .ds-strip .end dd { justify-content: flex-start; }
