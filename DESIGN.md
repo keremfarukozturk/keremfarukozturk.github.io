@@ -1,4 +1,4 @@
-# keremfarukozturk.dev: Tasarım ve İçerik Standartları (Rev B, 17 Kas 2026)
+# keremfarukozturk.dev: Tasarım ve İçerik Standartları (Rev C, 23 Kas 2026)
 
 > Bu metin keremfarukozturk.dev kişisel sitesinin tasarım kurallarıdır. Siteyle ilgili her öneri, tasarım ve kod bu kurallara uymalı. Bir fikir bu kurallardan birini çiğniyorsa önce gerekçesiyle söyle, onay almadan uygulama.
 >
@@ -75,7 +75,7 @@ Tek aile, üç görev: IBM Plex. Fontlar depoda barındırılır (woff2; latin v
 - Ana sayfa girişi 12 sütunlu: metin 7, animasyon 5 sütun (4:5 oran). Mobilde alt alta.
 - Bölümler arası boşluk 112px (mobilde 72px). Bölüm başı: solda etiket ve önünde 24×4px bej tire, gerekirse sağda "Tümü →", altında ince çizgi.
 - Okuma sütunu 660px. Proje sayfası: 660px metin + 300px yapışkan yan panel, aralık 64px. Hakkımda: 660px metin + 200px kare fotoğraf.
-- Kartlar 3 sütun, 20px aralık; mobilde tek sütun.
+- Kartlar 3 sütun, 20px aralık; mobilde tek sütun. Ana sayfada 3'ten fazla proje varsa (en fazla 6) fareli masaüstünde kartlar tek sıra olur: şerit ekranın iki kenarına uzanır, sonraki kart sağ kenar boşluğunda biraz görünür.
 - Mobilde tablolar ve ızgaralar tek sütuna iner; yatay kaydırma olmaz.
 - Yoğun görünen bir sayfayı düzeltmenin ilk yolu bir şey eklemek değil, bir şey çıkarmaktır.
 
@@ -95,7 +95,7 @@ Tek aile, üç görev: IBM Plex. Fontlar depoda barındırılır (woff2; latin v
 ## 7. Bileşenler
 - Üst bar: solda marka; sağda menü ve EN/TR anahtarı. Menü: Hakkımda, Projeler, Yazılar, Günlük, İletişim (EN: About, Projects, Writing, Log, Contact). Aktif sayfa metni --ink ve altında 3px bej çizgi; sayfa değişince çizgi View Transitions ile yeni yerine kayar (.45s). EN/TR anahtarı Mono 12px; aktif dil --ink, diğeri --faint, ayraç "/" --dash renginde. Mobilde sağ üst köşede, markayla aynı hizada.
 - Giriş animasyonu (yalnız ana sayfa; canvas, 14 saniyelik döngü): sinüs sinyali → bitler → çip ve kod → sinir ağı → yazılan "future.". Zemin noktalı ızgara, renkler tema değişkenlerinden gelir, altta 5 küçük ilerleme çubuğu var. Yazı etiketi yok.
-- Proje kartı: ikon (ya da 16:10 kapak görseli), başlık, Serif açıklama ve altta mono meta ("2026 · Sürüyor · Yapay Zekâ"). Durum "Sürüyor" ise metaya nabız gibi atan 6px bej nokta eklenir. Üzerine gelince kart 2px yukarı kalkar ve kenarı --dash rengine geçer.
+- Proje kartı: ikon (ya da 16:10 kapak görseli), başlık, Serif açıklama ve altta mono meta ("2026 · Sürüyor · Yapay Zekâ"). Durum "Sürüyor" ise metaya nabız gibi atan 6px bej nokta eklenir. Üzerine gelince kart 2px yukarı kalkar ve kenarı --dash rengine geçer. Kart şeridi: imleç şeridin üzerinde sağa-sola gittikçe sıra imlecin konumuna göre yumuşakça kayar (kenarlarda %15 ölü bölge, yumuşatmalı takip); imleç çıkınca sıra hizasına döner. Klavye odağı kartı görünür alana getirir, yatay tekerlek/trackpad da kaydırır. Dokunmatik cihazda, JS yokken ve prefers-reduced-motion açıkken normal ızgara kalır.
 - İkonlar: 48×32 viewBox, 1.6 çizgi kalınlığı, yuvarlak uçlar; soluk taban çizgisi (--line) ve üstünden çizilen bej çizgi. Giriş animasyonunun sahnelerinden türetildi: sinyal (sinüs), elektronik (kare dalga), yazılım (çip ve < >), yapay zekâ (ağ), not. Kartlarda 5.2 saniyelik sakin döngüyle çizilir, bekler, silinir; kartlar arasında faz farkı vardır.
 - "Yakında" kutusu: kesikli --dash çerçeve, yanıp sönen bej imleç ya da dalga ikonu, mono "Yakında" ve altında Serif cümle.
 - Yazı listesi: satırda başlık ile mono tarih ve kategori, satır altında ince çizgi.
@@ -103,6 +103,7 @@ Tek aile, üç görev: IBM Plex. Fontlar depoda barındırılır (woff2; latin v
 - Projeler sayfası bir belge dizinidir: sütunlar Belge · Proje · Durum · Yıl. Başlık satırının çizgisi --ink renginde. Üzerine gelinen satırda kenarlara doğru solan beyaz şerit belirir. Mobilde başlık satırı gizlenir.
 - Proje sayfası bir datasheet'tir: üstte şerit (Belge KFO-00X · Revizyon · Durum · ikonlu Tür · sağda Güncelleme), ardından h1, italik özet, Problem / Yaklaşım / Plan bölümleri, yan panelde "Teknik özet" tablosu ("anahtar: değer · değer"), en altta revizyon geçmişi tablosu.
 - Yazı sayfası: meta, h1, özet; ekranın üstünde 3px bej okuma ilerleme çubuğu. Kenar notları geniş ekranda sağ boşlukta (220px), dar ekranda metin içinde sol çizgili blok olarak durur.
+- Akış şeması: satır içi SVG; çizgi ve yazılar currentColor, vurgu --accent (= --tan), adım numaraları --accent-text (= --tan-text, Mono). Yatay sürüm masaüstünde metin sütunundan sağa taşar (yan panelsiz sayfada, en fazla 1024px); 860px altında dikey sürüm görünür. Şema ekran okuyucudan gizlenir (aria-hidden), aynı adımlar sayfada yalnız ekran okuyucuya açık bir liste olarak kalır. İlk örnek: Konsey.
 - Şekil: beyaz yüzey, 24px iç boşluk, mono "Şekil 1 —" alt yazısı. Formüller (KaTeX) yalnız gereken sayfada yüklenir. Etkileşimli şekil örneği: RC filtresi (bej kaydırıcılar).
 - Hakkımda: metin ve kare fotoğraf; Şimdi / Sıradaki listeleri; Özgeçmiş (Eğitim, Deneyim, Programlar, Beceriler: solda mono tarih, sağda kurum · rol ve Serif açıklama); "İndir (PDF)"; İletişim tablosu.
 - Alt bilgi: solda "© yıl isim · Güncelleme tarih"; sağda GitHub, LinkedIn, RSS ve alt çizgili e-posta.
@@ -115,6 +116,7 @@ Tek aile, üç görev: IBM Plex. Fontlar depoda barındırılır (woff2; latin v
 - Döngüler: giriş animasyonu 14 sn, kart ikonları 5.2 sn, canlı nokta 2.6 sn, imleç 1.1 sn, saat darbesi 7 sn.
 - Saat darbesi (sitenin imza hareketi): ana yatay çizgilerde (üst barın altı, bölüm başları, özet, proje dizini başlığı, Hakkımda bölümleri, revizyon geçmişi, alt bilginin üstü) 200px'lik bej bir ışık darbesi 2.45 saniyede geçer ve 7 saniyede bir tekrarlanır. Çizgiler sayfadaki sıralarına göre zincirlenir: darbe bir çizginin sonuna varınca bir alttaki çizgi onu ters yönde devralır, böylece tek bir akım sayfada yılan gibi dolaşır. Satır ayraçlarında darbe yoktur.
 - Tek seferlik animasyonlar 1.4 saniyeyi geçmez. Zıplama, sekme ve elastik hareket yok.
+- İmlece bağlı tek hareket ana sayfa kart şerididir; yalnız kullanıcı imleci oynatırken olur, kendiliğinden dönmez.
 - Sürekli hareket yalnız "sinyal" fikrine bağlı yerlerde vardır: giriş animasyonu, kart ikonları, saat darbesi, canlı nokta ve "Yakında" imleci. Bunların dışına sürekli hareket eklenmez.
 - Animasyon kütüphanesi kullanılmaz; yalnız CSS ve birkaç satır JavaScript.
 - prefers-reduced-motion açıksa tüm animasyon ve geçişler kapanır; içerik tam görünür kalır. JavaScript yoksa da içerik eksiksiz görünür.
@@ -123,7 +125,7 @@ Tek aile, üç görev: IBM Plex. Fontlar depoda barındırılır (woff2; latin v
 - İki dil: İngilizce varsayılandır (kök adres), Türkçe /tr/ altındadır. Her içerik iki dilde birlikte güncellenir; çeviriler ref alanıyla bağlanır. Arayüz metinleri _data/ui.yml dosyasındadır.
 - Ses: birinci tekil şahıs, sade, kısa cümleler. Abartı ve pazarlama dili yok. Yapılmamış iş yapılmış gibi yazılmaz.
 - Durum etiketleri: Planlanıyor / Başlıyor / Sürüyor / Tamamlandı (planned / starting / ongoing / completed).
-- Proje sayfası yapısı Problem → Yaklaşım → Plan, isteğe bağlı bir kapanış cümlesiyle. Belge numarası KFO-001, KFO-002…; revizyon harfle (A, B…). Her içerik değişikliğinde yeni revizyon, tarih ve kısa not eklenir.
+- Proje sayfası yapısı Problem → Yaklaşım → Plan, isteğe bağlı bir kapanış cümlesiyle. Bitmiş bir araç için Neden → Nasıl çalışır → İlkeler → Künye yapısı da kullanılabilir (KFO-005 Konsey); künye metin içinde mono bir satırdır. Belge numarası KFO-001, KFO-002…; revizyon harfle (A, B…). Her içerik değişikliğinde yeni revizyon, tarih ve kısa not eklenir.
 - Proje sırası order alanıyla belirlenir; ana proje en başta durur. Kaldırılan bir projenin belge numarası yeniden kullanılmaz (KFO-003 RTL-SecCheck kaldırıldı); eski adresi projeler sayfasına yönlendirilir.
 - Proje alanları: title, summary (kart metni), lede (isteğe bağlı sayfa alt başlığı), doc, rev, updated, year, status, type, ref, order, stack (Teknik özet), links, revisions.
 - Kategoriler: electronics, signals, software, ai, notes, security; her birinin bir ikonu vardır.
@@ -153,3 +155,4 @@ Tek aile, üç görev: IBM Plex. Fontlar depoda barındırılır (woff2; latin v
 |---|---|---|
 | A | 17 Kas 2026 | İlk sürüm; README'deki stil rehberi buraya taşındı |
 | B | 17 Kas 2026 | Odak güç elektroniğine kaydı; hover yalnız fareli cihazlarda; proje sırası ve kaldırılan proje kuralı |
+| C | 23 Kas 2026 | KFO-005 Konsey proje sayfası; akış şeması bileşeni; araç sayfaları için Neden / Nasıl çalışır / İlkeler / Künye yapısı; ana sayfada imleçle kayan kart şeridi |
