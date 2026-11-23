@@ -20,6 +20,8 @@ Konsey, bir soruyu Claude, GPT ve Gemini'ye ayrı ayrı soran, cevaplarını bir
 
 Bir yapay zekâ modeli yanıldığında da emin konuşur. Konsey, tek bir sese güvenmek yerine birbirini denetleyen üç sesi bir araya getirir.
 
+Konsey'i, tek bir modelin emin ama yanlış olabilen cevabına güvenmek zorunda kalmamak için yaptım.
+
 ## Nasıl çalışır
 
 {% include konsey-flow.html %}

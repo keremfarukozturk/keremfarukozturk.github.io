@@ -21,8 +21,10 @@ layout: default
       {%- if projects.size > 3 %}<a href="{{ t.projects_url | relative_url }}">{{ t.all }} →</a>{% endif %}
     </div>
     {%- if projects.size > 0 %}
-    <div class="cards">
-      {%- for p in projects limit: 3 %}{% include project-card.html p=p %}{% endfor %}
+    <div class="cards-pan">
+      <div class="cards">
+        {%- for p in projects limit: 6 %}{% include project-card.html p=p %}{% endfor %}
+      </div>
     </div>
     {%- else %}
     {% include empty.html icon="wave" text=t.projects_soon %}

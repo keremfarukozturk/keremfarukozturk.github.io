@@ -20,6 +20,8 @@ Konsey is a multi-model decision tool. It puts the same question to Claude, GPT 
 
 An AI model sounds just as confident when it is wrong. Instead of trusting a single voice, Konsey brings together three voices that check each other.
 
+I built Konsey so that I wouldn't have to rely on a single model's answer, which can be confident and still wrong.
+
 ## How it works
 
 {% include konsey-flow.html %}
