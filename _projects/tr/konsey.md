@@ -45,5 +45,6 @@ Oybirliği doğruluk demek değildir. Konsey hatayı ortadan kaldırmayı değil
 
 ## Künye
 
-Sürüm 1.0 · Python · 3 model · 74 tasarım kararı · 820 otomatik test
+Sürüm 1.0 · Python · 3 model · 74 tasarım kararı · 820 otomatik test<br>
+[github.com/keremfarukozturk/konsey ↗](https://github.com/keremfarukozturk/konsey)
 {: .facts}

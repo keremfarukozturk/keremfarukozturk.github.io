@@ -45,5 +45,6 @@ Unanimity is not the same as correctness. Konsey does not aim to eliminate error
 
 ## Facts
 
-Version 1.0 · Python · 3 models · 74 design decisions · 820 automated tests
+Version 1.0 · Python · 3 models · 74 design decisions · 820 automated tests<br>
+[github.com/keremfarukozturk/konsey ↗](https://github.com/keremfarukozturk/konsey)
 {: .facts}
