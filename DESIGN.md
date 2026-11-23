@@ -1,4 +1,4 @@
-# keremfarukozturk.dev: Tasarım ve İçerik Standartları (Rev C, 23 Kas 2026)
+# keremfarukozturk.dev: Tasarım ve İçerik Standartları (Rev D, 23 Kas 2026)
 
 > Bu metin keremfarukozturk.dev kişisel sitesinin tasarım kurallarıdır. Siteyle ilgili her öneri, tasarım ve kod bu kurallara uymalı. Bir fikir bu kurallardan birini çiğniyorsa önce gerekçesiyle söyle, onay almadan uygulama.
 >
@@ -75,7 +75,7 @@ Tek aile, üç görev: IBM Plex. Fontlar depoda barındırılır (woff2; latin v
 - Ana sayfa girişi 12 sütunlu: metin 7, animasyon 5 sütun (4:5 oran). Mobilde alt alta.
 - Bölümler arası boşluk 112px (mobilde 72px). Bölüm başı: solda etiket ve önünde 24×4px bej tire, gerekirse sağda "Tümü →", altında ince çizgi.
 - Okuma sütunu 660px. Proje sayfası: 660px metin + 300px yapışkan yan panel, aralık 64px. Hakkımda: 660px metin + 200px kare fotoğraf.
-- Kartlar 3 sütun, 20px aralık; mobilde tek sütun. Ana sayfada 3'ten fazla proje varsa (en fazla 6) fareli masaüstünde kartlar tek sıra olur: şerit ekranın iki kenarına uzanır, sonraki kart sağ kenar boşluğunda biraz görünür.
+- Kartlar 3 sütun, 20px aralık; mobilde tek sütun. Ana sayfada 3'ten fazla proje varsa (en fazla 6) fareli masaüstünde kartlar tek sıra olur: şerit içerik sütununun iki kenarında kesilir, durgun hâlde üç kart bölüm çizgisiyle iki yandan hizalıdır (simetri). Altta 96×3px hap gösterge: soluk iz (--line) üstünde bej çubuk görünen kısmı ve konumu gösterir.
 - Mobilde tablolar ve ızgaralar tek sütuna iner; yatay kaydırma olmaz.
 - Yoğun görünen bir sayfayı düzeltmenin ilk yolu bir şey eklemek değil, bir şey çıkarmaktır.
 
@@ -95,7 +95,7 @@ Tek aile, üç görev: IBM Plex. Fontlar depoda barındırılır (woff2; latin v
 ## 7. Bileşenler
 - Üst bar: solda marka; sağda menü ve EN/TR anahtarı. Menü: Hakkımda, Projeler, Yazılar, Günlük, İletişim (EN: About, Projects, Writing, Log, Contact). Aktif sayfa metni --ink ve altında 3px bej çizgi; sayfa değişince çizgi View Transitions ile yeni yerine kayar (.45s). EN/TR anahtarı Mono 12px; aktif dil --ink, diğeri --faint, ayraç "/" --dash renginde. Mobilde sağ üst köşede, markayla aynı hizada.
 - Giriş animasyonu (yalnız ana sayfa; canvas, 14 saniyelik döngü): sinüs sinyali → bitler → çip ve kod → sinir ağı → yazılan "future.". Zemin noktalı ızgara, renkler tema değişkenlerinden gelir, altta 5 küçük ilerleme çubuğu var. Yazı etiketi yok.
-- Proje kartı: ikon (ya da 16:10 kapak görseli), başlık, Serif açıklama ve altta mono meta ("2026 · Sürüyor · Yapay Zekâ"). Durum "Sürüyor" ise metaya nabız gibi atan 6px bej nokta eklenir. Üzerine gelince kart 2px yukarı kalkar ve kenarı --dash rengine geçer. Kart şeridi: imleç şeridin üzerinde sağa-sola gittikçe sıra imlecin konumuna göre yumuşakça kayar (kenarlarda %15 ölü bölge, yumuşatmalı takip); imleç çıkınca sıra hizasına döner. Klavye odağı kartı görünür alana getirir, yatay tekerlek/trackpad da kaydırır. Dokunmatik cihazda, JS yokken ve prefers-reduced-motion açıkken normal ızgara kalır.
+- Proje kartı: ikon (ya da 16:10 kapak görseli), başlık, Serif açıklama ve altta mono meta ("2026 · Sürüyor · Yapay Zekâ"). Durum "Sürüyor" ise metaya nabız gibi atan 6px bej nokta eklenir. Üzerine gelince kart 2px yukarı kalkar ve kenarı --dash rengine geçer. Kart şeridi: imleç şeridin üzerinde sağa-sola gittikçe sıra imlecin konumuna göre yumuşakça kayar (kenarlarda %20 ölü bölge; zamana bağlı üstel yumuşatma, takip ≈ .16 sn, dönüş ≈ .32 sn, tazeleme hızından bağımsız); imleç çıkınca sıra hizasına döner. Kesilen kenarlar yalnız hareket sırasında en fazla 40px solar; iki durgun uçta solma yoktur. Klavye odağı kartı görünür alana getirir, yatay tekerlek/trackpad da kaydırır. Dokunmatik cihazda, JS yokken ve prefers-reduced-motion açıkken normal ızgara kalır.
 - İkonlar: 48×32 viewBox, 1.6 çizgi kalınlığı, yuvarlak uçlar; soluk taban çizgisi (--line) ve üstünden çizilen bej çizgi. Giriş animasyonunun sahnelerinden türetildi: sinyal (sinüs), elektronik (kare dalga), yazılım (çip ve < >), yapay zekâ (ağ), not. Kartlarda 5.2 saniyelik sakin döngüyle çizilir, bekler, silinir; kartlar arasında faz farkı vardır.
 - "Yakında" kutusu: kesikli --dash çerçeve, yanıp sönen bej imleç ya da dalga ikonu, mono "Yakında" ve altında Serif cümle.
 - Yazı listesi: satırda başlık ile mono tarih ve kategori, satır altında ince çizgi.
@@ -156,3 +156,4 @@ Tek aile, üç görev: IBM Plex. Fontlar depoda barındırılır (woff2; latin v
 | A | 17 Kas 2026 | İlk sürüm; README'deki stil rehberi buraya taşındı |
 | B | 17 Kas 2026 | Odak güç elektroniğine kaydı; hover yalnız fareli cihazlarda; proje sırası ve kaldırılan proje kuralı |
 | C | 23 Kas 2026 | KFO-005 Konsey proje sayfası; akış şeması bileşeni; araç sayfaları için Neden / Nasıl çalışır / İlkeler / Künye yapısı; ana sayfada imleçle kayan kart şeridi |
+| D | 23 Kas 2026 | Kart şeridi simetrik: içerik sütununda kesilir, hap gösterge, hareket sırasında kenar solması, zamana bağlı yumuşatma |
